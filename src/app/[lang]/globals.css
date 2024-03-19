@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-x: hidden;
+}
+
+.drawer {
+  background: linear-gradient(
+    174deg,
+    rgba(60, 87, 69, 0.44) 19.89%,
+    rgba(129, 150, 126, 0.45) 22.91%,
+    rgba(193, 202, 173, 0.45) 30.54%,
+    rgba(206, 205, 176, 0.53) 34.27%,
+    rgba(215, 207, 177, 0.56) 37.29%,
+    rgba(215, 207, 177, 0.51) 39.96%,
+    rgba(215, 207, 177, 0.56) 46%,
+    rgba(215, 207, 177, 0.33) 53.99%
+  );
+}
+
+/* Backdrop */
+
+.backdrop {
+  background: linear-gradient(
+    180deg,
+    rgba(60, 87, 69, 0.44) 19.89%,
+    rgba(129, 150, 126, 0.45) 28.91%,
+    rgba(102, 108, 90, 0.45) 30.54%,
+    rgba(137, 137, 115, 0.53) 34.27%,
+    rgba(182, 175, 149, 0.56) 37.29%,
+    rgba(215, 207, 177, 0.51) 39.96%,
+    rgba(215, 207, 177, 0.56) 46%,
+    rgba(215, 207, 177, 0.33) 53.99%
+  );
+}
+
+footer {
+  background: linear-gradient(180deg, #fff6eb 5%, rgb(219, 202, 182) 59.67%);
+}
+
+.MuiDayCalendar-root .MuiDayCalendar-header .MuiTypography-root {
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 2rem;
+  width: 100%;
+  margin-bottom: 2rem !important;
+}
+
+/* Header background color */
+.MuiDayCalendar-root .MuiDayCalendar-header {
+  background-color: bisque;
+  margin-bottom: 2px;
+  font-weight: bold !important;
+}
+
+/* Margin top */
+
+.MuiPickersCalendarHeader-root {
+  padding: 0 !important;
+  font-size: 2rem !important;
+}
+/* Dates datepicker */
+.MuiPickersSlideTransition-root {
+  background-color: bisque;
+}
+
+.MuiDayCalendar-root {
+  height: 100% !important;
+}
+
+.MuiPickersSlideTransition-root {
+  height: 30rem !important;
+}
+
+.MuiDateCalendar-root {
+  max-height: 30rem !important;
+}
+
+/* Remove margin bottom from header */
+
+.MuiDayCalendar-root .MuiDayCalendar-header .MuiTypography-root {
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
+  font-weight: bold !important;
+  font-size: 1.7rem;
+}
+.MuiPickersSlideTransition-root
+  .MuiDayCalendar-monthContainer
+  .MuiDayCalendar-weekContainer
+  .MuiPickersDay-root {
+  color: green;
+  width: 50px;
+  height: 50px;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .MuiPickersSlideTransition-root
+    .MuiDayCalendar-monthContainer
+    .MuiDayCalendar-weekContainer
+    .MuiPickersDay-root {
+    width: 50px;
+    height: 50px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    font-size: 1rem;
+  }
+
+  .MuiDayCalendar-root .MuiDayCalendar-header .MuiTypography-root {
+    font-size: 1rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    width: 100%;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* Disabled date */
+
+.MuiButtonBase-root.Mui-disabled {
+  opacity: 0.2 !important;
+}
+
+/* AntD datepicker */
+
+.ant-picker-focused {
+  border-color: #2b8049;
+}
+
+.ant-picker:hover:hover {
+  border-color: #2b8049 !important;
+}
+
+.ant-picker-cell-selected .ant-picker-cell-inner {
+  background-color: #2b8049 !important;
+}
+
+.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: #2b8049 !important;
+}
+
+/* Autocomplte search icon */
+
+.search-icon {
+  display: none;
+}

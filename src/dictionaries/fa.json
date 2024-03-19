@@ -1,0 +1,739 @@
+{
+  "navigation": {
+    "home": "صفحه اصلی",
+    "menu": "منو",
+    "logoDescription": "مرکز گزارش و مستندسازی | نژادپرستی ضدمسلمان در NRW",
+    "language": "زبان ساده",
+    "about": {
+      "title": "درباره ما",
+      "subtitles": {
+        "who": "چه کسی هستیم",
+        "what": "چه کاری انجام می دهیم",
+        "contact": "تماس و بازخورد"
+      }
+    },
+    "networks": {
+      "title": "شبکه ها",
+      "subtitles": {
+        "promoters": "حمایت کنندگان",
+        "publications": "انتشارات",
+        "reportPortals": "پورتال های گزارش دیگر"
+      }
+    },
+    "partners": "همکاران",
+    "glossary": "واژه نامه",
+    "datenschutz": "حریم خصوصی",
+    "impressum": "اطلاعات تماس",
+    "faq":"FAQ",
+    "anti":"_________",
+    "btn":"_______"
+  },
+  "page": {
+    "home": {
+      "howTo": "چطور گزارش کنم؟",
+      "button": "اکنون گزارش دهید",
+      "title": "چگونه گزارش دهی کنم؟",
+      "faqs": {
+        "title": "سوالات متداول",
+        "whyReport": "چرا باید گزارش کنم؟",
+        "whatHappensWithData": "با داده های من چه اتفاقی می افتد؟",
+        "whatIsAntiMuslimRacism": "نژادپرستی ضد مسلمان چیست؟",
+        "whoIsBehindMEDAR": "چه کسی پشت MEDAR NRW است؟",
+        "readAllAnswers": "همه پاسخ ها را بخوانید"
+      },
+      "referralCounseling": {
+        "title": "مشاوره ارجاع",
+        "description": "Lorem ipsum dolor sit amet,",
+        "filterPlace": "مکان یا کدپستی را وارد کنید",
+        "placeOrLocation": "مکان/محل"
+      },
+      "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "aboutUs": {
+        "title": "درباره ما",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "learnMore": "بیشتر بدانید"
+      },
+      "sendButton": "اکنون گزارش ارسال",
+      "aboutMedar": "درباره MEDAR",
+      "helpCenter": "مرکز راهنمایی",
+      "impressum": "اطلاعات تماس",
+      "publications": "انتشارات",
+      "datenschutz": "حریم خصوصی",
+      "support": "گروه پشتیبانی",
+      "funded": "توسط حمایت می شود"
+    },
+    "melden": {
+      "stepper": {
+        "firstStep": {
+          "title": "چه کسی تحت تأثیر قرار می‌گیرد؟*",
+          "disclaimer": "اگر این فرم را به نمایندگی از یک نفر پر می کنید، به این معناست که فرم را از دیدگاه فرد آسیب دیده و مطابق با اظهارات خود او پر می کنید. اگر اینطور نیست و می خواهید یک حادثه را از دیدگاه خود به عنوان شاهد توصیف کنید، لطفاً در بالا گزینه 'شخص دیگری' را انتخاب کنید.",
+          "options": [
+            {
+              "ID": "identity1",
+              "name": "identity",
+              "label": "خودم",
+              "value": "خودم",
+              "checked": false
+            },
+            {
+              "ID": "identity2",
+              "name": "identity",
+              "label": "شخص دیگری",
+              "value": "شخص دیگری",
+              "checked": false
+            },
+            {
+              "ID": "identity3",
+              "name": "identity",
+              "label": "در نمایندگی از فرد آسیب دیده گزارش می دهم",
+              "value": "در نمایندگی از فرد آسیب دیده گزارش می دهم",
+              "checked": false
+            },
+            {
+              "ID": "identity4",
+              "name": "identity",
+              "label": "یک سازمان/مؤسسه",
+              "value": "یک سازمان/مؤسسه",
+              "checked": false
+            }
+          ]
+        },
+        "secondStep": {
+          "titleMyself": "چه سازمان یا نهادی تحت تأثیر قرار گرفته است (پاسخ چندگانه امکان پذیر است)؟",
+          "titleAnotherPerson": "جنسیت شما چیست؟",
+          "titleOnbehalf": "جنسیت شخص آسیب دیده چیست؟",
+          "titleOrganization": "چه سازمان یا نهادی تحت تأثیر قرار گرفته است (پاسخ چندگانه امکان پذیر است)؟",
+
+          "options": [
+            {
+              "ID": "gender1",
+              "name": "gender",
+              "label": "زن",
+              "value": "زن",
+              "checked": false
+            },
+            {
+              "ID": "gender2",
+              "name": "gender",
+              "label": "مرد",
+              "value": "مرد",
+              "checked": false
+            },
+            {
+              "ID": "gender3",
+              "name": "gender",
+              "label": "ترنس*",
+              "value": "ترنس*",
+              "checked": false
+            },
+            {
+              "ID": "gender4",
+              "name": "gender",
+              "label": "اینتر*",
+              "value": "اینتر*",
+              "checked": false
+            },
+            {
+              "ID": "gender5",
+              "name": "gender",
+              "label": "خودتعریف",
+              "value": "خودتعریف",
+              "checked": false
+            }
+          ],
+
+          "optionsOrganization": [
+            {
+              "ID": "organizationType1",
+              "name": "organizationType",
+              "label": "سازمان غیردولتی (NGO)",
+              "value": "سازمان غیردولتی (NGO)",
+              "checked": true
+            },
+            {
+              "ID": "organizationType2",
+              "name": "organizationType",
+              "label": "سازمان خودگردان/ MSO (سازمان خودگردان مهاجران)",
+              "value": "سازمان خودگردان/ MSO (سازمان خودگردان مهاجران)",
+              "checked": false
+            },
+            {
+              "ID": "organizationType3",
+              "name": "organizationType",
+              "label": "مؤسسه مذهبی",
+              "value": "مؤسسه مذهبی",
+              "checked": false
+            },
+            {
+              "ID": "organizationType4",
+              "name": "organizationType",
+              "label": "مؤسسه اجتماعی",
+              "value": "مؤسسه اجتماعی",
+              "checked": false
+            },
+            {
+              "ID": "organizationType5",
+              "name": "organizationType",
+              "label": "مؤسسه فرهنگی",
+              "value": "مؤسسه فرهنگی",
+              "checked": false
+            },
+            {
+              "ID": "organizationType6",
+              "name": "organizationType",
+              "label": "انجمن",
+              "value": "انجمن",
+              "checked": false
+            },
+            {
+              "ID": "organizationType7",
+              "name": "organizationType",
+              "label": "سایر، و به عبارت دیگر:",
+              "value": "سایر، و به عبارت دیگر:",
+              "checked": false
+            }
+          ]
+        },
+        "thirdStep": {
+          "title": "سن شما چند سال است؟",
+          "title1": "Kiasu mehri kojam shod?",
+          "title2": "Kuhe kojam-ha kojam karand-ha kojam?",
+          "options": [
+            {
+              "ID": "age1",
+              "name": "age",
+              "label": "کمتر از 18 سال",
+              "value": "کمتر از 18 سال",
+              "checked": true
+            },
+            {
+              "ID": "age2",
+              "name": "age",
+              "label": "18 تا 27 سال",
+              "value": "18 تا 27 سال",
+              "checked": false
+            },
+            {
+              "ID": "age3",
+              "name": "age",
+              "label": "28 تا 40 سال",
+              "value": "28 تا 40 سال",
+              "checked": false
+            },
+            {
+              "ID": "age4",
+              "name": "age",
+              "label": "41 تا 65 سال",
+              "value": "41 تا 65 سال",
+              "checked": false
+            },
+            {
+              "ID": "age5",
+              "name": "age",
+              "label": "بیش از 65 سال",
+              "value": "بیش از 65 سال",
+              "checked": false
+            }
+          ],
+          "employeesNumbOpt": [
+            {
+              "id": "numberOfEmployees1",
+              "name": "numberOfEmployees",
+              "label": "زیر ۱۰",
+              "value": "زیر ۱۰",
+              "checked": true
+            },
+            {
+              "id": "numberOfEmployees2",
+              "name": "numberOfEmployees",
+              "label": "۱۰ - ۱۹",
+              "value": "۱۰ - ۱۹",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees3",
+              "name": "numberOfEmployees",
+              "label": "۵۰ - ۲۵۰",
+              "value": "۵۰ - ۲۵۰",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees5",
+              "name": "numberOfEmployees",
+              "label": "بیش از ۲۵۰",
+              "value": "بیش از ۲۵۰",
+              "checked": false
+            }
+          ]
+        },
+        "fourthStep": {
+          "title": "تاریخ",
+          "options": [
+            {
+              "dateRange": "حادثه در یک بازه زمانی رخ داد",
+              "formDate": "از",
+              "toDate": "تا",
+              "selectOpt": "حادثه در حال وقوع است"
+            }
+          ]
+        },
+        "fifthStep": {
+          "title": "محل حادثه کجاست؟*",
+          "options": [
+            {
+              "city": "شهر",
+              "inputTitle": "محله",
+              "radioField": "حادثه به صورت آنلاین اتفاق افتاد"
+            }
+          ]
+        },
+        "sixthStep": {
+          "title": "دقیقا چه اتفاقی افتاد؟ *",
+          "placeHolder": "لطفاً واقعه را توصیف کنید ...",
+          "errorParagragh": "باید بیشتر از ۵۰ نویسه باشد",
+          "options": [
+            {
+              "inputPlaceholder": "لطفاً حادثه را به اندازه دقیقی توضیح دهید.",
+              "listTitle": "اطلاعات مرتبط ممکن است شامل:",
+              "firstList": "کجا تبعیض رخ داد؟",
+              "secondList": "چگونه تبعیض شدید؟",
+              "thirdList": "از سوی چه کسی حمله صورت گرفت؟",
+              "fourthList": "دیگر افراد چگونه واکنش نشان دادند؟",
+              "fifthList": "چه چیزی شما را متقاعد کرده که این از نژادپرستی ضد مسلمانان است؟",
+              "sixthList": "چه تأثیری برای شما داشت (مانند اثرات عاطفی، جسمی، اجتماعی یا مالی)؟",
+              "note": "* به دلایل حفظ حریم خصوصی، لطفاً نام افراد دیگر را در اینجا اعلام نکنید."
+            }
+          ]
+        },
+        "seventhStep": {
+          "title": "آیا به نظر شما یکی از این ویژگی‌ها تأثیری بر تبعیض داشته است؟",
+          "multipleAns": "امکان انتخاب چندگانه",
+          "placeHolder": "انجام دادن",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "حجاب",
+              "value": "حجاب",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "عبایه",
+              "value": "عبایه",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "لباس",
+              "value": "لباس",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "توربان",
+              "value": "توربان",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "ریش",
+              "value": "ریش",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "رنگ پوست",
+              "value": "رنگ پوست",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "مو",
+              "value": "مو",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "چشم",
+              "value": "چشم",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "زبان",
+              "value": "زبان",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "لهجه",
+              "value": "لهجه",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "نام غیر آلمانی",
+              "value": "نام غیر آلمانی",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "تمرین مذهبی (مانند نماز یا روزه)",
+              "value": "تمرین مذهبی (مانند نماز یا روزه)",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "دیگر، به شرح زیر:",
+              "value": "دیگر، به شرح زیر:",
+              "checked": false
+            }
+          ]
+        },
+        "eightStep": {
+          "title": "آیا این هنوز یک شکل دیگر از تبعیض است؟*",
+          "placeHolder": "انجام دادن",
+          "validation": "باید شامل حداقل 3 حرف باشد",
+          "options": [
+            {
+              "ID": "discrimination1",
+              "name": "otherForms",
+              "label": "خیر",
+              "value": "خیر",
+              "checked": false
+            },
+            {
+              "ID": "discrimination2",
+              "name": "otherForms",
+              "label": "بله، به طور خاص:",
+              "value": "بله، به طور خاص:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "discriminationYes1",
+              "name": "otherFormsYes",
+              "label": "تبعیض ضد آسیایی",
+              "value": "تبعیض ضد آسیایی",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes2",
+              "name": "otherFormsYes",
+              "label": "فمینیسم ضد",
+              "value": "فمینیسم ضد",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes3",
+              "name": "otherFormsYes",
+              "label": "تبعیض ضد آسیایی",
+              "value": "تبعیض ضد آسیایی",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes4",
+              "name": "otherFormsYes",
+              "label": "تبعیض ضد سیاه",
+              "value": "تبعیض ضد سیاه",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes5",
+              "name": "otherFormsYes",
+              "label": "نژادپرستی",
+              "value": "نژادپرستی",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes6",
+              "name": "otherFormsYes",
+              "label": "تبعیض ضد اسلاو",
+              "value": "تبعیض ضد اسلاو",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes7",
+              "name": "otherFormsYes",
+              "label": "تبعیض ضد زیگان",
+              "value": "تبعیض ضد زیگان",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes8",
+              "name": "otherFormsYes",
+              "label": "کینه‌زنی نسبت به همجنسگراها",
+              "value": "کینه‌زنی نسبت به همجنسگراها",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes9",
+              "name": "otherFormsYes",
+              "label": "جنسیت‌پرستی",
+              "value": "جنسیت‌پرستی",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes10",
+              "name": "otherFormsYes",
+              "label": "سایر شکل‌ها، به طور خاص:",
+              "value": "سایر شکل‌ها، به طور خاص:",
+              "checked": false
+            }
+          ]
+        },
+        "ninthStep": {
+          "title": "آیا قبلاً اقدامات دیگری انجام داده‌اید؟*",
+          "placeHolder": "انجام دادن",
+          "validation": "باید شامل حداقل 3 حرف باشد",
+          "options": [
+            {
+              "ID": "measuresNo1",
+              "name": "haveYouReported",
+              "label": "نه",
+              "value": "نه",
+              "checked": false
+            },
+            {
+              "ID": "measuresNo2",
+              "name": "haveYouReported",
+              "label": "بله، و به چه صورت:",
+              "value": "بله، و به چه صورت:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "measuresYes1",
+              "name": "haveYouReportedYes",
+              "label": "مورد را به پلیس گزارش داده‌ام",
+              "value": "مورد را به پلیس گزارش داده‌ام",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes2",
+              "name": "haveYouReportedYes",
+              "label": "مراجعه به مرکز مشاوره",
+              "value": "مراجعه به مرکز مشاوره",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes3",
+              "name": "haveYouReportedYes",
+              "label": "مورد را به یک مرکز دیگر گزارش داده‌ام، و به چه صورت:",
+              "value": "مورد را به یک مرکز دیگر گزارش داده‌ام، و به چه صورت:",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes4",
+              "name": "haveYouReportedYes",
+              "label": "دیگر اقدامات، و به چه صورت:",
+              "value": "دیگر اقدامات، و به چه صورت:",
+              "checked": false
+            }
+          ]
+        },
+        "tenthStep": {
+          "title": "صحت اطلاعات خود را بررسی کنید",
+          "options": [
+            {
+              "captcha": "من ربات نیستم",
+              "name": "تمامی اطلاعات صحیح هستند",
+              "label": "تمامی اطلاعات صحیح هستند"
+            }
+          ]
+        }
+      },
+      "modal": {
+        "cancelModal": {
+          "title": "آیا اطمینان دارید که می‌خواهید گزارش خود را لغو کنید؟",
+          "paragraph1": "اگر گزارش را لغو کنید، تمام داده‌های شما به طور خودکار حذف خواهند شد.",
+          "paragraph2": "اگر مطمئن نیستید یا سوالی دارید، لطفا با ما تماس بگیرید تا با خوشحالی به شما کمک کنیم.",
+          "paragraph3": "info@medar.de",
+          "cancel": "لغو",
+          "noFurther": "خیر، ادامه"
+        },
+        "confirmModal": {
+          "title": "با تشکر!",
+          "des": "از به اشتراک گذاری تجربیات خود با ما متشکریم. با پر کردن فرم گزارش، به وضوح در تبیین تبعیض و خشونت کمک می‌کنید.",
+          "back": "بازگشت",
+          "ja": "بله!"
+        },
+        "onBehalf": {
+          "title": "هشدار",
+          "des": "اینجا تصدیق می‌کنم که اطلاعات را به نماینی از شخص متاثر وارد کرده‌ام. من این فرم گزارش را به نماینی از شخص متاثر پر کرده‌ام و موافقت او را دارم. تمام اطلاعات بر اساس دلایل و اظهارات شخص متاثر پر شده است.",
+          "back": "بازگشت",
+          "forward": "بله!"
+        },
+        "witness": {
+          "title": "توجه",
+          "des": "اگر شما در حال پر کردن فرم گزارش به نمایندگی از شخص دیگری هستید، این بدان معناست که شما فرم را از دیدگاه شخص مربوطه و بر اساس اظهارات خود پر می کنید. اگر اینطور نیست و می خواهید یک حادثه را از دیدگاه خود به عنوان شاهد شرح دهید، لطفا گزینه 'شخص دیگری' را در بالا انتخاب کنید.",
+          "cancel": "لغو",
+          "forward": "بله!"
+        }
+      },
+      "formFields": {},
+      "button": {
+        "next": "بعدی",
+        "prev": "قبلی",
+        "submit": "ارسال"
+      }
+    },
+    "cookiesConsent": {
+      "title": "حریم خصوصی شما",
+      "content": "برای عملکرد پرتال ما، صرفاً از کوکی‌های لازم برای عملیات استفاده می‌کنیم. اطلاعات بیشتر در",
+      "datenschutz": "سیاست حریم خصوصی",
+      "accept": "بله، فهمیدم"
+    },
+    "about": {
+      "title": "درباره ما",
+      "title1": "متولی پروژه",
+      "title2": "حمایت شده توسط",
+      "description": "این صفحه درباره ما است",
+      "whoWeAre": {
+        "mission": {
+          "title": "چشم انداز ما",
+          "desc1": "لورم ایپسوم دُلور سیت آمِت، کُنْسْتَاکْتُور آدِیْپِسینْگ الیت، سِد دُو اِیْئُسْمُود تِمْپُور اِنْسِیدْنْت اُوت لَابُورِه اِت دُولُورِه مَگْنَا اَلِیْکوا. اُوت اِنِیْم آد مِینِم وِنیام، کُیس نُسْتْرُود اِکسِرْسِیتَیْشُون اُولامْکُو لَابُورِیس نِیْسِی اُوت اَلِیْکِیْپ اِکْس اِئَا کُومُودُو کُنْسِکْوَات. اِکْسِپْتُور سِینْت اُکَاعَات کُوْپِیدَاتَات نُون پْرُوِیدِنت.",
+          "des2": "پْرُوِیدِنت. اُولامْکُو لَابُورِیس نِیْسِی اُوت اَلِیْکِیْپ اِکْس اِئَا کُومُودُو کُنْسِکْوَات. اِکْسِپْتُور سِینْت اُکَاعَات کُوْپِیدَاتَات نُون پْرُوِیدِنت. اِکْسِپْتُور سِینْت اُکَاعَات"
+        },
+        "selfEsteem": {
+          "title": "درک ما از خودمان",
+          "desc1": "لورم ایپسوم دُلور سیت آمِت، کُنْسْتَاکْتُور آدِیْپِسینْگ الیت، سِد دُو اِیْئُسْمُود تِمْپُور اِنْسِیدْنْت اُوت لَابُورِه اِت دُولُورِه مَگْنَا اَلِیْکوا. اُوت اِنِیْم آد مِینِم وِنیام، کُیس نُسْتْرُود اِکسِرْسِیتَیْشُون اُولامْکُو لَابُورِیس نِیْسِی اُوت اَلِیْکِیْپ اِکْس اِئَا کُومُودُو کُنْسِکْوَات. اِکْسِپْتُور سِینْت اُکَاعَات کُوْپِیدَاتَات نُون پْرُوِیدِنت.",
+          "des2": "پْرُوِیدِنت. اُولامْکُو لَابُورِیس نِیْسِی اُوت اَلِیْکِیْپ اِکْس اِئَا کُومُودُو کُنْسِکْوَات. اِکْسِپْتُور سِینْت اُکَاعَات کُوْپِیدَاتَات نُون پْرُوِیدِنت. اِکْسِپْتُور سِینْت اُکَاعَات"
+        }
+      }
+    },
+    "helpCenter": {
+      "title": "مرکز کمک",
+      "title1": "یادداشت‌ها و بازخوردها",
+      "desc1": "لورم ایپسوم (متن نمونه)، متنی آزمایشی است که به عنوان پرکاربردترین و متداولترین متن‌ها یا چاپ‌ها برای طراحی گرافیکی و چاپ استفاده می‌شود.",
+      "desc2": "آیا مشکلی با فرم گزارش‌دهی ما دارید یا سوال یا نظر عمومی‌ای که می‌خواهید به اشتراک بگذارید؟",
+      "desc3": "لطفاً از طریق فرم زیر یک ایمیل بنویسید و ما اطلاعات شما را دریافت خواهیم کرد.",
+      "search": {
+        "placeHolder": "کلمه کلیدی را وارد کنید مانند حریم خصوصی یا مشاوره"
+      },
+      "hero": {
+        "title": "چگونه گزارش دهی کنم؟"
+      },
+      "faqs": {
+        "title": "سوالات متداول",
+        "whyReport": "چرا باید گزارش دهم؟",
+        "whatHappensWithData": "چه اتفاقی برای داده‌های من می‌افتد؟",
+        "whatIsAntiMuslimRacism": "راسیسم ضد مسلمانی چیست؟",
+        "whoIsBehindMEDAR": "چه کسی پشت MEDAR NRW است؟",
+        "readAllAnswers": "خواندن تمام پاسخ‌ها"
+      },
+      "Feedback": {
+        "title": "",
+        "firstTitle": "آیا مشکلی با فرم گزارش‌دهی ما دارید یا سوال یا نظر عمومی‌ای که می‌خواهید به اشتراک بگذارید؟",
+        "secondHeader": "لطفاً از طریق فرم زیر یک ایمیل بنویسید و ما اطلاعات شما را دریافت خواهیم کرد."
+      },
+      "form": {
+        "firstName": "نام*",
+        "lastName": "نام خانوادگی*",
+        "subject": "موضوع*",
+        "email": "ایمیل",
+        "textArea": "پیام*",
+        "send": "ارسال"
+      }
+    },
+    "publications": {
+      "data": [
+        {
+          "id": 1,
+          "title": "موضوع خبری 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "ادامه مطلب"
+        },
+        {
+          "id": 2,
+          "title": "موضوع خبری 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "ادامه مطلب"
+        },
+        {
+          "id": 3,
+          "title": "موضوع خبری 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "ادامه مطلب"
+        },
+        {
+          "id": 4,
+          "title": "موضوع خبری 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "ادامه مطلب"
+        }
+      ]
+    },
+    "puclicationDetails": {
+      "data": [
+        {
+          "id": 1,
+          "title": "موضوع خبر 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "زیرعنوان 1",
+          "text1": "متن 1",
+          "text2": "متن 2",
+          "text3": "متن 3",
+          "img1": "PubImg1",
+          "text4": "متن 4"
+        },
+        {
+          "id": 2,
+          "title": "موضوع خبر 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "زیرعنوان 1",
+          "text1": "متن 1",
+          "text2": "متن 2",
+          "text3": "متن 3",
+          "img1": "PubImg2",
+          "text4": "متن 4"
+        },
+        {
+          "id": 3,
+          "title": "موضوع خبر 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "زیرعنوان 1",
+          "text1": "متن 1",
+          "text2": "متن 2",
+          "text3": "متن 3",
+          "img1": "PubImg3",
+          "text4": "متن 4"
+        },
+        {
+          "id": 4,
+          "title": "موضوع خبر 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "زیرعنوان 1",
+          "text1": "متن 1",
+          "text2": "متن 2",
+          "text3": "متن 3",
+          "img1": "PubImg4",
+          "text4": "متن 4"
+        }
+      ]
+    }
+  }
+}

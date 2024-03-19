@@ -1,0 +1,735 @@
+{
+  "navigation": {
+    "home": "Ana Sayfa",
+    "menu": "Menü",
+    "logoDescription": "Raporlama ve Belgelendirme Merkezi | İslam Düşmanı Irkçılık NRW",
+    "language": "Basit Dil",
+    "about": {
+      "title": "Hakkımızda",
+      "subtitles": {
+        "who": "Kimiz",
+        "what": "Ne Yaparız",
+        "contact": "İletişim & Geri Bildirim"
+      }
+    },
+    "networks": {
+      "title": "Ağlar",
+      "subtitles": {
+        "promoters": "Destekçiler",
+        "publications": "Yayınlar",
+        "reportPortals": "Diğer Rapor Portalları"
+      }
+    },
+    "partners": "Ortaklar",
+    "glossary": "Sözlük",
+    "datenschutz": "Veri Koruma",
+    "impressum": "Yasal Uyarı",
+    "faq":"SSS",
+    "anti":"Müslüman karşıtı ırkçılık",
+    "btn":"Olayı rapor edin"
+  },
+  "page": {
+    "home": {
+      "howTo": "Nasıl bildirimde bulunabilirim?",
+      "button": "ŞİMDİ BİLDİR",
+      "title": "Nasıl Bildirim Yaparım?",
+      "faqs": {
+        "title": "Sıkça Sorulan Sorular",
+        "whyReport": "Neden bildirimde bulunmalıyım?",
+        "whatHappensWithData": "Verilerim ne olacak?",
+        "whatIsAntiMuslimRacism": "İslam Düşmanı Rassalık nedir?",
+        "whoIsBehindMEDAR": "MEDAR NRW'nin arkasında kim var?",
+        "readAllAnswers": "Tüm cevapları oku"
+      },
+      "referralCounseling": {
+        "title": "Yönlendirme Danışmanlığı",
+        "description": "Lorem ipsum dolor sit amet, ",
+        "filterPlace": "Bir yer veya posta kodu girin",
+        "placeOrLocation": "Yer/Konum"
+      },
+      "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
+      "aboutUs": {
+        "title": "Hakkımızda",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
+        "learnMore": "Daha fazla bilgi edinin"
+      },
+      "sendButton": "ŞİMDİ BİLDİRİM GÖNDER",
+      "aboutMedar": "MEDAR Hakkında",
+      "helpCenter": "Yardım Merkezi",
+      "impressum": "Yasal Uyarı",
+      "publications": "Yayınlar",
+      "datenschutz": "Veri Koruma",
+      "support": "Destek Grubu",
+      "funded": "Tarafından finanse edildi"
+    },
+    "melden": {
+      "stepper": {
+        "firstStep": {
+          "title": "Kim etkileniyor?*",
+          "disclaimer": "Eğer bir kişi adına bildirim formunu dolduruyorsanız, bu, formu etkilenen kişinin bakış açısından ve kendi beyanlarına uygun olarak doldurduğunuz anlamına gelir. Eğer durum böyle değilse ve bir olayı kendi bakış açınızdan bir tanık olarak anlatmak istiyorsanız, lütfen yukarıdaki 'Başka bir kişi' seçeneğini tıklayın.",
+          "options": [
+            {
+              "ID": "identity1",
+              "name": "identity",
+              "label": "Kendim",
+              "value": "Kendim",
+              "checked": false
+            },
+            {
+              "ID": "identity2",
+              "name": "identity",
+              "label": "Başka bir kişi",
+              "value": "Başka bir kişi",
+              "checked": false
+            },
+            {
+              "ID": "identity3",
+              "name": "identity",
+              "label": "Etkilenen kişi adına temsil ediyorum",
+              "value": "Etkilenen kişi adına temsil ediyorum",
+              "checked": false
+            },
+            {
+              "ID": "identity4",
+              "name": "identity",
+              "label": "Bir Kuruluş/Kurum",
+              "value": "Bir Kuruluş/Kurum",
+              "checked": false
+            }
+          ]
+        },
+        "secondStep": {
+          "titleMyself": "Hangi Kuruluş/Kurum etkileniyor (Birden fazla yanıt mümkün)?",
+          "titleAnotherPerson": "Cinsiyet kimliğiniz nedir?",
+          "titleOnbehalf": "Etkilenen kişinin cinsiyet kimliği nedir?",
+          "titleOrganization": "Hangi Kuruluş/Kurum etkileniyor (Birden fazla yanıt mümkün)?",
+
+          "options": [
+            {
+              "ID": "gender1",
+              "name": "gender",
+              "label": "Kadın",
+              "value": "Kadın",
+              "checked": false
+            },
+            {
+              "ID": "gender2",
+              "name": "gender",
+              "label": "Erkek",
+              "value": "Erkek",
+              "checked": false
+            },
+            {
+              "ID": "gender3",
+              "name": "gender",
+              "label": "Trans*",
+              "value": "Trans*",
+              "checked": false
+            },
+            {
+              "ID": "gender4",
+              "name": "gender",
+              "label": "İnter*",
+              "value": "İnter*",
+              "checked": false
+            },
+            {
+              "ID": "gender5",
+              "name": "gender",
+              "label": "Kendim Belirlerim",
+              "value": "Kendim Belirlerim",
+              "checked": false
+            }
+          ],
+
+          "optionsOrganization": [
+            {
+              "ID": "organizationType1",
+              "name": "organizationType",
+              "label": "Nichtregierungsorganisation (NGO)",
+              "value": "Nichtregierungsorganisation (NGO)",
+              "checked": true
+            },
+            {
+              "ID": "organizationType2",
+              "name": "organizationType",
+              "label": "Selbstorganisation / MSO (Migrantenselbstorganisation)",
+              "value": "Selbstorganisation / MSO (Migrantenselbstorganisation)",
+              "checked": false
+            },
+            {
+              "ID": "organizationType3",
+              "name": "organizationType",
+              "label": "Religiöse Einrichtung",
+              "value": "Religiöse Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType4",
+              "name": "organizationType",
+              "label": "Soziale Einrichtung",
+              "value": "Soziale Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType5",
+              "name": "organizationType",
+              "label": "Kulturelle Einrichtung",
+              "value": "Kulturelle Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType6",
+              "name": "organizationType",
+              "label": "Verein",
+              "value": "Verein",
+              "checked": false
+            },
+            {
+              "ID": "organizationType7",
+              "name": "organizationType",
+              "label": "Anderes, und zwar:",
+              "value": "Anderes, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "thirdStep": {
+          "title": "Kaç yaşındasın?",
+          "title1": "İlgili kişi kaç yaşında?",
+          "title2": "Kuruluşta/Enstitüde kaç kişi çalışıyor (tam zamanlı, yarı zamanlı veya serbest olarak)?",
+          "options": [
+            {
+              "ID": "age1",
+              "name": "age",
+              "label": "18 yaşın altında",
+              "value": "18 yaşın altında",
+              "checked": true
+            },
+            {
+              "ID": "age2",
+              "name": "age",
+              "label": "18 - 27 yaş arası",
+              "value": "18 - 27 yaş arası",
+              "checked": false
+            },
+            {
+              "ID": "age3",
+              "name": "age",
+              "label": "28 - 40 yaş arası",
+              "value": "28 - 40 yaş arası",
+              "checked": false
+            },
+            {
+              "ID": "age4",
+              "name": "age",
+              "label": "41 - 65 yaş arası",
+              "value": "41 - 65 yaş arası",
+              "checked": false
+            },
+            {
+              "ID": "age5",
+              "name": "age",
+              "label": "65 yaşın üzerinde",
+              "value": "65 yaşın üzerinde",
+              "checked": false
+            }
+          ],
+          "employeesNumbOpt": [
+            {
+              "id": "numberOfEmployees1",
+              "name": "numberOfEmployees",
+              "label": "10'den fazla",
+              "value": "10'den fazla",
+              "checked": true
+            },
+            {
+              "id": "numberOfEmployees2",
+              "name": "numberOfEmployees",
+              "label": "10 - 19",
+              "value": "10 - 19",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees3",
+              "name": "numberOfEmployees",
+              "label": "50 - 250",
+              "value": "50 - 250",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees5",
+              "name": "numberOfEmployees",
+              "label": "250'den fazla",
+              "value": "250'den fazla",
+              "checked": false
+            }
+          ]
+        },
+        "fourthStep": {
+          "title": "Tarih",
+          "options": [
+            {
+              "dateRange": "Olay bir süre boyunca devam etti",
+              "formDate": "Başlangıç",
+              "toDate": "Bitiş",
+              "selectOpt": "Olay halen devam ediyor"
+            }
+          ]
+        },
+        "fifthStep": {
+          "title": "Olay Nerede Gerçekleşti?*",
+          "options": [
+            {
+              "city": "şehir",
+              "inputTitle": "Semt",
+              "radioField": "Olay online gerçekleşti"
+            }
+          ]
+        },
+        "sixthStep": {
+          "title": "Tam olarak ne oldu? *",
+          "placeHolder": "Lütfen olayı tanımlayın ...",
+          "errorParagragh": "50 karakterden fazla olmalıdır",
+          "options": [
+            {
+              "inputPlaceholder": "Lütfen olayı mümkün olduğunca açık bir şekilde açıklayın.",
+              "listTitle": "İlgili bilgiler şunlar olabilir:",
+              "firstList": "Ayrımcılık nerede gerçekleşti?",
+              "secondList": "Nasıl ayrımcılığa uğradınız?",
+              "thirdList": "Saldırı kimden geldi?",
+              "fourthList": "Diğer kişiler nasıl tepki gösterdi?",
+              "fifthList": "Sizi bu olayın İslam karşıtı ırkçılık olduğunu düşündüren nedir?",
+              "sixthList": "Olayın sizin için hangi etkileri oldu (örneğin duygusal, fiziksel, sosyal veya mali)?",
+              "note": "*Gizlilik nedeniyle, lütfen burada başka kişilerin adlarını vermeyin."
+            }
+          ]
+        },
+        "seventhStep": {
+          "title": "Bu özelliklerden herhangi birinin ayrımcılık üzerinde etkisi olduğunu düşünüyor musunuz?",
+          "multipleAns": "Birden fazla seçenek işaretlenebilir",
+          "placeHolder": "Burada gerçekleştirin",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "Başörtüsü",
+              "value": "Başörtüsü",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "Abaya",
+              "value": "Abaya",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "Giyim",
+              "value": "Giyim",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "Türban",
+              "value": "Türban",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "Sakal",
+              "value": "Sakal",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "Ten rengi",
+              "value": "Ten rengi",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "Saç",
+              "value": "Saç",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "Gözler",
+              "value": "Gözler",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "Dil",
+              "value": "Dil",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "Aksan",
+              "value": "Aksan",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "Alman olmayan isim",
+              "value": "Alman olmayan isim",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "Dinî uygulama (örneğin dua etmek veya oruç tutmak)",
+              "value": "Dinî uygulama (örneğin dua etmek veya oruç tutmak)",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "Diğer, şöyle:",
+              "value": "Diğer, şöyle:",
+              "checked": false
+            }
+          ]
+        },
+        "eightStep": {
+          "title": "Başka bir ayrımcılık türü var mı?*",
+          "placeHolder": "Burada gerçekleştirin",
+          "validation": "En az 3 karakter olmalı",
+          "options": [
+            {
+              "ID": "discrimination1",
+              "name": "otherForms",
+              "label": "Hayır",
+              "value": "Hayır",
+              "checked": false
+            },
+            {
+              "ID": "discrimination2",
+              "name": "otherForms",
+              "label": "Evet, şunlar:",
+              "value": "Evet, şunlar:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "discriminationYes1",
+              "name": "otherFormsYes",
+              "label": "Asya karşıtı ırkçılık",
+              "value": "Asya karşıtı ırkçılık",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes2",
+              "name": "otherFormsYes",
+              "label": "Antifeminizm",
+              "value": "Antifeminizm",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes3",
+              "name": "otherFormsYes",
+              "label": "Asya karşıtı ırkçılık",
+              "value": "Asya karşıtı ırkçılık",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes4",
+              "name": "otherFormsYes",
+              "label": "Siyah karşıtı ırkçılık",
+              "value": "Siyah karşıtı ırkçılık",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes5",
+              "name": "otherFormsYes",
+              "label": "Antisemitizm",
+              "value": "Antisemitizm",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes6",
+              "name": "otherFormsYes",
+              "label": "Slav karşıtı ırkçılık",
+              "value": "Slav karşıtı ırkçılık",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes7",
+              "name": "otherFormsYes",
+              "label": "Çingene karşıtı ırkçılık",
+              "value": "Çingene karşıtı ırkçılık",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes8",
+              "name": "otherFormsYes",
+              "label": "Queer düşmanlığı",
+              "value": "Queer düşmanlığı",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes9",
+              "name": "otherFormsYes",
+              "label": "Cinsiyetçilik",
+              "value": "Cinsiyetçilik",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes10",
+              "name": "otherFormsYes",
+              "label": "Diğer formlar, yani:",
+              "value": "Diğer formlar, yani:",
+              "checked": false
+            }
+          ]
+        },
+        "ninthStep": {
+          "title": "Daha önce başka önlemler aldınız mı?*",
+          "placeHolder": "Burada gerçekleştirin",
+          "validation": "En az 3 karakter olmalı",
+          "options": [
+            {
+              "ID": "measuresNo1",
+              "name": "haveYouReported",
+              "label": "Hayır",
+              "value": "Hayır",
+              "checked": false
+            },
+            {
+              "ID": "measuresNo2",
+              "name": "haveYouReported",
+              "label": "Evet, ve şöyle:",
+              "value": "Evet, ve şöyle:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "measuresYes1",
+              "name": "haveYouReportedYes",
+              "label": "Olayı polise bildirdim",
+              "value": "Olayı polise bildirdim",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes2",
+              "name": "haveYouReportedYes",
+              "label": "Danışmanlık merkezine gittim",
+              "value": "Danışmanlık merkezine gittim",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes3",
+              "name": "haveYouReportedYes",
+              "label": "Olayı başka bir bildirim merkezine bildirdim, şöyle:",
+              "value": "Olayı başka bir bildirim merkezine bildirdim, şöyle:",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes4",
+              "name": "haveYouReportedYes",
+              "label": "Başka, ve şöyle:",
+              "value": "Başka, ve şöyle:",
+              "checked": false
+            }
+          ]
+        },
+        "tenthStep": {
+          "title": "Bilgilerinin doğruluğunu kontrol et",
+          "captcha": "Ben bir robot değilim",
+          "options": [
+            {
+              "name": "Tüm bilgiler doğru",
+              "label": "Tüm bilgiler doğru"
+            }
+          ]
+        }
+      },
+      "modal": {
+        "cancelModal": {
+          "title": "Raporunuzu silmek istediğinizden emin misiniz?",
+          "paragraph1": "Raporu iptal ederseniz, tüm verileriniz otomatik olarak silinecektir.",
+          "paragraph2": "Emin değilseniz veya herhangi bir sorunuz varsa, lütfen bize ulaşın ve size yardımcı olmaktan mutluluk duyarız.",
+          "paragraph3": "info@medar.de",
+          "cancel": "İPTAL",
+          "noFurther": "HAYIR, DEVAM"
+        },
+        "confirmModal": {
+          "title": "Teşekkürler!",
+          "des": "Deneyimlerinizi bizimle paylaştığınız için teşekkür ederiz. Bildirme formunu doldurarak, ayrımcılık ve şiddetin daha görünür hale gelmesine yardımcı oluyorsunuz.",
+          "back": "GERİ",
+          "ja": "EVET!"
+        },
+        "onBehalf": {
+          "title": "Dikkat",
+          "des": "Burada etkilenen kişi adına bilgileri girdiğimi doğruluyorum. Bu bildirim formunu etkilenen kişi adına doldurdum ve onun rızasını aldım. Tüm bilgiler, etkilenen kişinin istekleri ve beyanları doğrultusunda doldurulmuştur.",
+          "back": "GERİ",
+          "forward": "EVET!"
+        },
+        "witness": {
+          "title": "Dikkat",
+          "des": "Eğer başkası adına rapor formunu dolduruyorsanız, bu, formu ilgili kişinin bakış açısından ve kendi beyanlarına göre doldurduğunuz anlamına gelir. Eğer durum böyle değilse ve bir olayı tanık olarak kendi bakış açınızdan anlatmak istiyorsanız, lütfen yukarıdaki 'Başka bir kişi' seçeneğini tıklayın.",
+          "cancel": "İPTAL",
+          "forward": "EVET!"
+        }
+      },
+      "formFields": {},
+      "button": {
+        "next": "İleri",
+        "prev": "Geri",
+        "submit": "Gönder"
+      }
+    },
+    "cookiesConsent": {
+      "title": "Gizliliğiniz",
+      "content": "Portalımızın işleyişi için yalnızca işleyiş için gerekli olan çerezleri kullanıyoruz. Daha fazla bilgiye şu yerde ulaşabilirsiniz:",
+      "datenschutz": "Gizlilik Politikası.",
+      "accept": "Evet, anladım"
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "title1": "Proje Sahibi",
+      "title2": "Tarafından Desteklenmektedir",
+      "description": "Bu, hakkımızda sayfasıdır",
+      "whoWeAre": {
+        "mission": {
+          "title": "Misyonumuz",
+          "desc1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "des2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat"
+        },
+        "selfEsteem": {
+          "title": "Kendimizi Anlama",
+          "desc1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "des2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat"
+        }
+      }
+    },
+    "helpCenter": {
+      "title": "Yardım Merkezi",
+      "title1": "Yorumlar ve Geri Bildirim",
+      "desc1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus nihil nostrum quis voluptates, dolores libero labore nam temporibus consectetur consequuntur? Accusantium rerum beatae aut similique voluptas. Suscipit amet eaque doloremque?",
+      "desc2": "Bildirim formu ile ilgili sorun yaşıyorsanız veya genel bir sorunuz veya yorumunuz varsa, lütfen aşağıdaki formu kullanarak bize bir e-posta gönderin. Bilgilerinizi alacağız.",
+      "desc3": "Lütfen aşağıdaki formu kullanarak bize bir e-posta gönderin. Bilgilerinizi alacağız.",
+      "search": {
+        "placeHolder": "Örneğin veri koruma veya danışmanlık gibi anahtar kelimeyi girin"
+      },
+      "hero": {
+        "title": "Nasıl Bildirim Yaparım?"
+      },
+      "faqs": {
+        "title": "Sıkça Sorulan Sorular",
+        "whyReport": "Neden Bildirim Yapmalıyım?",
+        "whatHappensWithData": "Verilerim Ne Olacak?",
+        "whatIsAntiMuslimRacism": "Anti-Müslüman Irkçılık Nedir?",
+        "whoIsBehindMEDAR": "MEDAR NRW'nin Arkasında Kim Var?",
+        "readAllAnswers": "Tüm Cevapları Oku"
+      },
+      "Feedback": {
+        "title": "",
+        "firstTitle": "Bildirim formu ile ilgili sorun yaşıyorsanız veya genel bir sorunuz veya yorumunuz varsa, lütfen aşağıdaki formu kullanarak bize bir e-posta gönderin. Bilgilerinizi alacağız.",
+        "secondHeader": "Lütfen aşağıdaki formu kullanarak bize bir e-posta gönderin. Bilgilerinizi alacağız."
+      },
+      "form": {
+        "firstName": "Ad*",
+        "lastName": "Soyad*",
+        "subject": "Konu*",
+        "email": "E-posta",
+        "textArea": "Mesaj*",
+        "send": "Gönder"
+      }
+    },
+    "publications": {
+      "data": [
+        {
+          "id": 1,
+          "title": "News Konusu 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Daha Fazla Oku"
+        },
+        {
+          "id": 2,
+          "title": "News Konusu 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Daha Fazla Oku"
+        },
+        {
+          "id": 3,
+          "title": "News Konusu 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Daha Fazla Oku"
+        },
+        {
+          "id": 4,
+          "title": "News Konusu 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Daha Fazla Oku"
+        }
+      ]
+    },
+    "puclicationDetails": {
+      "data": [
+        {
+          "id": 1,
+          "title": "Haber Konusu 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Alt Başlık 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 2,
+          "title": "Haber Konusu 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Alt Başlık 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 3,
+          "title": "Haber Konusu 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Alt Başlık 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 4,
+          "title": "Haber Konusu 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Alt Başlık 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        }
+      ]
+    }
+  }
+}

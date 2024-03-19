@@ -1,0 +1,36 @@
+[
+  {
+    "code": "AKJ",
+    "lat": 51.54160560912549,
+    "lon": 7.467856937372077,
+    "name": "Fredenbaum",
+    "city": "Asahikawa-shi",
+    "state": "Hokkaido Prefecture",
+    "country": "Germany",
+    "postalCode": 50667,
+    "id": 1
+  },
+
+  {
+    "code": "AOJ",
+    "lat": 51.501017151222534,
+    "lon": 7.431121403785743,
+    "name": "DASA Working World Exhibition",
+    "city": "Aomori-shi",
+    "state": "Aomori Prefecture",
+    "country": "Japan",
+    "postalCode": 40213,
+    "id": 2
+  },
+  {
+    "code": "ASJ",
+    "lat": 51.47728820466454,
+    "lon": 7.469916873834864,
+    "name": "Dortmund Zoo",
+    "city": "Amami O Shima",
+    "state": "Mie Prefecture",
+    "country": "Japan",
+    "postalCode": 45127,
+    "id": 3
+  }
+]

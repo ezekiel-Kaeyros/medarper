@@ -1,0 +1,736 @@
+{
+  "navigation": {
+    "home": "Startseite",
+    "menu": "Menü",
+    "logoDescription": "Melde - und Dokumentationsstelle | anti-Muslimischer Rassismus NRW",
+    "language": "Einfache Sprache",
+    "about": {
+      "title": "Über uns",
+      "subtitles": {
+        "who": "Wer wir sind",
+        "what": "Was wir tun",
+        "contact": "Kontakt & Feedback"
+      }
+    },
+    "networks": {
+      "title": "Netzwerke",
+      "subtitles": {
+        "promoters": "Förderer",
+        "publications": "Veröffentlichungen",
+        "reportPortals": "Andere Berichtsportale"
+      }
+    },
+    "partners": "Partner",
+    "glossary": "Glossar",
+    "datenschutz": "Datenschutz",
+    "impressum": "Impressum",
+    "faq": "Hilfe",
+    "anti": "Antimuslimischer Rassismus",
+    "btn": "Vorfall melden"
+  },
+  "page": {
+    "home": {
+      "howTo": "Wie melde ich?",
+      "button": "JETZT MELDEN",
+      "title": "Wie melde ich?",
+      "faqs": {
+        "title": "Häufig gestellte Fragen",
+        "whyReport": "Warum sollte ich melden?",
+        "whatHappensWithData": "Was passiert mit meinen Daten?",
+        "whatIsAntiMuslimRacism": "Was ist anti Muslimischer Rassismus?",
+        "whoIsBehindMEDAR": "Wer steckt hinter MEDAR NRW?",
+        "readAllAnswers": "Alle Antworten lesen"
+      },
+      "referralCounseling": {
+        "title": "Verweisberatung",
+        "description": "Lorem ipsum dolor sit amet, ",
+        "filterPlace": "Geben Sie einen Ort oder eine Postleitzahl ein",
+        "placeOrLocation": "Ort/Standort"
+      },
+      "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
+      "aboutUs": {
+        "title": "Über uns",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
+        "learnMore": "Mehr erfahren"
+      },
+      "sendButton": "JETZT MELDUNG SENDEN",
+      "aboutMedar": "Über MEDAR",
+      "helpCenter": "Hilfezentrum",
+      "impressum": "Impressum",
+      "publications": "Veröffentlichungen",
+      "datenschutz": "Datenschutz",
+      "support": "Support Group",
+      "funded": "Funded By"
+    },
+    "melden": {
+      "stepper": {
+        "firstStep": {
+          "title": "Wer ist betroffen?*",
+          "disclaimer": "Wenn du das Meldeformular in Vertretung für eine Person ausfüllst, bedeutet das, dass du das Formular aus Perspektive der betroffenen Person und entsprechend der Selbstangaben ausfüllst. Sollte dies nicht der Fall sein und du möchtest einen Vorfall aus deiner Perspektive als Zeug*in schildern, klicke oben bitte die Option ‚Eine andere Person‘ an",
+          "options": [
+            {
+              "ID": "identity1",
+              "name": "identity",
+              "label": "Ich selbst",
+              "value": "Ich selbst",
+              "checked": false
+            },
+            {
+              "ID": "identity2",
+              "name": "identity",
+              "label": "Eine andere Person",
+              "value": "Eine andere Person",
+              "checked": false
+            },
+            {
+              "ID": "identity3",
+              "name": "identity",
+              "label": "Ich melde in Vertretung für die betroffene Person",
+              "value": "Ich melde in Vertretung für die betroffene Person",
+              "checked": false
+            },
+            {
+              "ID": "identity4",
+              "name": "identity",
+              "label": "Eine Organisation/Institution",
+              "value": "Eine Organisation/Institution",
+              "checked": false
+            }
+          ]
+        },
+        "secondStep": {
+          "titleMyself": "Was für eine Organisation/Institution ist betroffen (Mehrfachantwort möglich)?",
+          "titleAnotherPerson": "Was ist deine geschelechtliche Identität?",
+          "titleOnbehalf": "Was ist die geschlechtliche Identität der betroffenen Person?",
+          "titleOrganization": "Was für eine Organisation/Institution ist betroffen (Mehrfachantwort möglich)?",
+
+          "options": [
+            {
+              "ID": "gender1",
+              "name": "gender",
+              "label": "Weiblich",
+              "value": "weiblich",
+              "checked": false
+            },
+            {
+              "ID": "gender2",
+              "name": "gender",
+              "label": "Männlich",
+              "value": "Männlich",
+              "checked": false
+            },
+            {
+              "ID": "gender3",
+              "name": "gender",
+              "label": "Trans*",
+              "value": "Trans*",
+              "checked": false
+            },
+            {
+              "ID": "gender4",
+              "name": "gender",
+              "label": "Inter*",
+              "value": "Inter*",
+              "checked": false
+            },
+            {
+              "ID": "gender5",
+              "name": "gender",
+              "label": "Selbstbezeichnung",
+              "value": "Selbstbezeichnung",
+              "checked": false
+            }
+          ],
+
+          "optionsOrganization": [
+            {
+              "ID": "organizationType1",
+              "name": "organizationType",
+              "label": "Nichtregierungsorganisation (NGO)",
+              "value": "Nichtregierungsorganisation (NGO)",
+              "checked": true
+            },
+            {
+              "ID": "organizationType2",
+              "name": "organizationType",
+              "label": "Selbstorganisation / MSO (Migrantenselbstorganisation)",
+              "value": "Selbstorganisation / MSO (Migrantenselbstorganisation)",
+              "checked": false
+            },
+            {
+              "ID": "organizationType3",
+              "name": "organizationType",
+              "label": "Religiöse Einrichtung",
+              "value": "Religiöse Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType4",
+              "name": "organizationType",
+              "label": "Soziale Einrichtung",
+              "value": "Soziale Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType5",
+              "name": "organizationType",
+              "label": "Kulturelle Einrichtung",
+              "value": "Kulturelle Einrichtung",
+              "checked": false
+            },
+            {
+              "ID": "organizationType6",
+              "name": "organizationType",
+              "label": "Verein",
+              "value": "Verein",
+              "checked": false
+            },
+            {
+              "ID": "organizationType7",
+              "name": "organizationType",
+              "label": "Anderes, und zwar:",
+              "value": "Anderes, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "thirdStep": {
+          "title": "Wie alt bist du?",
+          "title1": "Wie alt ist die betroffene Person?",
+          "title2": "Wie viele Personen sind in der Organisation/Institution tätig (haupt- oder ehrenamtlich oder in freier Mitarbeit)?",
+          "options": [
+            {
+              "ID": "age1",
+              "name": "age",
+              "label": "Unter 18 Jahre",
+              "value": "Unter 18 Jahre",
+              "checked": true
+            },
+            {
+              "ID": "age2",
+              "name": "age",
+              "label": "18 - 27 Jahre",
+              "value": "18 - 27 Jahre",
+              "checked": false
+            },
+            {
+              "ID": "age3",
+              "name": "age",
+              "label": "28 - 40 Jahre",
+              "value": "28 - 40 Jahre",
+              "checked": false
+            },
+            {
+              "ID": "age4",
+              "name": "age",
+              "label": "41 - 65 Jahre",
+              "value": "41 - 65 Jahre",
+              "checked": false
+            },
+            {
+              "ID": "age5",
+              "name": "age",
+              "label": "Über 65 Jahre",
+              "value": "Über 65 Jahre",
+              "checked": false
+            }
+          ],
+          "employeesNumbOpt": [
+            {
+              "ID": "numberOfEmployees1",
+              "name": "numberOfEmployees",
+              "label": "Unter 10",
+              "value": "Unter 10",
+              "checked": true
+            },
+            {
+              "ID": "numberOfEmployees2",
+              "name": "numberOfEmployees",
+              "label": "10 - 19",
+              "value": "10 - 19",
+              "checked": false
+            },
+            {
+              "ID": "numberOfEmployees3",
+              "name": "numberOfEmployees",
+              "label": "50 - 250",
+              "value": "50 - 250",
+              "checked": false
+            },
+
+            {
+              "ID": "numberOfEmployees5",
+              "name": "numberOfEmployees",
+              "label": "Über 250",
+              "value": "Über 250",
+              "checked": false
+            }
+          ]
+        },
+        "fourthStep": {
+          "title": "Datum",
+          "options": [
+            {
+              "dateRange": "Vorfall ging über einen Zeitraum",
+              "formDate": "Von",
+              "toDate": "Bis",
+              "selectOpt": "Vorfall ist andauernd"
+            }
+          ]
+        },
+        "fifthStep": {
+          "title": "Wo war der Vorfall?*",
+          "options": [
+            {
+              "city": "Stadt",
+              "inputTitle": "Stadtteil",
+              "radioField": "Vorfall geschah online"
+            }
+          ]
+        },
+        "sixthStep": {
+          "title": "Was genau ist geschehen? *",
+          "placeHolder": "Bitte beschreiben Sie den Vorfall ...",
+          "errorParagragh": "Mindestens zeichen 50",
+          "options": [
+            {
+              "inputPlaceholder": "Bitte beschereide den Vorfall so genau wie möglich.",
+              "listTitle": "Relevante Informationen können sein:",
+              "firstList": "Wo fand die Diskriminierung statt?",
+              "secondList": "Wie wurdest du diskriminiert?",
+              "thirdList": "Von wem ging der Angriff aus?",
+              "fourthList": "Wie haben andere Personen reagiert?",
+              "fifthList": "Was lässt dich denken, dass es sich um antimuslimischen Rassismus handelt?",
+              "sixthList": "Welche Auswirkungen hatte der Vorfall für dich (z.B. emotionale, körperliche, soziale oder finanzielle)?",
+              "note": "*Aus Gründen des Datenschutzes bitten wir dich, hier keine Namen anderer Personen anzugeben."
+            }
+          ]
+        },
+        "seventhStep": {
+          "title": "Hatte eines dieser Merkmale deiner Meinung nach einen Einfluss auf die Diskriminierung?",
+          "multipleAns": "Mehrfachnennung möglich",
+          "placeHolder": "Hier ausführen",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "Kopftuch",
+              "value": "Kopftuch",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "Abaya",
+              "value": "Abaya",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "Kleidung",
+              "value": "Kleidung",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "Turban",
+              "value": "Turban",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "Bart",
+              "value": "Bart",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "Hautfarbe",
+              "value": "Hautfarbe",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "Haare",
+              "value": "Haare",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "Augen",
+              "value": "Augen",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "Sprache",
+              "value": "Sprache",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "Akzent",
+              "value": "Akzent",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "“Nichtdeutscher” Name",
+              "value": "“Nichtdeutscher” Name",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "Religiöse Ausübung (z.B Beten oder fasten)",
+              "value": "Religiöse Ausübung (z.B Beten oder fasten)",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "Anderes, und zwar:",
+              "value": "Anderes, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "eightStep": {
+          "title": "Handelt es sich noch um eine weitere Form der Diskriminierung?*",
+          "placeHolder": "Hier ausführen",
+          "valiation": "Muss mindestens 3 Zeichen lang sein",
+          "options": [
+            {
+              "ID": "discrimination1",
+              "name": "otherForms",
+              "label": "Nein",
+              "value": "Nein",
+              "checked": false
+            },
+            {
+              "ID": "discrimination2",
+              "name": "otherForms",
+              "label": "Ja, und Zwar:",
+              "value": "Ja, und Zwar:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "discriminationYes1",
+              "name": "otherFormsYes",
+              "label": "Antiasiatischer Rassismus",
+              "value": "Antiasiatischer Rassismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes2",
+              "name": "otherFormsYes",
+              "label": "Antifeminismus",
+              "value": "Antifeminismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes3",
+              "name": "otherFormsYes",
+              "label": "Antiasiatischer Rassismus",
+              "value": "Antiasiatischer Rassismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes4",
+              "name": "otherFormsYes",
+              "label": "Anti-Schwarzer Rassismus",
+              "value": "Anti-Schwarzer Rassismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes5",
+              "name": "otherFormsYes",
+              "label": "Antisemitismus",
+              "value": "Antisemitismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes6",
+              "name": "otherFormsYes",
+              "label": "Antislawischer Rassismus",
+              "value": "Antislawischer Rassismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes7",
+              "name": "otherFormsYes",
+              "label": "Antiziganismus",
+              "value": "Antiziganismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes8",
+              "name": "otherFormsYes",
+              "label": "Queerfeindlichkeit",
+              "value": "Queerfeindlichkeit",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes9",
+              "name": "otherFormsYes",
+              "label": "Sexismus",
+              "value": "Sexismus",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes10",
+              "name": "otherFormsYes",
+              "label": "Andere Formen, und zwar:",
+              "value": "Andere Formen, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "ninthStep": {
+          "title": "Hast du bereits andere Maßnahmen ergriffen?*",
+          "placeHolder": "Hier ausführen",
+          "validation": "Muss mindestens 3 Zeichen lang sein",
+          "options": [
+            {
+              "ID": "measuresNo1",
+              "name": "haveYouReported",
+              "label": "Nein",
+              "value": "Nein",
+              "checked": false
+            },
+            {
+              "ID": "measuresNo2",
+              "name": "haveYouReported",
+              "label": "Ja, und Zwar:",
+              "value": "Ja, und Zwar:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "measuresYes1",
+              "name": "haveYouReportedYes",
+              "label": "Ich habe den Fall bei der Polizei angezeigt",
+              "value": "Ich habe den Fall bei der Polizei angezeigt",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes2",
+              "name": "haveYouReportedYes",
+              "label": "Ich habe eine Beratungsstelle aufgesucht",
+              "value": "Ich habe eine Beratungsstelle aufgesucht",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes3",
+              "name": "haveYouReportedYes",
+              "label": "Ich habe den Fall bei einer anderen Meldestelle gemeldet, und zwar:",
+              "value": "Ich habe den Fall bei einer anderen Meldestelle gemeldet, und zwar:",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes4",
+              "name": "haveYouReportedYes",
+              "label": "Anderes, und zwar:",
+              "value": "Anderes, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "tenthStep": {
+          "title": "Überprüfe die Richtigkeit Deiner Angaben",
+          "captcha": "Ich bin kein Roboter",
+          "options": [
+            {
+              "name": "Alle Daten sind korrekt",
+              "label": "Alle Daten sind korrekt"
+            }
+          ]
+        }
+      },
+      "modal": {
+        "cancelModal": {
+          "title": " Bist Du sicher, dass Du Deine Meldung verwerfen möchtest?",
+          "paragraph1": "Wenn Du die Meldung abbrichst, werden alle Deine Daten automatisch gelöscht.",
+          "paragraph2": "alls Du unsicher bist oder Fragen hast, kontaktiere uns gerne und wir helfen Dir weiter.",
+          "paragraph3": "info@medar.de",
+          "cancel": "ABBRECHEN",
+          "noFurther": "Nein, WEITER"
+        },
+        "confirmModal": {
+          "title": "Vielen Dank!",
+          "des": "Danke das du deine Erfahrungen mit uns teilst. Mit dem Ausfüllen des Meldeformulars trägst du dazu bei, dass Diskriminierung und Gewalt sichtbarer gemacht werden.",
+          "back": "ZURÜCK",
+          "ja": "JA!"
+        },
+        "onBehalf": {
+          "title": "Achtung",
+          "des": "Hiermit bestätige ich, dass ich die Angaben im Namen der betroffenen Person eingegeben habe. Ich habe dieses Meldeformular in Vertretung ausgefüllt und habe das Einverständnis der betroffenen Person. Alle Angaben wurden entsprechend dem Wunsch und den Aussagen der betroffenen Person ausgefüllt.",
+          "back": "ZURÜCK",
+          "forward": "JA!"
+        },
+        "witness": {
+          "title": "Achtung",
+          "des": "„Wenn du das Meldeformular in Vertretung für eine Person ausfüllst, bedeutet das, dass du das Formular aus Perspektive der betroffenen Person und entsprechend der Selbstangaben ausfüllst. Sollte dies nicht der Fall sein und du möchtest einen Vorfall aus deiner Perspektive als Zeug*in schildern, klicke oben bitte die Option ‚Eine andere Person‘ an.“",
+          "cancel": "ABRECHEN",
+          "forward": "JA!"
+        }
+      },
+      "formFields": {},
+      "button": {
+        "next": "Weiter",
+        "prev": "Zurück",
+        "submit": "Abschicken"
+      }
+    },
+    "cookiesConsent": {
+      "title": "Deine Privatsphäre",
+      "content": "Zum Betrieb unseres Portals verwenden wir ausschließlich Cookies, die zum Betrieb erforderlich sind. Erweiterte Informationen finden Sie in den",
+      "datenschutz": "Datenschutzhinweisen.",
+      "accept": "Ja, verstanden"
+    },
+    "about": {
+      "title": "Über uns",
+      "title1": "Projektträger",
+      "title2": "Gefördert durch",
+      "description": "Dies ist die Über-uns-Seite",
+      "whoWeAre": {
+        "mission": {
+          "title": "Unser Leitbild",
+          "desc1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "des2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat"
+        },
+        "selfEsteem": {
+          "title": "Unser Selbstverständnis",
+          "desc1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "des2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat"
+        }
+      }
+    },
+    "helpCenter": {
+      "title": "Hilfecenter",
+      "title1": "Anmerkungen und Feedback",
+      "desc1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus nihil nostrum quis voluptates, dolores libero labore nam temporibus consectetur consequuntur? Accusantium rerum beatae aut similique voluptas. Suscipit amet eaque doloremque?",
+      "desc2": "Du hast Probleme mit unserem Meldeformular oder eine allgemeine Frage oder Anmerkung die Du mitteilen möchtest?",
+      "desc3": "Schreib’ uns gerne eine E-Mail über das untenstehende Formular und wir nehmen Deine Information auf.",
+      "search": {
+        "placeHolder": "Hier Stichwort eingeben z.B. Datenschutz oder Beratung"
+      },
+      "hero": {
+        "title": "Wie melde ich?"
+      },
+      "faqs": {
+        "title": "Häufig gestellte Fragen",
+        "whyReport": "Warum sollte ich melden?",
+        "whatHappensWithData": "Was passiert mit meinen Daten?",
+        "whatIsAntiMuslimRacism": "Was ist anti-Muslimischer Rassismus?",
+        "whoIsBehindMEDAR": "Wer steckt hinter MEDAR NRW?",
+        "readAllAnswers": "Alle Antworten lesen"
+      },
+      "Feedback": {
+        "title": "",
+        "firstTitle": "Du hast Probleme mit unserem Meldeformular oder eine allgemeine Frage oder Anmerkung die Du mitteilen möchtest?",
+        "secondHeader": "Schreib’ uns gerne eine E-Mail über das untenstehende Formular und wir nehmen Deine Information auf."
+      },
+      "form": {
+        "firstName": "Vorname*",
+        "lastName": "Nachname*",
+        "subject": "Thema*",
+        "email": "E-mail",
+        "textArea": "Nachricht*",
+        "send": "Senden"
+      }
+    },
+    "publications": {
+      "data": [
+        {
+          "id": 1,
+          "title": "News Thema 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Weiterlesen"
+        },
+        {
+          "id": 2,
+          "title": "News Thema 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Weiterlesen"
+        },
+        {
+          "id": 3,
+          "title": "News Thema 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Weiterlesen"
+        },
+        {
+          "id": 4,
+          "title": "News Thema 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "Weiterlesen"
+        }
+      ]
+    },
+    "puclicationDetails": {
+      "data": [
+        {
+          "id": 1,
+          "title": "News Thema 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Subheader 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 2,
+          "title": "News Thema 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Subheader 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 3,
+          "title": "News Thema 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Subheader 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 4,
+          "title": "News Thema 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "Subheader 1",
+          "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        }
+      ]
+    }
+  }
+}

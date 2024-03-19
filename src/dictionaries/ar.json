@@ -1,0 +1,734 @@
+{
+  "navigation": {
+    "home": "الصفحة الرئيسية",
+    "menu": "القائمة",
+    "logoDescription": "مركز التسجيل والتوثيق | العنصرية المعادية للمسلمين NRW",
+    "language": "لغة بسيطة",
+    "about": {
+      "title": "حولنا",
+      "subtitles": {
+        "who": "من نحن",
+        "what": "ماذا نفعل",
+        "contact": "اتصل بنا وتعليقات"
+      }
+    },
+    "networks": {
+      "title": "الشبكات",
+      "subtitles": {
+        "promoters": "الداعمون",
+        "publications": "النشرات",
+        "reportPortals": "بوابات التقارير الأخرى"
+      }
+    },
+    "partners": "الشركاء",
+    "glossary": "معجم المصطلحات",
+    "datenschutz": "سياسة الخصوصية",
+    "impressum": "إشهار",
+    "faq":"الأسئلة الشائعة",
+    "anti":"العنصرية ضد المسلمين",
+    "btn":"الإبلاغ عن الحادث"
+  },
+  "page": {
+    "home": {
+      "howTo": "كيف أبلغ؟",
+      "button": "سجل الآن",
+      "title": "كيف يمكنني الإبلاغ؟",
+      "faqs": {
+        "title": "الأسئلة الشائعة",
+        "whyReport": "لماذا يجب علي أن أبلغ؟",
+        "whatHappensWithData": "ماذا يحدث ببياناتي؟",
+        "whatIsAntiMuslimRacism": "ما هو العنصرية المعادية للمسلمين؟",
+        "whoIsBehindMEDAR": "من يقف وراء MEDAR NRW؟",
+        "readAllAnswers": "اقرأ جميع الإجابات"
+      },
+      "referralCounseling": {
+        "title": "الإحالة للإرشاد",
+        "description": "لوريم إيبسوم دولور سيت أميت",
+        "filterPlace": "أدخل مكانًا أو الرمز البريدي",
+        "placeOrLocation": "المكان/الموقع"
+      },
+      "bubbleMessage": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إليت",
+      "aboutUs": {
+        "title": "حولنا",
+        "description": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إليت",
+        "learnMore": "تعرف على المزيد"
+      },
+      "sendButton": "أرسل البلاغ الآن",
+      "aboutMedar": "عن MEDAR",
+      "helpCenter": "مركز المساعدة",
+      "impressum": "إشهار",
+      "publications": "النشرات",
+      "datenschutz": "سياسة الخصوصية",
+      "support": "مجموعة الدعم",
+      "funded": "تمويل من قبل"
+    },
+    "melden": {
+      "stepper": {
+        "firstStep": {
+          "title": "من المتأثر به؟*",
+          "disclaimer": "إذا كنت تملأ نموذج الإبلاغ نيابة عن شخص آخر ، فهذا يعني أنك تملأ النموذج من منظور الشخص المتأثر وفقًا للبيانات الذاتية المقدمة. إذا لم يكن هذا هو الحال وتريد الإبلاغ عن حادث من وجهة نظرك كشاهد ، فيرجى النقر فوق الخيار 'شخص آخر' أعلاه",
+          "options": [
+            {
+              "ID": "identity1",
+              "name": "identity",
+              "label": "أنا بنفسي",
+              "value": "أنا بنفسي",
+              "checked": false
+            },
+            {
+              "ID": "identity2",
+              "name": "identity",
+              "label": "شخص آخر",
+              "value": "شخص آخر",
+              "checked": false
+            },
+            {
+              "ID": "identity3",
+              "name": "identity",
+              "label": "أنا أبلغ نيابة عن الشخص المتأثر",
+              "value": "أنا أبلغ نيابة عن الشخص المتأثر",
+              "checked": false
+            },
+            {
+              "ID": "identity4",
+              "name": "identity",
+              "label": "منظمة / مؤسسة",
+              "value": "منظمة / مؤسسة",
+              "checked": false
+            }
+          ]
+        },
+        "secondStep": {
+          "titleMyself": "ما هي المنظمة / المؤسسة المتأثرة (يمكن اختيار أكثر من إجابة)؟",
+          "titleAnotherPerson": "ما هو هويتك الجنسية؟",
+          "titleOnbehalf": "ما هو هوية الجنسية للشخص المتأثر؟",
+          "titleOrganization": "ما هي المنظمة / المؤسسة المتأثرة (يمكن اختيار أكثر من إجابة)؟",
+
+          "options": [
+            {
+              "ID": "gender1",
+              "name": "gender",
+              "label": "أنثى",
+              "value": "أنثى",
+              "checked": false
+            },
+            {
+              "ID": "gender2",
+              "name": "gender",
+              "label": "ذكر",
+              "value": "ذكر",
+              "checked": false
+            },
+            {
+              "ID": "gender3",
+              "name": "gender",
+              "label": "Trans*",
+              "value": "Trans*",
+              "checked": false
+            },
+            {
+              "ID": "gender4",
+              "name": "gender",
+              "label": "Inter*",
+              "value": "Inter*",
+              "checked": false
+            },
+            {
+              "ID": "gender5",
+              "name": "gender",
+              "label": "تعريف الذات",
+              "value": "تعريف الذات",
+              "checked": false
+            }
+          ],
+
+          "optionsOrganization": [
+            {
+              "ID": "organizationType1",
+              "name": "organizationType",
+              "label": "منظمة غير حكومية (NGO)",
+              "value": "منظمة غير حكومية (NGO)",
+              "checked": true
+            },
+            {
+              "ID": "organizationType2",
+              "name": "organizationType",
+              "label": "التنظيم الذاتي / MSO (تنظيمات المهاجرين الذاتية)",
+              "value": "التنظيم الذاتي / MSO (تنظيمات المهاجرين الذاتية)",
+              "checked": false
+            },
+            {
+              "ID": "organizationType3",
+              "name": "organizationType",
+              "label": "مؤسسة دينية",
+              "value": "مؤسسة دينية",
+              "checked": false
+            },
+            {
+              "ID": "organizationType4",
+              "name": "organizationType",
+              "label": "مؤسسة اجتماعية",
+              "value": "مؤسسة اجتماعية",
+              "checked": false
+            },
+            {
+              "ID": "organizationType5",
+              "name": "organizationType",
+              "label": "مؤسسة ثقافية",
+              "value": "مؤسسة ثقافية",
+              "checked": false
+            },
+            {
+              "ID": "organizationType6",
+              "name": "organizationType",
+              "label": "جمعية",
+              "value": "جمعية",
+              "checked": false
+            },
+            {
+              "ID": "organizationType7",
+              "name": "organizationType",
+              "label": "آخر، وهو:",
+              "value": "آخر، وهو:",
+              "checked": false
+            }
+          ]
+        },
+        "thirdStep": {
+          "title": "كم عمرك؟",
+          "title1": "كم عمر الشخص المعني؟",
+          "title2": "كم عدد الأشخاص العاملين في المؤسسة/المنظمة (بدوام كامل أو جزئي، أو بشكل حر)؟",
+
+          "options": [
+            {
+              "ID": "age1",
+              "name": "age",
+              "label": "أقل من 18 عامًا",
+              "value": "أقل من 18 عامًا",
+              "checked": true
+            },
+            {
+              "ID": "age2",
+              "name": "age",
+              "label": "18 - 27 عامًا",
+              "value": "18 - 27 عامًا",
+              "checked": false
+            },
+            {
+              "ID": "age3",
+              "name": "age",
+              "label": "28 - 40 عامًا",
+              "value": "28 - 40 عامًا",
+              "checked": false
+            },
+            {
+              "ID": "age4",
+              "name": "age",
+              "label": "41 - 65 عامًا",
+              "value": "41 - 65 عامًا",
+              "checked": false
+            },
+            {
+              "ID": "age5",
+              "name": "age",
+              "label": "أكثر من 65 عامًا",
+              "value": "أكثر من 65 عامًا",
+              "checked": false
+            }
+          ],
+          "employeesNumbOpt": [
+            {
+              "id": "numberOfEmployees1",
+              "name": "numberOfEmployees",
+              "label": "أكثر من 10",
+              "value": "أكثر من 10",
+              "checked": true
+            },
+            {
+              "id": "numberOfEmployees2",
+              "name": "numberOfEmployees",
+              "label": "10 - 19",
+              "value": "10 - 19",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees3",
+              "name": "numberOfEmployees",
+              "label": "50 - 250",
+              "value": "50 - 250",
+              "checked": false
+            },
+            {
+              "id": "numberOfEmployees5",
+              "name": "numberOfEmployees",
+              "label": "250 وأكثر",
+              "value": "250 وأكثر",
+              "checked": false
+            }
+          ]
+        },
+        "fourthStep": {
+          "title": "التاريخ",
+          "options": [
+            {
+              "dateRange": "الحادث استمر لفترة زمنية",
+              "formDate": "من",
+              "toDate": "إلى",
+              "selectOpt": "الحادث مستمر"
+            }
+          ]
+        },
+        "fifthStep": {
+          "title": "أين كان الحادث؟*",
+          "options": [
+            {
+              "city": "مدينة",
+              "inputTitle": "حي",
+              "radioField": "الحادث حدث عبر الإنترنت"
+            }
+          ]
+        },
+        "sixthStep": {
+          "title": "ماذا حدث بالضبط؟ *",
+          "placeHolder": "يرجى وصف الحادث...",
+          "options": [
+            {
+              "inputPlaceholder": "يرجى وصف الحادث بأقصى قدر من التفاصيل.",
+              "listTitle": "المعلومات ذات الصلة قد تكون:",
+              "firstList": "أين وقع التمييز؟",
+              "secondList": "كيف تم التمييز بحقك؟",
+              "thirdList": "من قام بالاعتداء؟",
+              "fourthList": "كيف تصرف الأشخاص الآخرون؟",
+              "fifthList": "ما الذي يجعلك تعتقد أنها عنصرية معادية للمسلمين؟",
+              "sixthList": "ما هي الآثار التي خلفها الحادث بالنسبة لك (مثل الآثار العاطفية، الجسدية، الاجتماعية أو المالية)؟",
+              "note": "* لأسباب الخصوصية، نرجو عدم ذكر أسماء الأشخاص الآخرين هنا."
+            }
+          ]
+        },
+        "seventhStep": {
+          "title": "هل كان أي من هذه السمات لديك تأثير على التمييز؟",
+          "multipleAns": "يمكن تحديد أكثر من خيار",
+          "placeHolder": "تنفيذ هنا",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "الأساس",
+              "value": "الأساس",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "Abaya",
+              "value": "Abaya",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "الأغطياء",
+              "value": "الأغطياء",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "توربان",
+              "value": "توربان",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "صافي",
+              "value": "صافي",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "لون البشرة",
+              "value": "لون البشرة",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "الشعور",
+              "value": "الشعور",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "عيون العينات",
+              "value": "عيون العينات",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "اللغة",
+              "value": "اللغة",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "الصوت",
+              "value": "الصوت",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "الحاول الغير ألماني",
+              "value": "الحاول الغير ألماني",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "تمارين مذهبي (مثل دعاء والصبت)",
+              "value": "تمارين مذهبي (مثل دعاء والصبت)",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "الأخرى ، بالاحث عن:",
+              "value": "الأخرى ، بالاحث عن:",
+              "checked": false
+            }
+          ]
+        },
+        "eightStep": {
+          "title": "هل ما زالت هناك أشكال أخرى من التمييز؟*",
+          "placeHolder": "تنفيذ هنا",
+          "validation": "يجب أن تحتوي على 3 أحرف على الأقل",
+          "options": [
+            {
+              "ID": "discrimination1",
+              "name": "otherForms",
+              "label": "لا",
+              "value": "لا",
+              "checked": false
+            },
+            {
+              "ID": "discrimination2",
+              "name": "otherForms",
+              "label": "نعم، وعلى وجه التحديد:",
+              "value": "نعم، وعلى وجه التحديد:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "discriminationYes1",
+              "name": "otherFormsYes",
+              "label": "العنصرية المناهضة للآسيويين",
+              "value": "العنصرية المناهضة للآسيويين",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes2",
+              "name": "otherFormsYes",
+              "label": "معاداة النسوية",
+              "value": "معاداة النسوية",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes3",
+              "name": "otherFormsYes",
+              "label": "العنصرية المناهضة للآسيويين",
+              "value": "العنصرية المناهضة للآسيويين",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes4",
+              "name": "otherFormsYes",
+              "label": "العنصرية ضد السود",
+              "value": "العنصرية ضد السود",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes5",
+              "name": "otherFormsYes",
+              "label": "معاداة السامية",
+              "value": "معاداة السامية",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes6",
+              "name": "otherFormsYes",
+              "label": "العنصرية المناهضة للسلاف",
+              "value": "العنصرية المناهضة للسلاف",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes7",
+              "name": " otherFormsYes",
+              "label": "معاداة الغجر",
+              "value": "معاداة الغجر",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes8",
+              "name": " otherFormsYes",
+              "label": "رهاب المثليين",
+              "value": "رهاب المثليين",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes9",
+              "name": " otherFormsYes",
+              "label": "التمييز الجنسي",
+              "value": "التمييز الجنسي",
+              "checked": false
+            },
+            {
+              "ID": "discriminationYes10",
+              "name": " otherFormsYes",
+              "label": "أشكال أخرى، وهي:",
+              "value": "أشكال أخرى، وهي:",
+              "checked": false
+            }
+          ]
+        },
+        "ninthStep": {
+          "title": "هل اتخذت بالفعل تدابير أخرى؟*",
+          "placeHolder": "تنفيذ هنا",
+          "validation": "يجب أن تحتوي على 3 أحرف على الأقل",
+          "options": [
+            {
+              "ID": "measuresNo1",
+              "name": "haveYouReported",
+              "label": "لا",
+              "value": "لا",
+              "checked": false
+            },
+            {
+              "ID": "measuresNo2",
+              "name": "haveYouReported",
+              "label": "نعم، وعلى وجه التحديد:",
+              "value": "نعم، وعلى وجه التحديد:",
+              "checked": false
+            }
+          ],
+          "optionYesIndeed": [
+            {
+              "ID": "measuresYes1",
+              "name": "haveYouReportedYes",
+              "label": "قمت بالإبلاغ عن الحالة إلى الشرطة",
+              "value": "قمت بالإبلاغ عن الحالة إلى الشرطة",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes2",
+              "name": "haveYouReportedYes",
+              "label": "استشرت مركزًا استشاريًا",
+              "value": "استشرت مركزًا استشاريًا",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes3",
+              "name": "haveYouReportedYes",
+              "label": "أبلغت عن الحالة إلى جهة أخرى، وهي:",
+              "value": "أبلغت عن الحالة إلى جهة أخرى، وهي:",
+              "checked": false
+            },
+            {
+              "ID": "measuresYes4",
+              "name": "haveYouReportedYes",
+              "label": "شيء آخر، وهو:",
+              "value": "شيء آخر، وهو:",
+              "checked": false
+            }
+          ]
+        },
+        "tenthStep": {
+          "title": "تحقق من صحة بياناتك",
+          "options": [
+            {
+              "name": "جميع البيانات صحيحة",
+              "label": "جميع البيانات صحيحة"
+            }
+          ]
+        }
+      },
+      "modal": {
+        "cancelModal": {
+          "title": "هل أنت متأكد أنك تريد تجاهل بلاغك؟",
+          "paragraph1": "إذا قمت بإلغاء البلاغ، سيتم حذف جميع بياناتك تلقائيًا.",
+          "paragraph2": "إذا كنت غير متأكد أو لديك أي أسئلة، يرجى الاتصال بنا وسنكون سعيدين بمساعدتك.",
+          "paragraph3": "info@medar.de",
+          "cancel": "إلغاء",
+          "noFurther": "لا، تابع"
+        },
+        "confirmModal": {
+          "title": "شكرًا لك!",
+          "des": "شكرًا لك على مشاركة تجاربك معنا. من خلال ملء نموذج الإبلاغ، أنت تساعد في جعل التمييز والعنف أكثر وضوحًا.",
+          "back": "رجوع",
+          "ja": "نعم!"
+        },
+        "onBehalf": {
+          "title": "تحذير",
+          "des": "أؤكد هنا أنني أدخلت المعلومات نيابة عن الشخص المتأثر. لقد قمت بملء هذا النموذج بالتبليغ نيابة عن الشخص المتأثر ولدي موافقته. تم ملء جميع المعلومات وفقًا لرغبة وبيانات الشخص المتأثر.",
+          "back": "رجوع",
+          "forward": "نعم!"
+        },
+        "witness": {
+          "title": "تنبيه",
+          "des": "إذا كنت تقوم بملء نموذج البلاغ نيابة عن شخص آخر، فهذا يعني أنك تقوم بملء النموذج من منظور الشخص المعني ووفقًا لتصريحاته الذاتية. إذا لم يكن الأمر كذلك وترغب في وصف حادثة من وجهة نظرك كشاهد، يرجى النقر فوق الخيار 'شخص آخر' أعلاه.",
+          "cancel": "إلغاء",
+          "forward": "نعم!"
+        }
+      },
+      "formFields": {},
+      "button": {
+        "next": "التالي",
+        "prev": "السابق",
+        "submit": "إرسال"
+      }
+    },
+    "cookiesConsent": {
+      "title": "خصوصيتك",
+      "content": "لتشغيل بوابتنا، نستخدم حصرًا الكوكيز الضرورية للتشغيل. يمكن العثور على معلومات أكثر تفصيلاً في",
+      "datenschutz": "سياسة الخصوصية.",
+      "accept": "نعم، فهمت"
+    },
+    "about": {
+      "title": "حولنا",
+      "title1": "الجهة الممولة",
+      "title2": "ممول من خلال",
+      "description": "هذه هي صفحة حولنا",
+      "whoWeAre": {
+        "mission": {
+          "title": "رسالتنا",
+          "desc1": "لوريم إيبسوم (نص عيني) هو نص تجريبي، يستخدم في صناعات الطباعة والتصميم.",
+          "des2": "النص الثاني"
+        },
+        "selfEsteem": {
+          "title": "تصوّرنا لأنفسنا",
+          "desc1": "لوريم إيبسوم (نص عيني) هو نص تجريبي، يستخدم في صناعات الطباعة والتصميم.",
+          "des2": "النص الثاني"
+        }
+      }
+    },
+    "helpCenter": {
+      "title": "مركز المساعدة",
+      "title1": "ملاحظات وتعليقات",
+      "desc1": "لوريم إيبسوم (بالإنجليزية: Lorem Ipsum) هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر.",
+      "desc2": "هل لديك مشكلة في نموذج الإبلاغ الخاص بنا أو سؤال عام أو تعليق تريد مشاركته؟",
+      "desc3": "يرجى كتابة بريد إلكتروني لنا عبر النموذج أدناه وسنقوم بتسجيل معلوماتك.",
+      "search": {
+        "placeHolder": "أدخل الكلمة المفتاحية هنا مثل الخصوصية أو الاستشارة"
+      },
+      "hero": {
+        "title": "كيف يمكنني الإبلاغ؟"
+      },
+      "faqs": {
+        "title": "الأسئلة الشائعة",
+        "whyReport": "لماذا يجب علي الإبلاغ؟",
+        "whatHappensWithData": "ماذا يحدث ببياناتي؟",
+        "whatIsAntiMuslimRacism": "ما هو العنصرية المعادية للمسلمين؟",
+        "whoIsBehindMEDAR": "من يقف وراء MEDAR NRW؟",
+        "readAllAnswers": "قراءة جميع الإجابات"
+      },
+      "Feedback": {
+        "title": "",
+        "firstTitle": "هل لديك مشكلة في نموذج الإبلاغ الخاص بنا أو سؤال عام أو تعليق تريد مشاركته؟",
+        "secondHeader": "يرجى كتابة بريد إلكتروني لنا عبر النموذج أدناه وسنقوم بتسجيل معلوماتك."
+      },
+      "form": {
+        "firstName": "الاسم الأول*",
+        "lastName": "اسم العائلة*",
+        "subject": "الموضوع*",
+        "email": "البريد الإلكتروني",
+        "textArea": "الرسالة*",
+        "send": "إرسال"
+      }
+    },
+    "publications": {
+      "data": [
+        {
+          "id": 1,
+          "title": "موضوع الأخبار 1",
+          "date": "12.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "اقرأ المزيد"
+        },
+        {
+          "id": 2,
+          "title": "موضوع الأخبار 2",
+          "date": "13.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "اقرأ المزيد"
+        },
+        {
+          "id": 3,
+          "title": "موضوع الأخبار 3",
+          "date": "14.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "اقرأ المزيد"
+        },
+        {
+          "id": 4,
+          "title": "موضوع الأخبار 4",
+          "date": "15.11.2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo.",
+          "subheader1": "اقرأ المزيد"
+        }
+      ]
+    },
+    "puclicationDetails": {
+      "data": [
+        {
+          "id": 1,
+          "title": "موضوع الأخبار 1",
+          "date": "12/11/2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "عنوان فرعي 1",
+          "text1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 2,
+          "title": "موضوع الأخبار 2",
+          "date": "13/11/2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "عنوان فرعي 1",
+          "text1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 3,
+          "title": "موضوع الأخبار 3",
+          "date": "14/11/2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "عنوان فرعي 1",
+          "text1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        },
+        {
+          "id": 4,
+          "title": "موضوع الأخبار 4",
+          "date": "15/11/2023",
+          "description1": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "subheader1": "عنوان فرعي 1",
+          "text1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident.",
+          "text2": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text3": "proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. Excepteur sint occaecat",
+          "text4": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إيليت، سيد دو إيوسمود تيمبور إنسيديدونت أوت لابوري إت دولوري ماغنا أليكوا. أوت إنيم آد مينيم فينيام، كويس نوسترود إكسيرسيتاشيون أوللامكو لابوريس نيسي أوت أليكويب إكس إيا كومودو كونسيكوات. إكسسيبتور سينت أوككايكات كوبيداتات نون برويدنت. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident. ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident."
+        }
+      ]
+    }
+  }
+}
