@@ -223,10 +223,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
             />
             {step === 10 ? (
               <Button
+                form="tenthForm"
                 className="text-xl w-48 py-4"
                 variant={`${formErrors ? 'disabled' : 'default'}`}
                 disabled={formErrors ? true : false}
-                onClick={() => handleSubmit()}
+                // onClick={() => handleSubmit()}
               >
                 {formTranslation?.button?.submit}
               </Button>
@@ -270,7 +271,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
           variant="disabled"
           className="mx-auto w-48 py-4"
         >
-          {formTranslation.modal.cancelModal.cancel}
+          {/* {formTranslation.modal.cancelModal.cancel} */}
         </Button>
       </div>
     </div>

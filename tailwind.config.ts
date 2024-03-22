@@ -18,6 +18,7 @@ const config: Config = {
       },
       colors: {
         primaryColor: '#2B8049',
+        primary: '#2B8049',
         secondaryColor: '#E3775F',
         btnDisabled: 'rgba(79, 73, 73, 0.49)',
         colorPage: 'rgba(217, 217, 217, 0.25)',

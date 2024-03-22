@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EditBlock from './EditBlock';
 import Checkbox from '../../checkbox/Checkbox';
 import CheckboxSimple from '../../checkbox/CheckboxSimple';
-import { getFormCookies } from '@/cookies/cookies';
+import { clearFormCookies, getFormCookies } from '@/cookies/cookies';
 import {
   EIGTH_FORM,
   FIFTH_FORM,
@@ -17,18 +17,20 @@ import {
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { TenthFormValues, TenthStepProps } from './tenthStep.d';
 import { useFormContext } from '@/app/hooks/useFormContext';
-import { FORM_ERRORS } from '@/app/context/actions';
+import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
 import FirstStepProps from '../first-step/FirstStep';
 import dayjs from 'dayjs';
 import CaptchaCheckbox from '@/app/components/captcha/captcha-checkbox/CaptchaCheckbox';
 import { verifyCaptchaAction } from '@/app/components/captcha/Captcha';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import ReportService from '@/services/reportService';
+import { useRouter } from 'next/navigation';
 
 const TenthStep: React.FC<TenthStepProps> = ({ tenthStepTranslation }) => {
   const { dispatch } = useFormContext();
   const [captchLoading, setCaptchaLoading] = useState<boolean>(true);
   const [verified, setVerified] = useState<any>(false);
-
+  const { push } = useRouter();
   let firstForm: { identity: string; question: string; step: number } =
     getFormCookies(FIRST_FORM);
 
@@ -85,7 +87,7 @@ const TenthStep: React.FC<TenthStepProps> = ({ tenthStepTranslation }) => {
   let ninethForm: {
     question: string;
     haveYouReported: string;
-    haveYouReportedYes: string;
+    haveYouReportedYes: string[];
     haveYouReportedFreeField1: string;
     haveYouReportedFreeField2: string;
     step: number;
@@ -142,9 +144,165 @@ const TenthStep: React.FC<TenthStepProps> = ({ tenthStepTranslation }) => {
   }, [agreement]);
 
   captcha && handleCaptcha();
+  const onSubmit: SubmitHandler<any> = async () => {
+    // alert('ok');
+    dispatch({ type: FORM_ERRORS, payload: true });
+    let firstForm: { identity: string; question: string; step: number } =
+      getFormCookies(FIRST_FORM);
+
+    let secondForm: {
+      // step: number;
+      // question: string;
+      gender: string;
+      organizationType: string[];
+      genderFreeField: string;
+      organizationTypeFreeField: string;
+    } = getFormCookies(SECOND_FORM);
+
+    let thirdForm: {
+      numberOfEmployees: string;
+      age: string;
+      question: string;
+      step: number;
+    } = getFormCookies(THIRD_FORM);
+
+    let fourthForm: {
+      question: string;
+      date: any;
+      dateRange: any;
+      onGoingIncident: string;
+      step: number;
+    } = getFormCookies(FOURTH_FORM);
+
+    let fifthForm: {
+      happenedOnline: string;
+      state: string;
+      city: string;
+      question: string;
+      step: number;
+    } = getFormCookies(FIFTH_FORM);
+
+    let sixthForm: { description: string; question: string; step: number } =
+      getFormCookies(SIXTH_FORM);
+
+    let seventhForm: {
+      causesOfDiscrimination: string[];
+      causesOfDiscriminationFreeField: string;
+      question: string;
+      step: number;
+    } = getFormCookies(SEVENTH_FORM);
+
+    let eighthForm: {
+      question: string;
+      otherForms: string;
+      otherFormsYes: string[];
+      otherFormsYesFreeField: string;
+      step: number;
+    } = getFormCookies(EIGTH_FORM);
+
+    let ninethForm: {
+      question: string;
+      haveYouReported: string;
+      haveYouReportedYes: string[];
+      haveYouReportedFreeField1: string;
+      haveYouReportedFreeField2: string;
+      step: number;
+    } = getFormCookies(NINETH_FORM);
+
+    let identity = firstForm?.identity;
+    let description = sixthForm?.description;
+    let organizationType = secondForm?.organizationType;
+    let organizationTypeFreeField = secondForm?.organizationTypeFreeField;
+    let numberOfEmployees = thirdForm?.numberOfEmployees;
+    let valueDate: string = fourthForm?.date;
+    let dateRangeState: string =
+      (fourthForm?.dateRange && fourthForm?.dateRange.toString()) || '';
+    // let datePeriod =
+    //   (thirdForm?.datePeriod && thirdForm?.datePeriod.toString()) || '';
+    let location = fifthForm?.state;
+    let stadtteil = fifthForm?.city;
+    let locationOnline = fifthForm?.happenedOnline;
+    let otherForms = eighthForm?.otherForms;
+    let otherFormsYes = eighthForm?.otherFormsYes;
+    let otherFormsYesFreeField = eighthForm?.otherFormsYesFreeField;
+    // let typeOfDiscrimination = sixthForm?.typeOfDiscrimination;
+    // let formOfDisc = seventhForm?.formOfDisc;
+    // let formOfDiscYes = seventhForm?.formOfDiscYes;
+    // let formOfDiscYesFreeField = seventhForm?.formOfDiscYesFreeField;
+    let causesOfDiscrimination = seventhForm.causesOfDiscrimination;
+    let causesOfDiscriminationFreeField =
+      seventhForm.causesOfDiscriminationFreeField;
+    let haveYouReported = ninethForm?.haveYouReported;
+    let haveYouReportedYes = ninethForm?.haveYouReportedYes;
+    let haveYouReportedYesFreeField1 = ninethForm?.haveYouReportedFreeField1;
+    let haveYouReportedYesFreeField2 = ninethForm?.haveYouReportedFreeField2;
+
+    let gender = secondForm?.gender;
+    let genderFreeField = secondForm?.genderFreeField;
+    let age = thirdForm?.age;
+    // let sexualOrientation = ninethForm?.sexualOrientation;
+    // let sexualOrientationFreeField = ninethForm?.sexualOrientationFreeField;
+
+    const report = {
+      identity,
+      description,
+      organizationType,
+      organizationTypeFreeField,
+      numberOfEmployees,
+      valueDate,
+      dateRangeState,
+      // datePeriod,
+      location,
+      stadtteil,
+      locationOnline,
+      otherForms,
+      otherFormsYes,
+      otherFormsYesFreeField,
+      // formOfQueerphobia,
+      // otherformOfQueerphobiaFreeField,
+      // typeOfDiscrimination,
+      // typeOfDiscriminationFreeField,
+      // formOfDisc,
+      // formOfDiscYes,
+      // formOfDiscYesFreeField,
+      causesOfDiscriminationFreeField,
+      causesOfDiscrimination,
+      haveYouReported,
+      haveYouReportedYes,
+      haveYouReportedYesFreeField1,
+      haveYouReportedYesFreeField2,
+      gender,
+      genderFreeField,
+      age,
+      // sexualOrientation,
+      // sexualOrientationFreeField,
+    };
+
+    console.log('report', report);
+    const response = new ReportService()
+      .sendReport(report)
+      .then((result) => {
+        if (result.status === 201 || result.status === 200) {
+          console.log('Successfull');
+          clearFormCookies();
+          window.location.href='/report';
+        } else {
+          dispatch({ type: FORM_ERRORS, payload: false });
+          console.log('failed');
+          // setCaptchaLoading(false);
+          throw new Error('Fetching error occured, please reload');
+        }
+      })
+      .catch((error) => {
+        console.log('error');
+        // setCaptchaLoading(false);
+        dispatch({ type: FORM_ERRORS, payload: false });
+        throw new Error('Fetching error occured, please reload');
+      });
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)} id="tenthForm">
       <h1 className="font-bold text-primaryColor text-xl mb-2">
         {tenthStepTranslation?.title}
       </h1>
@@ -264,12 +422,12 @@ const TenthStep: React.FC<TenthStepProps> = ({ tenthStepTranslation }) => {
 
       {/* Nineth form */}
 
-      {ninethForm && (
+      {ninethForm && ninethForm.haveYouReportedYes && (
         <EditBlock
           step={ninethForm?.step}
           answer={[
             ninethForm?.haveYouReported,
-            ninethForm?.haveYouReportedYes,
+            ...ninethForm?.haveYouReportedYes,
             ninethForm?.haveYouReportedFreeField1,
             ninethForm?.haveYouReportedFreeField2,
           ]}

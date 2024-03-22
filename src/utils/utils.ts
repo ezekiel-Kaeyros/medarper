@@ -29,6 +29,13 @@ export const combinedArr = (arr1: any, arr2: any) => {
   for (let i = 0; i < arr1.length; i++) {
     combinedData.push({ ...arr1[i], ...arr2[i] });
   }
-  
-  return combinedData
+
+  return combinedData;
+};
+
+export enum Role {
+  ADMIN = 1,
+  VIEWER = 2,
+  CLEANER = 3,
+  RISK_MANAGER = 4,
 }

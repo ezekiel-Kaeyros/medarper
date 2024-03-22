@@ -311,7 +311,7 @@
           "title": "Did any of these characteristics have an influence on the discrimination?",
           "multipleAns": "Multiple answers possible",
           "placeHolder": "to carry out",
-          "options": [
+          "options": [ 
             {
               "ID": "description1",
               "name": "description",

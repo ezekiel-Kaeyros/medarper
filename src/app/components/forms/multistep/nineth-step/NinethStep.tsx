@@ -44,7 +44,8 @@ const NinethStep: React.FC<NinthStepProps> = ({ ninthStepTranslation }) => {
     let step = getFormStep();
     let dataWithQuestion = { question, step, ...data };
     setFormCookies(dataWithQuestion, NINETH_FORM);
-
+    console.log('dataWithQuestion',dataWithQuestion);
+    
     dispatch({ type: NEXT_STEP, payload: '' });
   };
 
