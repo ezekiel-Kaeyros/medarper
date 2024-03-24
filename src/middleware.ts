@@ -40,6 +40,7 @@ export function middleware(request: NextRequest) {
     `/${locale}/dashboard/reports`,
     `/${locale}/dashboard/quantitative`,
     `/${locale}/dashboard/qualitative`,
+    `/${locale}/dashboard/compare-data`,
     `/${locale}/dashboard/settings`,
   ];
   const privateCleanerPaths = [
@@ -59,24 +60,18 @@ export function middleware(request: NextRequest) {
     `/${locale}/dashboard/dangerous-reports`,
   ];
 
-  //  const privateUserPaths = [
-  //    '/fr/settings/notification',
-  //    '/en/settings/notification',
-  //    '/fr/user/history',
-  //    '/en/user/history',
-  //    '/fr/user/send-transfer',
-  //    '/en/user/send-transfer',
-  //    '/fr/settings',
-  //    '/en/settings',
-  //    '/en/settings/clients',
-  //    '/fr/settings/clients',
-  //    '/fr/user/manage-clients',
-  //    '/en/user/manage-clients',
-  //  ];
+  const allPaths = [
+    `/${locale}/about`,
+    `/${locale}/faq`,
+    `/${locale}/report`,
+    `/${locale}`,
+    `/${locale}/publications`,
+    `/${locale}/helpcenter`,
+    `/${locale}/anti-muslim`,
+  ];
 
   const publicPath = [`/${locale}/login`];
 
-  // console.log(request.cookies.get('user_data'), 'this is my request');
   if (!request.cookies.get('user_data') && pathname.includes('/dashboard')) {
     return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
   } else if (
@@ -84,16 +79,14 @@ export function middleware(request: NextRequest) {
     publicPath.includes(pathname)
   ) {
     return NextResponse.redirect(new URL(`/${locale}/dashboard`, request.url));
-
-    //  if (user && user?.role === 1) {
-    //    return NextResponse.redirect(
-    //      new URL(`/${locale}/admin/dashboard`, request.url)
-    //    );
-    //  } else {
-    //    return NextResponse.redirect(
-    //      new URL(`/${locale}/user/send-transfer`, request.url)
-    //    );
-    //  }
+  } else if (
+    request.cookies.get('user_data') &&
+    !allPaths.includes(pathname) &&
+    !pathname.includes(`/${locale}/anti-muslim/`) &&
+    !pathname.includes(`/${locale}/publications/`) &&
+    !pathname.includes('/dashboard')
+  ) {
+    return NextResponse.redirect(new URL(`/${locale}/dashboard`, request.url));
   } else if (
     request.cookies.get('user_data') &&
     !publicPath.includes(pathname)
@@ -103,7 +96,11 @@ export function middleware(request: NextRequest) {
       user &&
       user?.role &&
       user?.role == 1 &&
-      !privateAdminPaths.includes(pathname)
+      !privateAdminPaths.includes(pathname) &&
+      !allPaths.includes(pathname) &&
+      !pathname.includes('/dashboard/cleaned-reports') &&
+      !pathname.includes(`/${locale}/anti-muslim/`) &&
+      !pathname.includes(`/${locale}/publications/`)
     ) {
       return NextResponse.redirect(
         new URL(`/${locale}/dashboard`, request.url)
@@ -112,7 +109,11 @@ export function middleware(request: NextRequest) {
       user &&
       user?.role &&
       user?.role == 2 &&
-      !privateViewerPaths.includes(pathname)
+      !privateViewerPaths.includes(pathname) &&
+      !allPaths.includes(pathname) &&
+      !pathname.includes('/dashboard/cleaned-reports') &&
+      !pathname.includes(`/${locale}/anti-muslim/`) &&
+      !pathname.includes(`/${locale}/publications/`)
     ) {
       return NextResponse.redirect(
         new URL(`/${locale}/dashboard`, request.url)
@@ -121,7 +122,11 @@ export function middleware(request: NextRequest) {
       user &&
       user?.role &&
       user?.role == 3 &&
-      !privateCleanerPaths.includes(pathname)
+      !privateCleanerPaths.includes(pathname) &&
+      !allPaths.includes(pathname) &&
+      !pathname.includes('/dashboard/clean-data') &&
+      !pathname.includes(`/${locale}/anti-muslim/`) &&
+      !pathname.includes(`/${locale}/publications/`)
     ) {
       return NextResponse.redirect(
         new URL(`/${locale}/dashboard`, request.url)
@@ -130,7 +135,11 @@ export function middleware(request: NextRequest) {
       user &&
       user?.role &&
       user?.role == 4 &&
-      !privateRiskPaths.includes(pathname)
+      !privateRiskPaths.includes(pathname) &&
+      !allPaths.includes(pathname) &&
+      !pathname.includes('/dashboard/dangerous-reports') &&
+      !pathname.includes(`/${locale}/anti-muslim/`) &&
+      !pathname.includes(`/${locale}/publications/`)
     ) {
       return NextResponse.redirect(
         new URL(`/${locale}/dashboard`, request.url)

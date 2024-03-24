@@ -14,7 +14,7 @@ import {
 } from './cookies.d';
 
 export const setUserCookies = (data: any) => {
-  cookies.set(USER_DATA, JSON.stringify(data));
+  cookies.set(USER_DATA, JSON.stringify(data), { expires: 60 * 60 });
 };
 
 export const getUserCookies = () => {

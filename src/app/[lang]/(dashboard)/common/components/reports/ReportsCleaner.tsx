@@ -6,7 +6,7 @@ import { Button } from '@/app/components/button/Button';
 import imgcatActive from '../../../../../../../public/images/Checkmark Starburst (1).svg';
 import imgcatDesactive from '../../../../../../../public/images/Checkmark Starburst (1).svg';
 import imgUncatDesactive from '../../../../../../../public/images/Square Dismiss.svg';
-import imgUncatActive from '../../../../../../../public/images/Square Dismiss (1).svg';
+import imgUncatActive from '../../../../../../../public/images/Square Dismiss.svg';
 
 import { Category } from '../report-card/reportCard.d';
 import {

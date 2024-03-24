@@ -64,7 +64,7 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
         setValue('happenedOnline', formValues?.happenedOnline);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    console.log(!happenedOnline, 'this incident happened online');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city, state, happenedOnline]);
 
   // Autofill function

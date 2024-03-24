@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Suspense, useState } from 'react';
+import Reports from '../../common/components/reports/Reports';
 
-const page = () => {
-  return <div>Reports</div>;
+const Page = () => {
+  return (
+    <Suspense>
+      <Reports />
+    </Suspense>
+  );
 };
 
-export default page;
+export default Page;
