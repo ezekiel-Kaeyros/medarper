@@ -8,11 +8,11 @@ export const decode = (token: string) => {
 }
 
 export const verify = (token: any) => {
-    return jwt.verify(token, process.env.JWT_SECRET as string);
+    return jwt.verify(token, 'Anti-D-2024' as string);
 }
 
 export const createToken= (tokenData:any, time:string) => {
-    return jwt.sign(tokenData, process.env.JWT_SECRET as string, { expiresIn: time });
+    return jwt.sign(tokenData, 'Anti-D-2024' as string, { expiresIn: time });
 }
 
 export const authenticate = async (req: NextApiRequest): Promise<any> => {

@@ -9,7 +9,8 @@ declare global {
   };
 }
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI =
+  'mongodb+srv://medar-user2:medar-pwd2@medar-db.7c6rlum.mongodb.net/?retryWrites=true&w=majority&appName=medar-db';
 console.log(MONGODB_URI);
 
 
