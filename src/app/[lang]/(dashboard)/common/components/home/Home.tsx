@@ -268,7 +268,7 @@ const Home = () => {
       // }
     }, [refresh]);
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden overflow-y-auto h-screen">
       
       {load ? (
         <div className="text-center text-2xl h-[70vh] flex place-items-center w-full justify-center">
