@@ -32,7 +32,7 @@ const Sidebar = () => {
     <div
       className={`sm:w-1/6 flex  sm:relative fixed z-[100] duration-300 ease-linear
       ${!isShow ? 'sm:translate-x-0 -translate-x-full ' : ' translate-x-0 '}
-      fixed top-0 border-r-2 h-screen lg:px-8 px-3 overflow-y-auto  flex-col justify-between pb-10 bg-white`}
+      fixed top-0 border-r-2 h-screen lg:px-8 px-3 overflow-y-auto  flex-col justify-between pb-10 bg-[#F3F3F3]`}
     >
       <div className=" flex flex-col gap-5">
         <div className="mt-8">

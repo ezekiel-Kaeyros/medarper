@@ -44,7 +44,7 @@ export async function POST(request: any) {
         const token= createToken(tokenData, '1h')
         const refreshToken = createToken(tokenData, '2h');
         const response= NextResponse.json({success: 'Success', message: 'Login successful'},{ status: 201 })
-        response.cookies.set('refreshToken', refreshToken, {httpOnly: true});
+        response.cookies.set('refreshToken', refreshToken, {httpOnly: true, domain:".medar.nrw"});
         response.headers.set('Authorization', token);
         return response
       } else {
@@ -62,7 +62,11 @@ export async function GET() {
   
   try {
     const response= NextResponse.json({success: 'Success', message: 'Logout successful'},{ status: 201 })
-    response.cookies.set('token', '', {httpOnly: true, expires: new Date(0)});
+    response.cookies.set('token', '', {
+      httpOnly: true,
+      expires: new Date(0),
+      domain: '.medar.nrw',
+    });
     return response
   } catch (error) {
     return NextResponse.json({ status: 'Error', message: 'something wrong' }, { status: 500});

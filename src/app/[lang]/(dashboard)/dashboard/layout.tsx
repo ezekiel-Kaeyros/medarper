@@ -29,9 +29,9 @@ export default function AdminLayout({
         // speed={200}
         // shadow="0 0 10px #2299DD,0 0 5px #2299DD"
       /> */}
-      <div className="w-screen flex h-screen overflow-hidden">
+      <div className="w-screen flex bg-[#F3F3F3] h-screen overflow-hidden">
         <Sidebar />
-        <div className="bg-white  sm:w-5/6 w-screen  h-screen">
+        <div className="  sm:w-5/6 w-screen  h-screen">
           <AdminHeader />
           <main className=" md:p-16 p-3 sm:h-screen h-[calc(100vh-70px)]">
             {children}

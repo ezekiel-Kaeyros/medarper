@@ -37,7 +37,7 @@ const ReportSummary: React.FC<ReportSummaryProps> = ({
   const { state } = useContext(AdminContext);
   const { user } = useAuth();
 
-  const defaultClassName = `border rounded-xl p-4 border-gray-300 w-full max-h-[70vh] overflow-y-auto overscroll-none no-scrollbar`;
+  const defaultClassName = `bg-white border rounded-xl p-4 border-gray-300 w-full max-h-[70vh] overflow-y-auto overscroll-none no-scrollbar`;
   const combinedClassName = className ? `${className}` : defaultClassName;
   const { uncategorizedData } = useFindReport();
 

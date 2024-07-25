@@ -19,6 +19,7 @@ export const setUserCookies = (data: any) => {
   cookies.set(USER_DATA, JSON.stringify(data), {
     expires: 60 * 60,
     domain: '.medar.nrw',
+    secure:true
   });
 };
 
@@ -52,6 +53,7 @@ export const setFormStep = (step: number): void => {
   cookies.set(FORM_STEP, JSON.stringify(step), {
     expires: 1,
     domain: ".medar.nrw",
+    secure: true
   });
 };
 
@@ -65,6 +67,7 @@ export const setFormCookies = (data: any, formData: string) => {
   cookies.set(formData, JSON.stringify(data), {
     expires: 7,
     domain: ".medar.nrw",
+    secure:true
 
   });
 };
