@@ -31,7 +31,7 @@ export const getUserCookies = () => {
 };
 
 export const removeUserCookies = () => {
-  cookies.remove(USER_DATA);
+  cookies.remove(USER_DATA, {domain: '.medar.nrw'});
 };
 export const setShow = (data: string) => {
   console.log('data', data);
@@ -40,7 +40,7 @@ export const setShow = (data: string) => {
   cookies.set(SHOW, data, { domain: '.medar.nrw'});
 };
 export const removeShow = () => {
-  cookies.remove(SHOW);
+  cookies.remove(SHOW, { domain: '.medar.nrw' });
 };
 // Setting FORM steps
 
@@ -58,7 +58,7 @@ export const setFormStep = (step: number): void => {
 };
 
 export const clearFormStep = (): void => {
-  cookies.remove(FORM_STEP);
+  cookies.remove(FORM_STEP, { domain: '.medar.nrw' });
 };
 
 // Form cookies
@@ -78,15 +78,15 @@ export const getFormCookies = (formData: string) => {
 };
 
 export const clearFormCookies = () => {
-  cookies.remove(FORM_STEP);
-  cookies.remove(FIRST_FORM);
-  cookies.remove(SECOND_FORM);
-  cookies.remove(THIRD_FORM);
-  cookies.remove(FOURTH_FORM);
-  cookies.remove(FIFTH_FORM);
-  cookies.remove(SIXTH_FORM);
-  cookies.remove(SEVENTH_FORM);
-  cookies.remove(EIGTH_FORM);
-  cookies.remove(NINETH_FORM);
-  cookies.remove(TENTH_FORM);
+  cookies.remove(FORM_STEP, { domain: '.medar.nrw' });
+  cookies.remove(FIRST_FORM, { domain: '.medar.nrw' });
+  cookies.remove(SECOND_FORM, { domain: '.medar.nrw' });
+  cookies.remove(THIRD_FORM, { domain: '.medar.nrw' });
+  cookies.remove(FOURTH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(FIFTH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(SIXTH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(SEVENTH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(EIGTH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(NINETH_FORM, { domain: '.medar.nrw' });
+  cookies.remove(TENTH_FORM, { domain: '.medar.nrw' });
 };
