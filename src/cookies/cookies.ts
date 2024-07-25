@@ -18,7 +18,7 @@ import {
 export const setUserCookies = (data: any) => {
   cookies.set(USER_DATA, JSON.stringify(data), {
     expires: 60 * 60,
-    domain: process.env.DOMAINE_COOKIES,
+    domain: '.medar.nrw',
   });
 };
 
@@ -34,9 +34,9 @@ export const removeUserCookies = () => {
 };
 export const setShow = (data: string) => {
   console.log('data', data);
-console.log('process.env.domaine', process.env.DOMAINE_COOKIES);
 
-  cookies.set(SHOW, data, { domain: process.env.DOMAINE_COOKIES });
+
+  cookies.set(SHOW, data, { domain: '.medar.nrw'});
 };
 export const removeShow = () => {
   cookies.remove(SHOW);
@@ -51,7 +51,7 @@ export const getFormStep = (): number => {
 export const setFormStep = (step: number): void => {
   cookies.set(FORM_STEP, JSON.stringify(step), {
     expires: 1,
-    domain: process.env.DOMAINE_COOKIES,
+    domain: ".medar.nrw",
   });
 };
 
@@ -64,7 +64,8 @@ export const clearFormStep = (): void => {
 export const setFormCookies = (data: any, formData: string) => {
   cookies.set(formData, JSON.stringify(data), {
     expires: 7,
-    domain: process.env.DOMAINE_COOKIES,
+    domain: ".medar.nrw",
+
   });
 };
 
