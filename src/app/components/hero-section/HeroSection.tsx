@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Accordion from '../accordion/Accordion';
 import AccordionLarge from '../accordion/AccordationLarge';
 import { Button } from '../button/Button';
@@ -33,6 +33,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ content, lang }) => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [toggleLarge, setToggleLarge] = useState<boolean>(false);
 
+  const faqRef = useRef(null);
+
   const handleToggle = (toggle: boolean) => {
     setToggle(!toggle);
   };
@@ -43,20 +45,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ content, lang }) => {
 
   return (
     <div className={` ${toggle ? '' : 'lg:mb-0'} lg:h-full`}>
-      <div className=" lg:relative w-full mt-10">
+      <div className=" lg:relative w-full mt-5">
         <div className="hidden lg:flex justify-between absolute -z-10 w-full h-full">
           {/* Bg light brown green bg circle */}
           <Image
             src={FormPeople}
             className="w-[400px] h-fit mt-52 rtl:-right-[4rem] rtl:scale-y-[-1] rtl:rotate-180"
-            // className="hidden lg:block absolute -right-24 bottom-72"
             alt="Form"
           />
 
           {/* snakes tail bg img */}
           <Image
             src={FormLanding}
-            // className="hidden lg:block lg:absolute -left-48 lg:-z-20 lg:-top-[5rem]"
             className="w-[300px] h-fit rtl:scale-y-[-1] rtl:rotate-180 mt-20"
             alt="Form"
           />
@@ -70,7 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ content, lang }) => {
                 Hast du antimuslimischen Rassismus oder Diskriminierung erlebt
                 oder beobachtet?
               </h1>
-              <h1 className="text-[18px] lg:text-2xl w-[90%] m-auto lg:m-0 lg:w-[60%] text-center lg:text-start">
+              <h1 className="text-[18px] lg:text-xl w-[90%] m-auto lg:m-0 lg:w-[60%] text-center lg:text-start">
                 Melde den Vorfall & mach’ antimuslimischen Rassismus in NRW
                 sichtbar!
               </h1>
@@ -78,17 +78,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ content, lang }) => {
             <div className="flex flex-col m-auto lg:justify-end">
               <Button
                 href={`/${lang}/report`}
-                className="text-center relative z-10 text-[15px] lg:text-3xl lg:w-48 w-fit"
+                className="text-center relative z-10 lg:w-48 w-fit"
                 variant="default"
               >
-                {content?.button}
+                <span className="text-[15px] lg:text-2xl">
+                  {content?.button}
+                </span>
               </Button>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row lg:justify-between order-4 lg:order-2">
+          <div className="flex flex-col lg:flex-row lg:justify-between order-4 lg:order-2 lg:-mt-8">
             <div className="order-2 lg:order-1 flex justify-end">
               <div className="w-[70%] sm:w-1/2 lg:w-full">
-                <Image src={People} alt="people" className="w-[500px]" />
+                <Image src={People} alt="people" className="w-[800px]" />
               </div>
             </div>
             <div className="flex flex-col justify-center order-1 lg:order-2 mt-10 lg:mt-0 lg:w-[40%]">
@@ -170,8 +172,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ content, lang }) => {
                     </h1>
                   </div>
                 </div>
-                <div className="absolute lg:static w-full top-52">
-                  <Faq content={content?.faqs} lang={lang} />
+                <div className="absolute lg:static w-full top-52" id="faq">
+                  <Faq content={content?.faqs} lang={lang} ref={faqRef} />
                 </div>
               </div>
             </div>

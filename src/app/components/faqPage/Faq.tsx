@@ -73,7 +73,7 @@ const Faq = () => {
           </div>
           <h1 className="text-[#2F804A] lg:text-[45px] sm:text-3xl text-xl font-bold  lg:my-9 sm:my-5 sm:block hidden">
             {/* Anmerkungen und Feedback */}
-            Wie melde ich
+            Wie melde ich?
           </h1>
           <div className="  hidden sm:block w-11/12 m-auto lg:mb-9 sm:mb-5">
             {/* <AccordionLarge

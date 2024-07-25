@@ -1,45 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import RadioGroup from '../../radio/RadioGroup';
-import {
-  EighthStepFormValues,
-  otherFormsData,
-  otherFormsDataYes,
-  EighthStepProps,
-} from './eighthStep.d';
+import { EighthFormValues, causesData, EighthStepProps } from './eighthStep';
+import Checkbox from '../../checkbox/Checkbox';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../../text-field/InputField';
-import Checkbox from '../../checkbox/Checkbox';
 import { getFormCookies, getFormStep, setFormCookies } from '@/cookies/cookies';
-import { EIGTH_FORM } from '@/cookies/cookies.d';
-import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
 import { useFormContext } from '@/app/hooks/useFormContext';
+import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
+import { EIGTH_FORM } from '@/cookies/cookies.d';
 import { useScrollOnTop } from '@/app/hooks/useScrollOnTop';
-import InputFieldCheckbox from '../../InputFiledCheckBox';
 import CheckboxInput from '../../checkbox/checkboxInput';
+import InputFieldCheckbox from '../../InputFiledCheckBox';
+import EighthStep from './EighthStep';
 
-const EighthStep: React.FC<EighthStepProps> = ({ eighthStepTranslation }) => {
+const EightStep: React.FC<EighthStepProps> = ({ eighthStepTranslation }) => {
   const { dispatch } = useFormContext();
-
   const [question] = useState<string>(
-    'Handelt es sich noch um eine weitere Form der Diskriminierung?'
+    'Hatte eines dieser Merkmale deiner Meinung nach einen Einfluss auf die Diskriminierung?'
   );
+
+  // Scroll on top
+  useScrollOnTop();
+
   const {
     register,
     handleSubmit,
     watch,
     setValue,
     formState: { errors },
-  } = useForm<EighthStepFormValues>();
+  } = useForm<EighthFormValues>();
 
-  let otherForms: string = watch('otherForms');
-  let otherFormsYes: string[] = watch('otherFormsYes');
-  let otherFormsYesFreeField: string = watch('otherFormsYesFreeField');
+  // watching fields in realtime
 
-  // Scroll on top
-  useScrollOnTop();
+  let causesOfDiscrimination: string[] = watch('causesOfDiscrimination');
+  let causesOfDiscriminationFreeField: string = watch(
+    'causesOfDiscriminationFreeField'
+  );
 
   // Triggered when submitting form
-  const onSubmit: SubmitHandler<EighthStepFormValues> = (data) => {
+  const onSubmit: SubmitHandler<EighthFormValues> = (data) => {
     let step = getFormStep();
     let dataWithQuestion = { question, step, ...data };
     setFormCookies(dataWithQuestion, EIGTH_FORM);
@@ -48,244 +46,197 @@ const EighthStep: React.FC<EighthStepProps> = ({ eighthStepTranslation }) => {
   };
 
   useEffect(() => {
-    // Get values from cookies
-
+    //  Get values from form
     let formValues: {
-      otherForms: string;
-      otherFormsYes: string[];
-      otherFormsYesFreeField: string;
+      causesOfDiscrimination: string[];
+      causesOfDiscriminationFreeField: string;
     } = getFormCookies(EIGTH_FORM);
 
-    // (otherForms &&
-    //   !otherForms?.includes(eighthStepTranslation?.options[0]?.label) &&
-    //   otherFormsYes &&
-    //   otherFormsYes?.length !== 0 &&
-    //   !otherFormsYes?.includes(
-    //     eighthStepTranslation?.optionYesIndeed[9]?.label
-    //   )) ||
-
-    // validation for eight step.
-    dispatch({ type: FORM_ERRORS, payload: true });
+    // SeventhStep Validation
+    dispatch({ type: FORM_ERRORS, payload: false });
+    if (
+      causesOfDiscrimination &&
+      causesOfDiscrimination?.length > 0 &&
+      !causesOfDiscrimination.includes(eighthStepTranslation.options[12].label)
+    ) {
+      dispatch({ type: FORM_ERRORS, payload: false });
+    }
 
     if (
-      otherForms &&
-      otherForms?.includes(eighthStepTranslation?.options[1]?.label)
+      causesOfDiscrimination &&
+      causesOfDiscrimination?.length > 0 &&
+      causesOfDiscrimination.includes(eighthStepTranslation.options[12].label)
     ) {
       dispatch({ type: FORM_ERRORS, payload: true });
       if (
-        otherFormsYes &&
-        !otherFormsYes.includes(
-          eighthStepTranslation.optionYesIndeed[
-            eighthStepTranslation.optionYesIndeed.length - 1
-          ].label
-        )
+        causesOfDiscriminationFreeField &&
+        causesOfDiscriminationFreeField?.length > 0
       ) {
         dispatch({ type: FORM_ERRORS, payload: false });
       } else {
-        if (
-          otherFormsYes &&
-          otherFormsYes.includes(
-            eighthStepTranslation.optionYesIndeed[
-              eighthStepTranslation.optionYesIndeed.length - 1
-            ].label
-          )
-        ) {
-          dispatch({ type: FORM_ERRORS, payload: true });
-          if (otherFormsYesFreeField && otherFormsYesFreeField.length > 0) {
-            dispatch({ type: FORM_ERRORS, payload: false });
-          } else {
-            dispatch({ type: FORM_ERRORS, payload: true });
-          }
-        }
-      }
-    } else {
-      if (
-        otherForms &&
-        otherForms?.includes(eighthStepTranslation?.options[0]?.label)
-      ) {
-        dispatch({ type: FORM_ERRORS, payload: false });
-      }
-    }
-    if (
-      otherForms &&
-      !otherForms.includes(eighthStepTranslation.options[0].value)
-    ) {
-      dispatch({ type: FORM_ERRORS, payload: true });
-      // dispatch({ type: FORM_ERRORS, payload: false });
-      if (
-        otherForms &&
-        otherFormsYes &&
-        otherFormsYes?.length > 0 &&
-        !otherFormsYes.includes(eighthStepTranslation.optionYesIndeed[9].value)
-      ) {
-        dispatch({ type: FORM_ERRORS, payload: false });
-      }
-      if (
-        otherForms &&
-        otherFormsYes &&
-        otherFormsYes?.length > 0 &&
-        otherFormsYes.includes(eighthStepTranslation.optionYesIndeed[9].value)
-      ) {
         dispatch({ type: FORM_ERRORS, payload: true });
-        if (otherFormsYesFreeField && otherFormsYesFreeField.length > 3) {
-          dispatch({ type: FORM_ERRORS, payload: false });
-        }
       }
     }
 
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    //   if (causesOfDiscrimination.includes(causesOfDiscrimination[12])) {
+    //     dispatch({ type: FORM_ERRORS, payload: false });
+    //   }
+    // } else {
+    //   if (
+    //     causesOfDiscrimination &&
+    //     causesOfDiscrimination?.length > 0 &&
+    //    ! causesOfDiscrimination.includes(
+    //       causesOfDiscrimination[causesOfDiscrimination.length - 1]
+    //     )
+    //   ) {
+    //     dispatch({ type: FORM_ERRORS, payload: true });
+    //   }
+    // if (causesOfDiscrimination && causesOfDiscrimination.length>0 && !causesOfDiscrimination.includes(causesOfDiscrimination[causesOfDiscrimination.length-1])) {
+    //   dispatch({ type: FORM_ERRORS, payload: false });
+    // }
     // if (
-    //   (otherForms &&
-    //     !otherForms?.includes(eighthStepTranslation?.options[1]?.label)) ||
-    //   (otherForms &&
-    //     !otherForms?.includes(eighthStepTranslation?.options[0]?.label) &&
-    //     otherFormsYes &&
-    //     otherFormsYes?.length !== 0 &&
-    //     !otherFormsYes?.includes(
-    //       eighthStepTranslation?.optionYesIndeed[9]?.label
-    //     )) ||
-    //   (otherFormsYes &&
-    //     otherFormsYes?.includes(
-    //       eighthStepTranslation?.optionYesIndeed[9].label
-    //     ) &&
-    //     otherFormsYesFreeField?.length !== 0)
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination.length > 0 &&
+    //   causesOfDiscrimination.includes(
+    //     causesOfDiscrimination[causesOfDiscrimination.length - 1]
+    //   )
     // ) {
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    //   if (
+    //     causesOfDiscriminationFreeField &&
+    //     causesOfDiscriminationFreeField.length > 0
+    //   ) {
+    //     dispatch({ type: FORM_ERRORS, payload: false });
+    //   } else {
+    //     dispatch({ type: FORM_ERRORS, payload: true });
+    //   }
+    // }
+
+    // else if (
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination?.includes(
+    //     eighthStepTranslation.options[12].label
+    //   ) &&
+    //   causesOfDiscriminationFreeField?.length === 0
+    // ) {
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    // } else {
     //   dispatch({ type: FORM_ERRORS, payload: false });
     // }
 
+    // Set form values from cookies
+
     if (
       formValues &&
-      !otherForms &&
-      !otherFormsYes &&
-      !otherFormsYesFreeField
+      !causesOfDiscrimination &&
+      !causesOfDiscriminationFreeField
     ) {
-      otherForms !== formValues?.otherForms &&
-        setValue('otherForms', formValues?.otherForms);
-      otherFormsYes !== formValues?.otherFormsYes &&
-        setValue('otherFormsYes', formValues?.otherFormsYes);
-      otherFormsYesFreeField !== formValues?.otherFormsYesFreeField &&
-        setValue('otherFormsYesFreeField', formValues?.otherFormsYesFreeField);
+      causesOfDiscrimination !== formValues?.causesOfDiscrimination &&
+        setValue('causesOfDiscrimination', formValues?.causesOfDiscrimination);
+      causesOfDiscriminationFreeField !==
+        formValues?.causesOfDiscriminationFreeField &&
+        setValue(
+          'causesOfDiscriminationFreeField',
+          formValues?.causesOfDiscriminationFreeField
+        );
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [otherForms, otherFormsDataYes, otherFormsYesFreeField, otherFormsYes]);
-
-  // console.log(otherForms && otherForms?.includes(eighthStepTranslation?.options[1]?.label) && otherFormsDataYes[16]?.label, "this is my other forms")
-  // console.log(otherForms && otherForms?.includes(eighthStepTranslation?.options[1]?.label), "this is my other forms")
-  // console.log(otherFormsYes.includes("Andere Formen, und zwar:"))
-  console.log(
-    otherFormsYes &&
-      otherFormsYes?.length !== 0 &&
-      !otherFormsYes?.includes(
-        eighthStepTranslation?.optionYesIndeed[9]?.label
-      ),
-    'this is my other forms'
-  );
+  }, [causesOfDiscrimination, causesOfDiscriminationFreeField]);
 
   return (
     <form id="eighthForm" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <RadioGroup
-          options={eighthStepTranslation.options}
-          props={register('otherForms', { required: true })}
-          title={eighthStepTranslation?.title}
-        />
+        <h1 className="font-bold text-2xl text-primaryColor mb-4 w-[85%]">
+          {eighthStepTranslation?.title}
+        </h1>
+        <p className="mb-2 text-primaryColor">
+          {eighthStepTranslation?.multipleAns}
+        </p>
       </div>
-      <div className="ml-8">
-        {otherForms &&
-          otherForms === eighthStepTranslation?.options[1]?.value &&
-          eighthStepTranslation.optionYesIndeed?.map((el, index) => {
-            if (index < eighthStepTranslation.optionYesIndeed.length - 1) {
-              return (
-                <Checkbox
-                  key={el?.ID}
-                  id={el?.ID}
-                  name="otherFormsYes"
-                  props={register('otherFormsYes', { required: true })}
-                  value={el?.value}
-                  label={el?.label}
-                />
-              );
-            }
-          })}
 
-        {otherForms &&
-          otherForms == eighthStepTranslation.options[1]?.value && (
-            <div>
-              <CheckboxInput
-                id={
-                  eighthStepTranslation.optionYesIndeed[
-                    eighthStepTranslation.optionYesIndeed.length - 1
-                  ].ID
-                }
-                name="otherFormsYes"
-                props={register('otherFormsYes')}
-                value={
-                  eighthStepTranslation.optionYesIndeed[
-                    eighthStepTranslation.optionYesIndeed.length - 1
-                  ].value
-                }
+      <div>
+        {eighthStepTranslation.options?.map((choice, index) => {
+          if (index < eighthStepTranslation.options.length - 1) {
+            return (
+              <Checkbox
+                id={`${choice?.ID}`}
+                name="causesOfDiscrimination"
+                props={register('causesOfDiscrimination')}
+                value={`${choice?.value}`}
                 examples=""
-                label={
-                  eighthStepTranslation.optionYesIndeed[
-                    eighthStepTranslation.optionYesIndeed.length - 1
-                  ].label
-                }
+                label={choice?.label}
+                key={choice?.ID}
               />
-              <InputFieldCheckbox
-                name="otherFormsYesFreeField"
+            );
+          }
+        })}
+
+        <div>
+          <CheckboxInput
+            id={
+              eighthStepTranslation.options[
+                eighthStepTranslation.options.length - 1
+              ].ID
+            }
+            name="causesOfDiscrimination"
+            props={register('causesOfDiscrimination')}
+            value={
+              eighthStepTranslation.options[
+                eighthStepTranslation.options.length - 1
+              ].value
+            }
+            examples=""
+            label={
+              eighthStepTranslation.options[
+                eighthStepTranslation.options.length - 1
+              ].label
+            }
+          />
+          <InputFieldCheckbox
+            name="causesOfDiscriminationFreeField"
+            placeholder={eighthStepTranslation.placeHolder}
+            props={register('causesOfDiscriminationFreeField')}
+            disable={
+              causesOfDiscrimination &&
+              causesOfDiscrimination?.includes(
+                eighthStepTranslation.options[
+                  eighthStepTranslation.options.length - 1
+                ].label
+              )
+                ? false
+                : true
+            }
+            value={
+              !causesOfDiscrimination ||
+              !causesOfDiscrimination?.includes(
+                eighthStepTranslation.options[
+                  eighthStepTranslation.options.length - 1
+                ].label
+              )
+                ? ''
+                : causesOfDiscriminationFreeField
+            }
+          />
+        </div>
+
+        {/* {causesOfDiscrimination &&
+          causesOfDiscrimination?.includes(
+            eighthStepTranslation.options[12].label
+          ) && (
+            <div className="ml-2">
+              <InputField
+                name="causesOfDiscriminationFreeField"
                 placeholder={eighthStepTranslation.placeHolder}
-                props={register('otherFormsYesFreeField')}
-                disable={
-                  otherFormsYes &&
-                  otherFormsYes?.includes(
-                    eighthStepTranslation?.optionYesIndeed[
-                      eighthStepTranslation?.optionYesIndeed.length - 1
-                    ].label
-                  )
-                    ? false
-                    : true
-                }
-                value={
-                  !otherFormsYes ||
-                  !otherFormsYes?.includes(
-                    eighthStepTranslation?.optionYesIndeed[
-                      eighthStepTranslation?.optionYesIndeed.length - 1
-                    ].label
-                  )
-                    ? ''
-                    : otherFormsYesFreeField
-                }
+                props={register('causesOfDiscriminationFreeField')}
               />
             </div>
-          )}
-        {/* <div className="ml-2">
-          {otherFormsYes &&
-            otherFormsYes?.includes(
-              eighthStepTranslation?.optionYesIndeed[9]?.label
-            ) && (
-              <>
-                <InputField
-                  name="otherFormsYesFreeField"
-                  placeholder={eighthStepTranslation.placeHolder}
-                  // props={register('otherFormsYesFreeField')}
-                  props={register('otherFormsYesFreeField', {
-                    required: true,
-                    minLength: 3,
-                  })}
-                />
-                <p className="mb-5">
-                  {errors?.otherFormsYesFreeField && (
-                    <span className="text-sm text-red-600 font-bold">
-                      {eighthStepTranslation.validation}
-                    </span>
-                  )}
-                </p>
-              </>
-            )}
-        </div> */}
+          )} */}
       </div>
     </form>
   );
 };
 
-export default EighthStep;
+export default EightStep;

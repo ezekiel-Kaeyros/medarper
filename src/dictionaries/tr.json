@@ -24,9 +24,9 @@
     "glossary": "Sözlük",
     "datenschutz": "Veri Koruma",
     "impressum": "Yasal Uyarı",
-    "faq":"SSS",
-    "anti":"Müslüman karşıtı ırkçılık",
-    "btn":"Olayı rapor edin"
+    "faq": "yayın",
+    "anti": "Müslüman karşıtı ırkçılık",
+    "btn": "Olayı rapor edin"
   },
   "page": {
     "home": {
@@ -43,9 +43,9 @@
       },
       "referralCounseling": {
         "title": "Yönlendirme Danışmanlığı",
-        "description": "Lorem ipsum dolor sit amet, ",
-        "filterPlace": "Bir yer veya posta kodu girin",
-        "placeOrLocation": "Yer/Konum"
+        "description": "Olayınızla ilgili daha fazla yardım ve danışmanlık arıyor musunuz?",
+        "filterPlace": "İşte size özel veya genel konularda yardımcı olabilecek danışmanlık merkezlerinin bir listesi.",
+        "placeOrLocation": "Yer / Posta Kodu Girin"
       },
       "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
       "aboutUs": {
@@ -267,7 +267,7 @@
           ]
         },
         "fourthStep": {
-          "title": "Tarih",
+          "title": "Olay ne zaman yaşandı?",
           "options": [
             {
               "dateRange": "Olay bir süre boyunca devam etti",
@@ -288,9 +288,121 @@
           ]
         },
         "sixthStep": {
+          "title": "Ayrımcılık hangi toplumsal alanlarda gerçekleşti?",
+          "multipleAns": "(Birden fazla seçenek belirlenebilir)",
+          "placeHolder": "Buraya belirtiniz",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "Devlet kurumları ve kuruluşları",
+              "value": "Devlet kurumları ve kuruluşları",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "İş",
+              "value": "İş",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "Konut",
+              "value": "Konut",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "Kamu alanları",
+              "value": "Kamu alanları",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "Dijital alan",
+              "value": "Dijital alan",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "Analog medya",
+              "value": "Analog medya",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "Perakende ve hizmetler",
+              "value": "Perakende ve hizmetler",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "Boş zaman etkinlikleri",
+              "value": "Boş zaman etkinlikleri",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "Ulaşım",
+              "value": "Ulaşım",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "Sağlık",
+              "value": "Sağlık",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "Sosyal hizmetler",
+              "value": "Sosyal hizmetler",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "Adalet",
+              "value": "Adalet",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "Polis",
+              "value": "Polis",
+              "checked": false
+            },
+            {
+              "ID": "description14",
+              "name": "description",
+              "label": "Acil durum hizmetleri",
+              "value": "Acil durum hizmetleri",
+              "checked": false
+            },
+            {
+              "ID": "description15",
+              "name": "description",
+              "label": "Diğer, şöyle:",
+              "value": "Diğer, şöyle:",
+              "checked": false
+            }
+          ]
+        },
+        "seventhStep": {
           "title": "Tam olarak ne oldu? *",
-          "placeHolder": "Lütfen olayı tanımlayın ...",
-          "errorParagragh": "50 karakterden fazla olmalıdır",
+          "placeHolder": "Lütfen olayı olabildiğince açık bir şekilde anlatın., (en az 50 karakter)",
+          "errorParagragh": "(en az 50 karakter)",
           "options": [
             {
               "inputPlaceholder": "Lütfen olayı mümkün olduğunca açık bir şekilde açıklayın.",
@@ -305,9 +417,9 @@
             }
           ]
         },
-        "seventhStep": {
+        "eightStep": {
           "title": "Bu özelliklerden herhangi birinin ayrımcılık üzerinde etkisi olduğunu düşünüyor musunuz?",
-          "multipleAns": "Birden fazla seçenek işaretlenebilir",
+          "multipleAns": "(Birden fazla seçenek belirlenebilir)",
           "placeHolder": "Burada gerçekleştirin",
           "options": [
             {
@@ -403,7 +515,7 @@
             }
           ]
         },
-        "eightStep": {
+        "ninthStep": {
           "title": "Başka bir ayrımcılık türü var mı?*",
           "placeHolder": "Burada gerçekleştirin",
           "validation": "En az 3 karakter olmalı",
@@ -496,7 +608,7 @@
             }
           ]
         },
-        "ninthStep": {
+        "tenthStep": {
           "title": "Daha önce başka önlemler aldınız mı?*",
           "placeHolder": "Burada gerçekleştirin",
           "validation": "En az 3 karakter olmalı",
@@ -547,7 +659,7 @@
             }
           ]
         },
-        "tenthStep": {
+        "eleventhStep": {
           "title": "Bilgilerinin doğruluğunu kontrol et",
           "captcha": "Ben bir robot değilim",
           "options": [
@@ -570,13 +682,13 @@
         "confirmModal": {
           "title": "Teşekkürler!",
           "des": "Deneyimlerinizi bizimle paylaştığınız için teşekkür ederiz. Bildirme formunu doldurarak, ayrımcılık ve şiddetin daha görünür hale gelmesine yardımcı oluyorsunuz.",
-          "back": "GERİ",
+          "back": "Hazır",
           "ja": "EVET!"
         },
         "onBehalf": {
           "title": "Dikkat",
           "des": "Burada etkilenen kişi adına bilgileri girdiğimi doğruluyorum. Bu bildirim formunu etkilenen kişi adına doldurdum ve onun rızasını aldım. Tüm bilgiler, etkilenen kişinin istekleri ve beyanları doğrultusunda doldurulmuştur.",
-          "back": "GERİ",
+          "back": "Tamamlamak",
           "forward": "EVET!"
         },
         "witness": {
@@ -631,7 +743,7 @@
       },
       "faqs": {
         "title": "Sıkça Sorulan Sorular",
-        "whyReport": "Neden Bildirim Yapmalıyım?",
+        "whyReport": "Nasıl Rapor Verebilirim?",
         "whatHappensWithData": "Verilerim Ne Olacak?",
         "whatIsAntiMuslimRacism": "Anti-Müslüman Irkçılık Nedir?",
         "whoIsBehindMEDAR": "MEDAR NRW'nin Arkasında Kim Var?",

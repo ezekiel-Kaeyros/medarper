@@ -1,10 +1,14 @@
 import React from 'react';
 
 type TextAreaProps = {
-  props: any;
+  props?: any;
   name: string;
   placeholder: string;
   title?: string;
+  type?: string;
+  val?: string;
+  handleChange?: any;
+  className?: string;
   numberRows?: number;
 };
 
@@ -13,25 +17,41 @@ const TextArea: React.FC<TextAreaProps> = ({
   name,
   title,
   placeholder,
+  val,
+  // handleChange,
+  className,
   numberRows,
 }) => {
+  const defaultClassName = `placeholder:text-sm block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md focus:ring-blue-500 text-lg focus:py-2 placeholder:max-w-xs placeholder:whitespace-pre-line`;
+  // focus:border border focus:border-primaryColor border-primaryColor
+  const combinedClassName = className
+    ? `${defaultClassName} ${className}`
+    : defaultClassName;
+
+  const defaultRows = 6;
+  const row = !numberRows ? defaultRows : numberRows;
+
   return (
-    <div className="h-full">
-      <label
-        htmlFor={name}
-        className="font-bold block lg:text-3xl text-primaryColor"
-      >
-        {title}
-      </label>
+    <>
+      {title && (
+        <label
+          htmlFor={name}
+          className="block mb-3 text-sm font-bold text-gray-900 "
+        >
+          {title}
+        </label>
+      )}
       <textarea
         id={placeholder}
-        rows={numberRows && numberRows | 4}
+        rows={row}
         name={name}
         {...props}
-        className="block p-2.5 w-full h-full text-sm placeholder-primaryColor  rounded-md border   dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder={placeholder}
+        value={val}
+        // onChange={handleChange}
+        className={combinedClassName}
+        placeholder={`${placeholder}`}
       ></textarea>
-    </div>
+    </>
   );
 };
 

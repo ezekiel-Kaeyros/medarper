@@ -18,6 +18,7 @@ type AutoCompleteProps = {
   handleOnHover?: () => void;
   handleOnFocus?: () => void;
   handleSearch?: any;
+  placeholder?: string;
   events: Array<{
     code: string;
     lat: number;
@@ -37,6 +38,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   handleOnSelect,
   events,
   handleSearch,
+  placeholder,
 }) => {
   const [location, setLocation] = useState<string>('');
 
@@ -64,6 +66,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
           inputSearchString={location}
           autoFocus={false}
           formatResult={formatResult}
+          placeholder={placeholder}
           styling={{
             height: '44px',
             border: '1px solid #dfe1e5',

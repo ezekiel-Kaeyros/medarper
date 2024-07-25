@@ -35,17 +35,17 @@ const faqs = [
 ];
 
 type FaqsProps = {
-  faqsTranslation:{
-    title:string;
-        whyReport:string,
-        whatHappensWithData: string,
-        whatIsAntiMuslimRacism:string,
-        whoIsBehindMEDAR: string,
-        readAllAnswers:string
-  }
+  faqsTranslation: {
+    title: string;
+    whyReport: string;
+    whatHappensWithData: string;
+    whatIsAntiMuslimRacism: string;
+    whoIsBehindMEDAR: string;
+    readAllAnswers: string;
+  };
 };
 
-const Faqs: React.FC<FaqsProps> = ({faqsTranslation}) => {
+const Faqs: React.FC<FaqsProps> = ({ faqsTranslation }) => {
   return (
     <div>
       <h1 className="font-bold text-black text-2xl mb-4 mt-6">

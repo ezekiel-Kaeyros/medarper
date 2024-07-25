@@ -1,3 +1,4 @@
+'use client';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import {
   AuthValuesType,
@@ -5,7 +6,7 @@ import {
   LoginParams,
   UserDataType,
 } from './types';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import {
   getUserCookies,
   removeUserCookies,
@@ -13,6 +14,9 @@ import {
 } from '@/cookies/cookies';
 import AuthService from '@/services/authService';
 import { AxiosResponse } from 'axios';
+import { reportType } from '@/utils/shared-types';
+import { boolean, number } from 'joi';
+import { useRouter } from 'next/navigation';
 
 const defaultProvider: AuthValuesType = {
   user: getUserCookies(),
@@ -20,7 +24,14 @@ const defaultProvider: AuthValuesType = {
   setUser: () => null,
   login: () => {},
   logout: () => {},
-  setLoading: () => Boolean,
+  IshowHandler: () => {},
+  // setLoading: () => Boolean,
+  reports: [],
+  setReports: () => {},
+  isShow: false,
+  total: 0,
+  totalWeek: 0,
+  setNumbers: () => {},
 };
 
 const AuthContext = createContext(defaultProvider);
@@ -34,6 +45,11 @@ const AuthProvider = ({ children }: Props) => {
   const [user, setUser] = useState<UserDataType | undefined>(
     defaultProvider.user
   );
+  const [report, setReport] = useState<reportType[]>([]);
+  const [show, setShow] = useState(false);
+  const [totals, setTotals] = useState(0);
+  const [weeks, setWeeks] = useState(0);
+
   const [loading, setLoading] = useState<boolean>(defaultProvider.loading);
 
   // ** Hooks
@@ -42,6 +58,7 @@ const AuthProvider = ({ children }: Props) => {
   useEffect(() => {
     const initAuth = async (): Promise<void> => {
       const userData: UserDataType = await getUserCookies();
+
       if (userData) {
         setUser({ ...userData });
       }
@@ -51,13 +68,27 @@ const AuthProvider = ({ children }: Props) => {
     initAuth();
   }, []);
 
+  const handlerReport = (report: reportType[]) => {
+    setReport(report);
+  };
+
+  const handleShow = () => {
+    setShow(!show);
+  };
+
+  const setNumbersHandler = (
+    val1: number, val2: number 
+  ) => {
+    setTotals(val1)
+    setWeeks(val2)
+  };
+
   const handleLogin = (
     // params: LoginParams,
     // errorCallback?: ErrCallbackType
     user: UserDataType
   ) => {
     setUser(user);
-    alert('ok');
 
     // new AuthService()
     //   .login(params)
@@ -89,13 +120,20 @@ const AuthProvider = ({ children }: Props) => {
     router.push('/login');
   };
 
-  const values: any = {
+  const values: AuthValuesType = {
     user,
     loading,
     setUser,
-    setLoading,
+    // setLoading,
+    IshowHandler: handleShow,
     login: handleLogin,
     logout: handleLogout,
+    reports: report,
+    setReports: handlerReport,
+    isShow: show,
+    total: totals,
+    totalWeek: weeks,
+    setNumbers: setNumbersHandler,
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

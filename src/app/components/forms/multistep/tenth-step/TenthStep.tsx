@@ -1,460 +1,454 @@
 import React, { useEffect, useState } from 'react';
-import EditBlock from './EditBlock';
-import Checkbox from '../../checkbox/Checkbox';
-import CheckboxSimple from '../../checkbox/CheckboxSimple';
-import { clearFormCookies, getFormCookies } from '@/cookies/cookies';
-import {
-  EIGTH_FORM,
-  FIFTH_FORM,
-  FIRST_FORM,
-  FOURTH_FORM,
-  NINETH_FORM,
-  SECOND_FORM,
-  SEVENTH_FORM,
-  SIXTH_FORM,
-  THIRD_FORM,
-} from '@/cookies/cookies.d';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { TenthFormValues, TenthStepProps } from './tenthStep.d';
+import {
+  TenthStepFormValues,
+  haveYouReportedData,
+  TenthStepProps,
+  haveYouReportedDataYes,
+} from './tenthStep';
+import RadioGroup from '../../radio/RadioGroup';
+import InputField from '../../text-field/InputField';
+import RadioSingle from '../../radio/RadioSingle';
+import { getFormCookies, getFormStep, setFormCookies } from '@/cookies/cookies';
+import { TENTH_FORM } from '@/cookies/cookies.d';
 import { useFormContext } from '@/app/hooks/useFormContext';
 import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
-import FirstStepProps from '../first-step/FirstStep';
-import dayjs from 'dayjs';
-import CaptchaCheckbox from '@/app/components/captcha/captcha-checkbox/CaptchaCheckbox';
-import { verifyCaptchaAction } from '@/app/components/captcha/Captcha';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import ReportService from '@/services/reportService';
-import { useRouter } from 'next/navigation';
+import { useScrollOnTop } from '@/app/hooks/useScrollOnTop';
+import Checkbox from '../../checkbox/Checkbox';
+import CheckboxInput from '../../checkbox/checkboxInput';
+import InputFieldCheckbox from '../../InputFiledCheckBox';
 
 const TenthStep: React.FC<TenthStepProps> = ({ tenthStepTranslation }) => {
+  const [question] = useState<string>(tenthStepTranslation.title);
+
   const { dispatch } = useFormContext();
-  const [captchLoading, setCaptchaLoading] = useState<boolean>(true);
-  const [verified, setVerified] = useState<any>(false);
-  const { push } = useRouter();
-  let firstForm: { identity: string; question: string; step: number } =
-    getFormCookies(FIRST_FORM);
-
-  let secondForm: {
-    step: number;
-    question: string;
-    gender: string;
-    organizationType: string[];
-    genderFreeField: string;
-    organizationTypeFreeField: string;
-  } = getFormCookies(SECOND_FORM);
-
-  let thirdForm: {
-    numberOfEmployees: string;
-    age: string;
-    question: string;
-    step: number;
-  } = getFormCookies(THIRD_FORM);
-
-  let fourthForm: {
-    question: string;
-    date: any;
-    dateRange: any;
-    onGoingIncident: string;
-    step: number;
-  } = getFormCookies(FOURTH_FORM);
-
-  let fifthForm: {
-    happenedOnline: string;
-    state: string;
-    city: string;
-    question: string;
-    step: number;
-  } = getFormCookies(FIFTH_FORM);
-
-  let sixthForm: { description: string; question: string; step: number } =
-    getFormCookies(SIXTH_FORM);
-
-  let seventhForm: {
-    causesOfDiscrimination: string[];
-    causesOfDiscriminationFreeField: string;
-    question: string;
-    step: number;
-  } = getFormCookies(SEVENTH_FORM);
-
-  let eighthForm: {
-    question: string;
-    otherForms: string;
-    otherFormsYes: string[];
-    otherFormsYesFreeField: string;
-    step: number;
-  } = getFormCookies(EIGTH_FORM);
-
-  let ninethForm: {
-    question: string;
-    haveYouReported: string;
-    haveYouReportedYes: string[];
-    haveYouReportedFreeField1: string;
-    haveYouReportedFreeField2: string;
-    step: number;
-  } = getFormCookies(NINETH_FORM);
-
-  // React hook form
 
   const {
     register,
     handleSubmit,
     watch,
     setValue,
-    formState: { errors },
-  } = useForm<TenthFormValues>();
+    formState: { errors, isValid },
+  } = useForm<TenthStepFormValues>();
 
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  let haveYouReported: string = watch('haveYouReported');
+  let haveYouReportedYes: string = watch('haveYouReportedYes');
+  let haveYouReportedFreeField1: string = watch('haveYouReportedFreeField1');
+  let haveYouReportedFreeField2: string = watch('haveYouReportedFreeField2');
 
-  let agreement: string = watch('agreement');
+  // Scroll on top
+  useScrollOnTop();
 
-  let captcha: string = watch('captcha');
-
-  const handleCaptcha = async () => {
-    // Captcha verification
-    // if the component is not mounted yet
-    if (!executeRecaptcha) {
-      return;
+  // Triggered when submitting form
+  const onSubmit: SubmitHandler<TenthStepFormValues> = (data) => {
+    let step = getFormStep();
+    if (data.haveYouReported && data.haveYouReported.length < 5) {
+      let dataWithQuestion = {
+        question,
+        step,
+        haveYouReported: data.haveYouReported,
+        haveYouReportedYes: [],
+      };
+      setFormCookies(dataWithQuestion, TENTH_FORM);
+    } else {
+      let dataWithQuestion = { question, step, ...data };
+      setFormCookies(dataWithQuestion, TENTH_FORM);
     }
-    // receive a token
 
-    try {
-      const token = await executeRecaptcha('onSubmit');
-
-      // validate the token via the server action we've created previously
-
-      const verified = await verifyCaptchaAction(token);
-
-      verified && setVerified(verified);
-
-      setCaptchaLoading(false);
-    } catch (error) {
-      console.log(error);
-      setCaptchaLoading(false);
-    }
+    dispatch({ type: NEXT_STEP, payload: '' });
   };
 
   useEffect(() => {
-    if (!agreement) {
+    // Get values from cookies
+
+    let formValues: {
+      haveYouReported: string;
+      haveYouReportedYes: string;
+      haveYouReportedFreeField1: string;
+      haveYouReportedFreeField2: string;
+    } = getFormCookies(TENTH_FORM);
+
+    // validation
+    //     dispatch({ type: FORM_ERRORS, payload: true });
+    //     if (
+    //       (haveYouReported &&
+    //         !haveYouReported?.includes(tenthStepTranslation?.options[1].label)) ||
+    //       (haveYouReportedYes &&
+    //         !haveYouReportedYes?.includes(
+    //           tenthStepTranslation?.optionYesIndeed[2]?.label
+    //         ) &&
+    //         haveYouReportedYes &&
+    //         !haveYouReportedYes?.includes(
+    //           tenthStepTranslation?.optionYesIndeed[3]?.label
+    //         )) ||
+    //       (haveYouReportedYes &&
+    //         haveYouReportedYes?.includes(
+    //           tenthStepTranslation?.optionYesIndeed[2]?.label
+    //         ) &&
+    //         haveYouReportedFreeField1?.length !== 0) ||
+    //       (haveYouReportedYes &&
+    //         haveYouReportedYes?.includes(
+    //           tenthStepTranslation?.optionYesIndeed[3]?.label
+    //         ) &&
+    //         haveYouReportedFreeField2?.length !== 0)
+    //     ) {
+    //       dispatch({ type: FORM_ERRORS, payload: false });
+    //     }
+
+    //     // Setting form values from cookies
+    // if (!isValid) {
+    //    dispatch({ type: FORM_ERRORS, payload: true });
+    // }
+
+    dispatch({ type: FORM_ERRORS, payload: true });
+
+    //   Setting values in the fields
+
+    if (!haveYouReported) {
       dispatch({ type: FORM_ERRORS, payload: true });
+    }
+    if (haveYouReported === tenthStepTranslation.options[1].label) {
+      dispatch({ type: FORM_ERRORS, payload: true });
+      if (
+        haveYouReported &&
+        haveYouReportedYes?.length > 0 &&
+        !haveYouReportedYes?.includes(
+          tenthStepTranslation?.optionYesIndeed[3].value
+        ) &&
+        !haveYouReportedYes?.includes(
+          tenthStepTranslation?.optionYesIndeed[2].value
+        )
+      ) {
+        dispatch({ type: FORM_ERRORS, payload: false });
+      } else {
+        dispatch({ type: FORM_ERRORS, payload: true });
+        if (
+          haveYouReported &&
+          haveYouReportedYes?.length > 0 &&
+          haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[3].value
+          ) &&
+          !haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[2].value
+          )
+        ) {
+          if (
+            haveYouReportedFreeField2 &&
+            haveYouReportedFreeField2.length > 0
+          ) {
+            dispatch({ type: FORM_ERRORS, payload: false });
+          } else {
+            dispatch({ type: FORM_ERRORS, payload: true });
+          }
+        }
+        if (
+          haveYouReported &&
+          haveYouReportedYes?.length > 0 &&
+          !haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[3].value
+          ) &&
+          haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[2].value
+          )
+        ) {
+          if (
+            haveYouReportedFreeField1 &&
+            haveYouReportedFreeField1.length > 0
+          ) {
+            dispatch({ type: FORM_ERRORS, payload: false });
+          } else {
+            dispatch({ type: FORM_ERRORS, payload: true });
+          }
+        }
+
+        if (
+          haveYouReported &&
+          haveYouReportedYes?.length > 0 &&
+          haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[3].value
+          ) &&
+          haveYouReportedYes?.includes(
+            tenthStepTranslation?.optionYesIndeed[2].value
+          )
+        ) {
+          if (
+            haveYouReportedFreeField1 &&
+            haveYouReportedFreeField1.length > 0 &&
+            haveYouReportedFreeField2 &&
+            haveYouReportedFreeField2.length > 0
+          ) {
+            dispatch({ type: FORM_ERRORS, payload: false });
+          } else {
+            dispatch({ type: FORM_ERRORS, payload: true });
+          }
+        }
+
+        //  if (!isValid) {
+        //    dispatch({ type: FORM_ERRORS, payload: true });
+        //  } else {
+        //    dispatch({ type: FORM_ERRORS, payload: false });
+        //  }
+        // if (
+        //   haveYouReported &&
+        //   haveYouReportedYes?.length > 0 &&
+        //   haveYouReportedYes?.includes(
+        //     tenthStepTranslation?.optionYesIndeed[2].value
+        //   ) &&
+        //   haveYouReportedFreeField1 &&
+        //   haveYouReportedFreeField1.length > 2
+        // ) {
+        //   dispatch({ type: FORM_ERRORS, payload: false });
+        //   // if (
+        //   //   haveYouReportedFreeField1 &&
+        //   //   haveYouReportedFreeField1.length > 2
+        //   // ) {
+        //   //   dispatch({ type: FORM_ERRORS, payload: false });
+        //   // }
+        // }
+        //   if (
+        //     haveYouReported &&
+        //     haveYouReportedYes?.length > 0 &&
+        //     haveYouReportedYes?.includes(
+        //       tenthStepTranslation?.optionYesIndeed[3].value
+        //     ) &&
+        //     haveYouReportedFreeField2 &&
+        //     haveYouReportedFreeField2.length > 2
+        //   ) {
+        //     dispatch({ type: FORM_ERRORS, payload: false });
+        //     // if (
+        //     //   haveYouReportedFreeField1 &&
+        //     //   haveYouReportedFreeField1.length > 2
+        //     // ) {
+        //     //   dispatch({ type: FORM_ERRORS, payload: false });
+        //     // }
+        //   }
+        // else if (
+        //   haveYouReportedYes?.length > 0 &&
+        //   haveYouReportedYes?.includes(
+        //     tenthStepTranslation?.optionYesIndeed[3].value
+        //   )
+        // ) {
+        //   dispatch({ type: FORM_ERRORS, payload: true });
+        //   if (
+        //     haveYouReportedFreeField2 &&
+        //     haveYouReportedFreeField2.length > 2
+        //   ) {
+        //     dispatch({ type: FORM_ERRORS, payload: false });
+        //   }
+        // } else if (
+        //   haveYouReportedYes?.length > 0 &&
+        //   haveYouReportedYes?.includes(
+        //     tenthStepTranslation?.optionYesIndeed[3].value
+        //   ) &&
+        //   haveYouReportedYes?.includes(
+        //     tenthStepTranslation?.optionYesIndeed[2].value
+        //   )
+        // ) {
+        //   dispatch({ type: FORM_ERRORS, payload: true });
+        // }
+      }
+
+      // Clear field when no selected
     } else {
-      dispatch({ type: FORM_ERRORS, payload: false });
+      if (haveYouReported === tenthStepTranslation.options[0].label) {
+        dispatch({ type: FORM_ERRORS, payload: false });
+      }
+      // dispatch({ type: FORM_ERRORS, payload: false });
+    }
+
+    if (
+      formValues &&
+      !haveYouReported &&
+      !haveYouReportedYes &&
+      !haveYouReportedFreeField1 &&
+      !haveYouReportedFreeField2
+    ) {
+      haveYouReported !== formValues?.haveYouReported &&
+        setValue('haveYouReported', formValues?.haveYouReported);
+      haveYouReportedYes !== formValues?.haveYouReportedYes &&
+        setValue('haveYouReportedYes', formValues?.haveYouReportedYes);
+      haveYouReportedFreeField1 !== formValues?.haveYouReportedFreeField1 &&
+        setValue(
+          'haveYouReportedFreeField1',
+          formValues?.haveYouReportedFreeField1
+        );
+      haveYouReportedFreeField2 !== formValues?.haveYouReportedFreeField2 &&
+        setValue(
+          'haveYouReportedFreeField2',
+          formValues?.haveYouReportedFreeField2
+        );
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agreement]);
-
-  captcha && handleCaptcha();
-  const onSubmit: SubmitHandler<any> = async () => {
-    // alert('ok');
-    dispatch({ type: FORM_ERRORS, payload: true });
-    let firstForm: { identity: string; question: string; step: number } =
-      getFormCookies(FIRST_FORM);
-
-    let secondForm: {
-      // step: number;
-      // question: string;
-      gender: string;
-      organizationType: string[];
-      genderFreeField: string;
-      organizationTypeFreeField: string;
-    } = getFormCookies(SECOND_FORM);
-
-    let thirdForm: {
-      numberOfEmployees: string;
-      age: string;
-      question: string;
-      step: number;
-    } = getFormCookies(THIRD_FORM);
-
-    let fourthForm: {
-      question: string;
-      date: any;
-      dateRange: any;
-      onGoingIncident: string;
-      step: number;
-    } = getFormCookies(FOURTH_FORM);
-
-    let fifthForm: {
-      happenedOnline: string;
-      state: string;
-      city: string;
-      question: string;
-      step: number;
-    } = getFormCookies(FIFTH_FORM);
-
-    let sixthForm: { description: string; question: string; step: number } =
-      getFormCookies(SIXTH_FORM);
-
-    let seventhForm: {
-      causesOfDiscrimination: string[];
-      causesOfDiscriminationFreeField: string;
-      question: string;
-      step: number;
-    } = getFormCookies(SEVENTH_FORM);
-
-    let eighthForm: {
-      question: string;
-      otherForms: string;
-      otherFormsYes: string[];
-      otherFormsYesFreeField: string;
-      step: number;
-    } = getFormCookies(EIGTH_FORM);
-
-    let ninethForm: {
-      question: string;
-      haveYouReported: string;
-      haveYouReportedYes: string[];
-      haveYouReportedFreeField1: string;
-      haveYouReportedFreeField2: string;
-      step: number;
-    } = getFormCookies(NINETH_FORM);
-
-    let identity = firstForm?.identity;
-    let description = sixthForm?.description;
-    let organizationType = secondForm?.organizationType;
-    let organizationTypeFreeField = secondForm?.organizationTypeFreeField;
-    let numberOfEmployees = thirdForm?.numberOfEmployees;
-    let valueDate: string = fourthForm?.date;
-    let dateRangeState: string =
-      (fourthForm?.dateRange && fourthForm?.dateRange.toString()) || '';
-    // let datePeriod =
-    //   (thirdForm?.datePeriod && thirdForm?.datePeriod.toString()) || '';
-    let location = fifthForm?.state;
-    let stadtteil = fifthForm?.city;
-    let locationOnline = fifthForm?.happenedOnline;
-    let otherForms = eighthForm?.otherForms;
-    let otherFormsYes = eighthForm?.otherFormsYes;
-    let otherFormsYesFreeField = eighthForm?.otherFormsYesFreeField;
-    // let typeOfDiscrimination = sixthForm?.typeOfDiscrimination;
-    // let formOfDisc = seventhForm?.formOfDisc;
-    // let formOfDiscYes = seventhForm?.formOfDiscYes;
-    // let formOfDiscYesFreeField = seventhForm?.formOfDiscYesFreeField;
-    let causesOfDiscrimination = seventhForm.causesOfDiscrimination;
-    let causesOfDiscriminationFreeField =
-      seventhForm.causesOfDiscriminationFreeField;
-    let haveYouReported = ninethForm?.haveYouReported;
-    let haveYouReportedYes = ninethForm?.haveYouReportedYes;
-    let haveYouReportedYesFreeField1 = ninethForm?.haveYouReportedFreeField1;
-    let haveYouReportedYesFreeField2 = ninethForm?.haveYouReportedFreeField2;
-
-    let gender = secondForm?.gender;
-    let genderFreeField = secondForm?.genderFreeField;
-    let age = thirdForm?.age;
-    // let sexualOrientation = ninethForm?.sexualOrientation;
-    // let sexualOrientationFreeField = ninethForm?.sexualOrientationFreeField;
-
-    const report = {
-      identity,
-      description,
-      organizationType,
-      organizationTypeFreeField,
-      numberOfEmployees,
-      valueDate,
-      dateRangeState,
-      // datePeriod,
-      location,
-      stadtteil,
-      locationOnline,
-      otherForms,
-      otherFormsYes,
-      otherFormsYesFreeField,
-      // formOfQueerphobia,
-      // otherformOfQueerphobiaFreeField,
-      // typeOfDiscrimination,
-      // typeOfDiscriminationFreeField,
-      // formOfDisc,
-      // formOfDiscYes,
-      // formOfDiscYesFreeField,
-      causesOfDiscriminationFreeField,
-      causesOfDiscrimination,
-      haveYouReported,
-      haveYouReportedYes,
-      haveYouReportedYesFreeField1,
-      haveYouReportedYesFreeField2,
-      gender,
-      genderFreeField,
-      age,
-      // sexualOrientation,
-      // sexualOrientationFreeField,
-    };
-
-    console.log('report', report);
-    const response = new ReportService()
-      .sendReport(report)
-      .then((result) => {
-        if (result.status === 201 || result.status === 200) {
-          console.log('Successfull');
-          clearFormCookies();
-          window.location.href='/report';
-        } else {
-          dispatch({ type: FORM_ERRORS, payload: false });
-          console.log('failed');
-          // setCaptchaLoading(false);
-          throw new Error('Fetching error occured, please reload');
-        }
-      })
-      .catch((error) => {
-        console.log('error');
-        // setCaptchaLoading(false);
-        dispatch({ type: FORM_ERRORS, payload: false });
-        throw new Error('Fetching error occured, please reload');
-      });
-  };
+  }, [
+    haveYouReported,
+    haveYouReportedYes,
+    haveYouReportedFreeField1,
+    haveYouReportedFreeField2,
+    isValid,
+  ]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} id="tenthForm">
-      <h1 className="font-bold text-primaryColor text-xl mb-2">
-        {tenthStepTranslation?.title}
-      </h1>
-
-      {/* First form */}
-      <EditBlock
-        step={firstForm?.step}
-        answer={firstForm?.identity && firstForm?.identity}
-        question={firstForm?.question}
-      />
-
-      {/* Second form */}
-      {secondForm?.gender && (
-        <EditBlock
-          step={secondForm?.step}
-          answer={[
-            secondForm?.gender && secondForm?.gender,
-            secondForm?.genderFreeField,
-          ]}
-          question={secondForm?.question}
+    <form id="tenthForm" onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <RadioGroup
+          options={tenthStepTranslation.options}
+          props={register('haveYouReported', { required: true })}
+          title={tenthStepTranslation?.title}
         />
-      )}
+      </div>
+      <div className="ml-8">
+        {haveYouReported &&
+          haveYouReported === tenthStepTranslation?.options[1]?.label && (
+            <>
+              <div>
+                <Checkbox
+                  id={tenthStepTranslation?.optionYesIndeed[0].ID}
+                  label={tenthStepTranslation?.optionYesIndeed[0]?.label}
+                  name="haveYouReportedYes"
+                  props={register('haveYouReportedYes')}
+                  value={tenthStepTranslation?.optionYesIndeed[0]?.label}
+                />
+              </div>
+              <div>
+                <Checkbox
+                  id={tenthStepTranslation?.optionYesIndeed[1].ID}
+                  label={tenthStepTranslation?.optionYesIndeed[1]?.label}
+                  name="haveYouReportedYes"
+                  props={register('haveYouReportedYes')}
+                  value={tenthStepTranslation?.optionYesIndeed[1]?.label}
+                />
+              </div>
+              <div>
+                <CheckboxInput
+                  id={tenthStepTranslation?.optionYesIndeed[2].ID}
+                  label={tenthStepTranslation?.optionYesIndeed[2]?.label}
+                  name="haveYouReportedYes"
+                  props={register('haveYouReportedYes')}
+                  value={tenthStepTranslation?.optionYesIndeed[2]?.label}
+                />
 
-      {secondForm?.organizationType && (
-        <EditBlock
-          step={secondForm?.step}
-          answer={[
-            ...secondForm?.organizationType,
-            secondForm?.organizationTypeFreeField,
-          ]}
-          question={secondForm?.question}
-        />
-      )}
-      {/* Third form */}
+                <InputFieldCheckbox
+                  name="haveYouReportedFreeField1"
+                  placeholder={'Hier ausführen'}
+                  props={register('haveYouReportedFreeField1', {
+                    required:
+                      haveYouReportedYes &&
+                      haveYouReportedYes.includes(
+                        tenthStepTranslation?.optionYesIndeed[2]?.label
+                      )
+                        ? true
+                        : false,
+                  })}
+                  disable={
+                    haveYouReportedYes &&
+                    haveYouReportedYes.includes(
+                      tenthStepTranslation?.optionYesIndeed[2]?.label
+                    )
+                      ? false
+                      : true
+                  }
+                  value={
+                    !haveYouReportedYes ||
+                    !haveYouReportedYes.includes(
+                      tenthStepTranslation?.optionYesIndeed[2]?.label
+                    )
+                      ? ''
+                      : haveYouReportedFreeField1
+                  }
+                />
+              </div>
+              {/* <div className="ml-2 -mt-2 mb-4">
+                {haveYouReportedYes &&
+                  haveYouReportedYes.includes(
+                    tenthStepTranslation?.optionYesIndeed[2]?.label
+                  ) && (
+                    <>
+                      <InputField
+                        name="haveYouReportedFreeField1"
+                        placeholder="Hier ausführen"
+                        // props={register('haveYouReportedFreeField1')}
+                        props={register('haveYouReportedFreeField1', {
+                          required: true,
+                          minLength: 3,
+                        })}
+                      />
+                      <p className="mb-5">
+                        {errors?.haveYouReportedFreeField1 && (
+                          <span className="text-sm text-red-600 font-bold">
+                            <p>{tenthStepTranslation.validation}</p>
+                          </span>
+                        )}
+                      </p>
+                    </>
+                  )}
+              </div> */}
+              <div className="mt-5">
+                <CheckboxInput
+                  id={tenthStepTranslation?.optionYesIndeed[3].ID}
+                  label={tenthStepTranslation?.optionYesIndeed[3]?.label}
+                  name="haveYouReportedYes"
+                  props={register('haveYouReportedYes')}
+                  value={tenthStepTranslation?.optionYesIndeed[3]?.label}
+                />
 
-      {thirdForm?.age && (
-        <EditBlock
-          step={thirdForm?.step}
-          answer={[thirdForm?.age]}
-          question={thirdForm?.question}
-        />
-      )}
-
-      {thirdForm?.numberOfEmployees && (
-        <EditBlock
-          step={thirdForm?.step}
-          answer={[thirdForm?.numberOfEmployees]}
-          question={thirdForm?.question}
-        />
-      )}
-
-      {/* Fourth form */}
-
-      {fourthForm && (
-        <EditBlock
-          step={fourthForm?.step}
-          answer={[
-            dayjs(fourthForm?.date).format('DD.MM.YYYY THH:mm:ssZ[Z]'),
-            fourthForm?.dateRange,
-            fourthForm?.onGoingIncident,
-          ]}
-          question={fourthForm?.question}
-        />
-      )}
-
-      {/* Fifth form */}
-
-      {fifthForm && (
-        <EditBlock
-          step={fifthForm?.step}
-          answer={[
-            fifthForm?.state,
-            fifthForm?.city,
-            fifthForm?.happenedOnline,
-          ]}
-          question={fifthForm?.question}
-        />
-      )}
-
-      {/* Sixth form */}
-
-      {sixthForm && (
-        <EditBlock
-          step={sixthForm?.step}
-          type="desc"
-          answer={[sixthForm?.description]}
-          question={sixthForm?.question}
-        />
-      )}
-
-      {/* Seventh form */}
-
-      {seventhForm && seventhForm?.causesOfDiscrimination && (
-        <EditBlock
-          step={seventhForm?.step}
-          answer={[
-            ...seventhForm?.causesOfDiscrimination,
-            seventhForm?.causesOfDiscriminationFreeField,
-          ]}
-          question={seventhForm?.question}
-        />
-      )}
-
-      {/* EighthForm */}
-
-      {eighthForm && eighthForm?.otherFormsYes && (
-        <EditBlock
-          step={eighthForm?.step}
-          answer={[
-            eighthForm?.otherForms,
-            ...eighthForm?.otherFormsYes,
-            eighthForm?.otherFormsYesFreeField,
-          ]}
-          question={eighthForm?.question}
-        />
-      )}
-
-      {/* Nineth form */}
-
-      {ninethForm && ninethForm.haveYouReportedYes && (
-        <EditBlock
-          step={ninethForm?.step}
-          answer={[
-            ninethForm?.haveYouReported,
-            ...ninethForm?.haveYouReportedYes,
-            ninethForm?.haveYouReportedFreeField1,
-            ninethForm?.haveYouReportedFreeField2,
-          ]}
-          question={ninethForm?.question}
-        />
-      )}
-
-      {/* Captch button verification */}
-
-      <CaptchaCheckbox
-        id="captcha"
-        loading={captchLoading}
-        checked={captcha ? true : false}
-        name="captcha"
-        props={register('captcha')}
-        value="captcha"
-        label={tenthStepTranslation?.captcha}
-      />
-
-      <div className="w-fit mt-8 border border-black p-4">
-        <CheckboxSimple
-          label={tenthStepTranslation.options[0].label}
-          id="agreement"
-          name="agreement"
-          props={register('agreement')}
-          value="agreement"
-        />
+                <InputFieldCheckbox
+                  name="haveYouReportedFreeField2"
+                  placeholder={'Hier ausführen'}
+                  props={register('haveYouReportedFreeField2', {
+                    required:
+                      haveYouReportedYes &&
+                      haveYouReportedYes.includes(
+                        tenthStepTranslation?.optionYesIndeed[3]?.label
+                      )
+                        ? true
+                        : false,
+                  })}
+                  disable={
+                    haveYouReportedYes &&
+                    haveYouReportedYes.includes(
+                      tenthStepTranslation?.optionYesIndeed[3]?.label
+                    )
+                      ? false
+                      : true
+                  }
+                  value={
+                    !haveYouReportedYes ||
+                    !haveYouReportedYes.includes(
+                      tenthStepTranslation?.optionYesIndeed[3]?.label
+                    )
+                      ? ''
+                      : haveYouReportedFreeField2
+                  }
+                />
+              </div>
+              {/* <div className="ml-2">
+                {haveYouReportedYes &&
+                  haveYouReportedYes.includes(
+                    tenthStepTranslation?.optionYesIndeed[3]?.label
+                  ) && (
+                    <>
+                      <InputField
+                        name="haveYouReportedFreeField2"
+                        placeholder={tenthStepTranslation.placeHolder}
+                        // props={register('haveYouReportedFreeField2')}
+                        props={register('haveYouReportedFreeField2', {
+                          required: true,
+                          minLength: 3,
+                        })}
+                      />
+                      <p className="mb-5">
+                        {errors?.haveYouReportedFreeField2 && (
+                          <span className="text-sm text-red-600 font-bold">
+                            <p>{tenthStepTranslation.validation}</p>
+                          </span>
+                        )}
+                      </p>
+                    </>
+                  )}
+              </div> */}
+            </>
+          )}
       </div>
     </form>
   );

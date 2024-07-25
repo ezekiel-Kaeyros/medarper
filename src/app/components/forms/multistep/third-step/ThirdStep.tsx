@@ -30,7 +30,7 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ thirdStepTranslation }) => {
     // Get values from cookies
     let formValues: { age: string; numberOfEmployees: string } =
       getFormCookies(THIRD_FORM);
-    dispatch({ type: FORM_ERRORS, payload: true });
+    dispatch({ type: FORM_ERRORS, payload: false });
 
     if (reportingPerson !== 'organization') {
       if (age && age.length > 0) {
@@ -84,7 +84,7 @@ const ThirdStep: React.FC<ThirdStepProps> = ({ thirdStepTranslation }) => {
           <div className="my-8">
             <RadioGroup
               props={register('numberOfEmployees', { required: false })}
-              title={thirdStepTranslation?.title}
+              title={thirdStepTranslation?.title2}
               options={thirdStepTranslation?.employeesNumbOpt}
             />
           </div>

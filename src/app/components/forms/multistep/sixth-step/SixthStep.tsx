@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import TextArea from '../../text-area/TextArea';
+import { SixthFormValues, causesData, SixthStepProps } from './sixthStep';
+import Checkbox from '../../checkbox/Checkbox';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import InputField from '../../text-field/InputField';
 import { getFormCookies, getFormStep, setFormCookies } from '@/cookies/cookies';
 import { useFormContext } from '@/app/hooks/useFormContext';
 import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { SixthFormValues, SixththStepProps } from './sixthStep.d';
 import { SIXTH_FORM } from '@/cookies/cookies.d';
 import { useScrollOnTop } from '@/app/hooks/useScrollOnTop';
+import CheckboxInput from '../../checkbox/checkboxInput';
+import InputFieldCheckbox from '../../InputFiledCheckBox';
+// import EighthStep from './EighthStep';
 
-const SixthStep: React.FC<SixththStepProps> = ({ sixthStepTranslation }) => {
-  const [question] = useState<string>('Was genau ist geschehen?');
-  const { dispatch, reportingPerson } = useFormContext();
+const SixthStep: React.FC<SixthStepProps> = ({ sixthStepTranslation }) => {
+  const { dispatch } = useFormContext();
+  const [question] = useState<string>(sixthStepTranslation.title);
 
   // Scroll on top
   useScrollOnTop();
@@ -23,7 +27,12 @@ const SixthStep: React.FC<SixththStepProps> = ({ sixthStepTranslation }) => {
     formState: { errors },
   } = useForm<SixthFormValues>();
 
-  let description: string = watch('description');
+  // watching fields in realtime
+
+  let placeOfDiscrimination: string[] = watch('placeOfDiscrimination');
+  let placeOfDiscriminationFreeField: string = watch(
+    'placeOfDiscriminationFreeField'
+  );
 
   // Triggered when submitting form
   const onSubmit: SubmitHandler<SixthFormValues> = (data) => {
@@ -35,81 +44,196 @@ const SixthStep: React.FC<SixththStepProps> = ({ sixthStepTranslation }) => {
   };
 
   useEffect(() => {
-    // Getting value from cookies
+    //  Get values from form
+    let formValues: {
+      placeOfDiscrimination: string[];
+      placeOfDiscriminationFreeField: string;
+    } = getFormCookies(SIXTH_FORM);
 
-    let formValue: { description: string } = getFormCookies(SIXTH_FORM);
-
-    dispatch({ type: FORM_ERRORS, payload: true });
-    // Check if field is selected and throw an error if not
-    if (description && description?.length >= 50) {
+    // SeventhStep Validation
+    dispatch({ type: FORM_ERRORS, payload: false });
+    if (
+      placeOfDiscrimination &&
+      placeOfDiscrimination?.length > 0 &&
+      !placeOfDiscrimination.includes(sixthStepTranslation.options[14].label)
+    ) {
       dispatch({ type: FORM_ERRORS, payload: false });
     }
 
-    if (formValue && !description) {
-      description !== formValue?.description &&
-        setValue('description', formValue?.description);
+    if (
+      placeOfDiscrimination &&
+      placeOfDiscrimination?.length > 0 &&
+      placeOfDiscrimination.includes(sixthStepTranslation.options[14].label)
+    ) {
+      dispatch({ type: FORM_ERRORS, payload: true });
+      if (
+        placeOfDiscriminationFreeField &&
+        placeOfDiscriminationFreeField?.length > 0
+      ) {
+        dispatch({ type: FORM_ERRORS, payload: false });
+      } else {
+        dispatch({ type: FORM_ERRORS, payload: true });
+      }
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [description]);
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    //   if (causesOfDiscrimination.includes(causesOfDiscrimination[12])) {
+    //     dispatch({ type: FORM_ERRORS, payload: false });
+    //   }
+    // } else {
+    //   if (
+    //     causesOfDiscrimination &&
+    //     causesOfDiscrimination?.length > 0 &&
+    //    ! causesOfDiscrimination.includes(
+    //       causesOfDiscrimination[causesOfDiscrimination.length - 1]
+    //     )
+    //   ) {
+    //     dispatch({ type: FORM_ERRORS, payload: true });
+    //   }
+    // if (causesOfDiscrimination && causesOfDiscrimination.length>0 && !causesOfDiscrimination.includes(causesOfDiscrimination[causesOfDiscrimination.length-1])) {
+    //   dispatch({ type: FORM_ERRORS, payload: false });
+    // }
+    // if (
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination.length > 0 &&
+    //   causesOfDiscrimination.includes(
+    //     causesOfDiscrimination[causesOfDiscrimination.length - 1]
+    //   )
+    // ) {
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    //   if (
+    //     placeOfDiscriminationFreeField &&
+    //     placeOfDiscriminationFreeField.length > 0
+    //   ) {
+    //     dispatch({ type: FORM_ERRORS, payload: false });
+    //   } else {
+    //     dispatch({ type: FORM_ERRORS, payload: true });
+    //   }
+    // }
 
-  console.log(description?.length! >= 50, 'this is my description');
+    // else if (
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination &&
+    //   causesOfDiscrimination?.includes(
+    //     sixthStepTranslation.options[12].label
+    //   ) &&
+    //   placeOfDiscriminationFreeField?.length === 0
+    // ) {
+    //   dispatch({ type: FORM_ERRORS, payload: true });
+    // } else {
+    //   dispatch({ type: FORM_ERRORS, payload: false });
+    // }
+
+    // Set form values from cookies
+
+    if (
+      formValues &&
+      !placeOfDiscrimination &&
+      !placeOfDiscriminationFreeField
+    ) {
+      placeOfDiscrimination !== formValues?.placeOfDiscrimination &&
+        setValue('placeOfDiscrimination', formValues?.placeOfDiscrimination);
+      placeOfDiscriminationFreeField !==
+        formValues?.placeOfDiscriminationFreeField &&
+        setValue(
+          'placeOfDiscriminationFreeField',
+          formValues?.placeOfDiscriminationFreeField
+        );
+    }
+
+    console.log(formValues, 'this is my formValues');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placeOfDiscrimination, placeOfDiscriminationFreeField]);
 
   return (
-    <form
-      id="sixthForm"
-      onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col xl:flex-row gap-x-10 xl:justify-center xl:items-start"
-    >
+    <form id="sixthForm" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <h1 className="text-2xl font-bold text-[#2F804A]">
-          {sixthStepTranslation.title}
+        <h1 className="font-bold text-2xl text-primaryColor mb-4 w-[85%]">
+          {sixthStepTranslation?.title}
         </h1>
+        <p className="mb-2 text-primaryColor">
+          {sixthStepTranslation?.multipleAns}
+        </p>
+      </div>
 
-        <div className="mt-5">
-          <small className="text-[red] font-semibold">
-            *Aus Gründen des Datenschutzes bittenwir dich, hier keine Namen und
-            Daten anderer Personen anzugeben.
-          </small>
+      <div>
+        {sixthStepTranslation.options?.map((choice, index) => {
+          if (index < sixthStepTranslation.options.length - 1) {
+            return (
+              <Checkbox
+                id={`${choice?.ID}`}
+                name="placeOfDiscrimination"
+                props={register('placeOfDiscrimination')}
+                value={`${choice?.value}`}
+                examples=""
+                label={choice?.label}
+                key={choice?.ID}
+              />
+            );
+          }
+        })}
+
+        <div>
+          <CheckboxInput
+            id={
+              sixthStepTranslation.options[
+                sixthStepTranslation.options.length - 1
+              ].ID
+            }
+            name="placeOfDiscrimination"
+            props={register('placeOfDiscrimination')}
+            value={
+              sixthStepTranslation.options[
+                sixthStepTranslation.options.length - 1
+              ].value
+            }
+            examples=""
+            label={
+              sixthStepTranslation.options[
+                sixthStepTranslation.options.length - 1
+              ].label
+            }
+          />
+          <InputFieldCheckbox
+            name="placeOfDiscriminationFreeField"
+            placeholder={sixthStepTranslation.placeHolder}
+            props={register('placeOfDiscriminationFreeField')}
+            disable={
+              placeOfDiscrimination &&
+              placeOfDiscrimination?.includes(
+                sixthStepTranslation.options[
+                  sixthStepTranslation.options.length - 1
+                ].label
+              )
+                ? false
+                : true
+            }
+            value={
+              !placeOfDiscrimination ||
+              !placeOfDiscrimination?.includes(
+                sixthStepTranslation.options[
+                  sixthStepTranslation.options.length - 1
+                ].label
+              )
+                ? ''
+                : placeOfDiscriminationFreeField
+            }
+          />
         </div>
-        <div className="flex flex-col xl:flex-row gap-x-4 xl:justify-center xl:items-start mt-5">
-          <div className="">
-            <h1 className="font-bold  mb-4">
-              {sixthStepTranslation?.options[0]?.listTitle}
-            </h1>
-            <ul className="list-disc pl-8  space-y-1">
-              <li>{sixthStepTranslation?.options[0]?.firstList}</li>
-              {reportingPerson === 'andere' && (
-                <li>Gegen wen richtete sich der Angriff?</li>
-              )}
-              <li>{sixthStepTranslation?.options[0]?.secondList}</li>
-              <li>{sixthStepTranslation?.options[0]?.thirdList}</li>
-              <li>{sixthStepTranslation?.options[0]?.fourthList}</li>
-              <li>{sixthStepTranslation?.options[0]?.fifthList}</li>
-              <li>{sixthStepTranslation?.options[0]?.sixthList}</li>
-            </ul>
-          </div>
-          <div className="">
-            <TextArea
-              props={register('description')}
-              name={'description'}
-              numberRows={10}
-              placeholder={sixthStepTranslation.placeHolder}
-              // title={sixthStepTranslation?.title}
-            />
-            {description && description?.length <= 50 && (
-              <>
-                <p className="text-[red] font-semibolds">
-                  {sixthStepTranslation.errorParagragh}
-                </p>
-              </>
-            )}
-            <p className=" text-primaryColor">
-              <span className=" mr-1"></span>
-              {sixthStepTranslation?.options[0]?.note}
-            </p>
-          </div>
-        </div>
+
+        {/* {causesOfDiscrimination &&
+          causesOfDiscrimination?.includes(
+            sixthStepTranslation.options[12].label
+          ) && (
+            <div className="ml-2">
+              <InputField
+                name="placeOfDiscriminationFreeField"
+                placeholder={sixthStepTranslation.placeHolder}
+                props={register('placeOfDiscriminationFreeField')}
+              />
+            </div>
+          )} */}
       </div>
     </form>
   );

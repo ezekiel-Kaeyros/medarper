@@ -36,11 +36,7 @@ export function middleware(request: NextRequest) {
   }
   const locale = getLocale(request);
   const privateAdminPaths = [
-    `/${locale}/dashboard`,
-    `/${locale}/dashboard/reports`,
-    `/${locale}/dashboard/quantitative`,
-    `/${locale}/dashboard/qualitative`,
-    `/${locale}/dashboard/compare-data`,
+
     `/${locale}/dashboard/settings`,
   ];
   const privateCleanerPaths = [
@@ -69,85 +65,170 @@ export function middleware(request: NextRequest) {
     `/${locale}/helpcenter`,
     `/${locale}/anti-muslim`,
   ];
+  const hiddePath = [`/${locale}/hidde`];
 
   const publicPath = [`/${locale}/login`];
 
-  if (!request.cookies.get('user_data') && pathname.includes('/dashboard')) {
-    return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
-  } else if (
-    request.cookies.get('user_data') &&
-    publicPath.includes(pathname)
-  ) {
-    return NextResponse.redirect(new URL(`/${locale}/dashboard`, request.url));
-  } else if (
-    request.cookies.get('user_data') &&
-    !allPaths.includes(pathname) &&
-    !pathname.includes(`/${locale}/anti-muslim/`) &&
-    !pathname.includes(`/${locale}/publications/`) &&
-    !pathname.includes('/dashboard')
-  ) {
-    return NextResponse.redirect(new URL(`/${locale}/dashboard`, request.url));
-  } else if (
-    request.cookies.get('user_data') &&
-    !publicPath.includes(pathname)
-  ) {
-    let user = JSON.parse(request.cookies.get('user_data')?.value!);
-    if (
-      user &&
-      user?.role &&
-      user?.role == 1 &&
-      !privateAdminPaths.includes(pathname) &&
-      !allPaths.includes(pathname) &&
-      !pathname.includes('/dashboard/cleaned-reports') &&
-      !pathname.includes(`/${locale}/anti-muslim/`) &&
-      !pathname.includes(`/${locale}/publications/`)
-    ) {
-      return NextResponse.redirect(
-        new URL(`/${locale}/dashboard`, request.url)
-      );
-    } else if (
-      user &&
-      user?.role &&
-      user?.role == 2 &&
-      !privateViewerPaths.includes(pathname) &&
-      !allPaths.includes(pathname) &&
-      !pathname.includes('/dashboard/cleaned-reports') &&
-      !pathname.includes(`/${locale}/anti-muslim/`) &&
-      !pathname.includes(`/${locale}/publications/`)
-    ) {
-      return NextResponse.redirect(
-        new URL(`/${locale}/dashboard`, request.url)
-      );
-    } else if (
-      user &&
-      user?.role &&
-      user?.role == 3 &&
-      !privateCleanerPaths.includes(pathname) &&
-      !allPaths.includes(pathname) &&
-      !pathname.includes('/dashboard/clean-data') &&
-      !pathname.includes(`/${locale}/anti-muslim/`) &&
-      !pathname.includes(`/${locale}/publications/`)
-    ) {
-      return NextResponse.redirect(
-        new URL(`/${locale}/dashboard`, request.url)
-      );
-    } else if (
-      user &&
-      user?.role &&
-      user?.role == 4 &&
-      !privateRiskPaths.includes(pathname) &&
-      !allPaths.includes(pathname) &&
-      !pathname.includes('/dashboard/dangerous-reports') &&
-      !pathname.includes(`/${locale}/anti-muslim/`) &&
-      !pathname.includes(`/${locale}/publications/`)
-    ) {
-      return NextResponse.redirect(
-        new URL(`/${locale}/dashboard`, request.url)
-      );
-    }
-  } else {
-    return NextResponse.next();
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   if (!request.cookies.get('show_medar') && !hiddePath.includes(pathname)) {
+     console.log(1);
+
+     return NextResponse.redirect(new URL(`/${locale}/hidde`, request.url));
+   } else if (request.cookies.get('show_medar') && hiddePath.includes(pathname)) {
+     return NextResponse.redirect(new URL(`/${locale}`, request.url));
+   } else if (request.cookies.get('show_medar') && !hiddePath.includes(pathname)) {
+     if (!request.cookies.get('user_data') && pathname.includes('/dashboard')) {
+       return NextResponse.redirect(new URL(`/${locale}/login`, request.url));
+     } else if (
+       request.cookies.get('user_data') &&
+       publicPath.includes(pathname)
+     ) {
+       return NextResponse.redirect(
+         new URL(`/${locale}/dashboard`, request.url)
+       );
+     } else if (
+       request.cookies.get('user_data') &&
+       !allPaths.includes(pathname) &&
+       !pathname.includes(`/${locale}/anti-muslim/`) &&
+       !pathname.includes(`/${locale}/publications/`) &&
+       !pathname.includes('/dashboard')
+     ) {
+       return NextResponse.redirect(
+         new URL(`/${locale}/dashboard`, request.url)
+       );
+     } else if (
+       request.cookies.get('user_data') &&
+       !publicPath.includes(pathname)
+     ) {
+       let user = JSON.parse(request.cookies.get('user_data')?.value!);
+       if (
+         user &&
+         user?.role &&
+         user?.role == 1 &&
+         !privateAdminPaths.includes(pathname) &&
+         !allPaths.includes(pathname) &&
+         !pathname.includes(`/${locale}/anti-muslim/`) &&
+        
+         !pathname.includes(`/${locale}/publications/`)
+       ) {
+         return NextResponse.redirect(
+           new URL(`/${locale}/dashboard/settings`, request.url)
+         );
+       } else if (
+         user &&
+         user?.role &&
+         user?.role == 2 &&
+         !privateViewerPaths.includes(pathname) &&
+         !allPaths.includes(pathname) &&
+         !pathname.includes(`/${locale}/anti-muslim/`) &&
+         !pathname.includes('/dashboard/cleaned-reports') &&
+         !pathname.includes(`/${locale}/publications/`)
+       ) {
+         return NextResponse.redirect(
+           new URL(`/${locale}/dashboard`, request.url)
+         );
+       } else if (
+         user &&
+         user?.role &&
+         user?.role == 3 &&
+         !privateCleanerPaths.includes(pathname) &&
+         !allPaths.includes(pathname) &&
+         !pathname.includes('/dashboard/clean-data') &&
+         !pathname.includes(`/${locale}/anti-muslim/`) &&
+         !pathname.includes(`/${locale}/publications/`) &&
+         !pathname.includes('/dashboard/cleaned-reports') &&
+         !pathname.includes('/dashboard/clean-data')
+       ) {
+         return NextResponse.redirect(
+           new URL(`/${locale}/dashboard`, request.url)
+         );
+       } else if (
+         user &&
+         user?.role &&
+         user?.role == 4 &&
+         !privateRiskPaths.includes(pathname) &&
+         !allPaths.includes(pathname) &&
+         !pathname.includes(`/${locale}/anti-muslim/`) &&
+         !pathname.includes(`/${locale}/publications/`) &&
+         !pathname.includes('/dashboard/dangerous-reports')
+       ) {
+         return NextResponse.redirect(
+           new URL(`/${locale}/dashboard`, request.url)
+         );
+       }
+     } else {
+       return NextResponse.next();
+     }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 export const config = {

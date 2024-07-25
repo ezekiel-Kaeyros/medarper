@@ -1,86 +1,15 @@
 export const seventhFormData = [
-    {
-        id: 'description1',
-        name: 'description',
-        label: 'Kopftuch',
-        value: 'Kopftuch',
-        checked: false,
-      },
-      {
-        id: 'description2',
-        name: 'description',
-        label: 'Abaya',
-        value: 'Abaya',
-        checked: false,
-      },
-      {
-        id: 'description3',
-        name: 'description',
-        label: 'Turban',
-        value: 'Turban',
-        checked: false,
-      },
-      {
-        id: 'description4',
-        name: 'description',
-        label: 'Bart',
-        value: 'Bart',
-        checked: false,
-      },
-      {
-        id: 'description5',
-        name: 'description',
-        label: 'Hautfarbe',
-        value: 'Hautfarbe',
-        checked: false,
-      },
-      {
-        id: 'description6',
-        name: 'description',
-        label: 'Haare',
-        value: 'Haare',
-        checked: false,
-      },
-      {
-        id: 'description7',
-        name: 'description',
-        label: 'Augen',
-        value: 'Augen',
-        checked: false,
-      },
-      {
-        id: 'description8',
-        name: 'description',
-        label: 'Sprache',
-        value: 'Sprache',
-        checked: false,
-      },
-      {
-        id: 'description9',
-        name: 'description',
-        label: '„Nichtdeutscher“ Name',
-        value: '„Nichtdeutscher“ Name',
-        checked: false,
-      },
-      {
-        id: 'description10',
-        name: 'description',
-        label: 'Religiöse Ausübung (z.B Beten oder fasten)',
-        value: 'Religiöse Ausübung (z.B Beten oder fasten)',
-        checked: false,
-      },
-      {
-        id: 'description11',
-        name: 'description',
-        label: 'Kleidung',
-        value: 'Kleidung',
-        checked: false,
-      },
-      {
-        id: 'description12',
-        name: 'description',
-        label: 'Anderes, und zwar:',
-        value: 'Anderes, und zwar:',
-        checked: false,
-      }
-]
+  {
+    inputPlaceholder: 'Bitte beschereide den Vorfall so genau wie möglich.',
+    listTitle: 'Relevante Informationen können sein:',
+    firstList: 'Wo fand die Diskriminierung statt?',
+    secondList: 'Wie wurdest du diskriminiert?',
+    thirdList: 'Von wem ging der Angriff aus?',
+    fourthList: 'Wie haben andere Personen reagiert?',
+    fifthList:
+      'Was lässt dich denken, dass es sich um antimuslimischen Rassismus handelt?',
+    sixthList:
+      'Welche Auswirkungen hatte der Vorfall für dich (z.B. emotionale, körperliche, soziale oder finanzielle)?',
+    note: '*Aus Gründen des Datenschutzes bitten wir dich, hier keine Namen anderer Personen anzugeben.',
+  },
+];

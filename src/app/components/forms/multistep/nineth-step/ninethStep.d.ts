@@ -1,5 +1,5 @@
-export type NinthStepProps = {
-  ninthStepTranslation: {
+export type NinethStepProps = {
+  ninethStepTranslation: {
     title: string;
     placeHolder: string;
     validation: string;
@@ -20,61 +20,105 @@ export type NinthStepProps = {
   };
 };
 
-export type NinethStepFormValues = {
-  haveYouReported: string;
-  haveYouReportedYes: string;
-  haveYouReportedFreeField1: string;
-  haveYouReportedFreeField2: string;
-};
-
-export const haveYouReportedData = [
+export const otherFormsData = [
   {
     iD: 1,
     id: 'no',
     value: 'Nein',
-    name: 'haveYouReported',
+    name: 'otherForms',
     label: 'Nein',
   },
   {
     iD: 2,
     id: 'yes',
     value: 'Ja, und zwar:',
-    name: 'haveYouReported',
+    name: 'otherForms',
     label: 'Ja, und zwar:',
   },
 ];
 
-export const haveYouReportedDataYes = [
+export const otherFormsDataYes = [
   {
     iD: 1,
-    id: 'id1',
-    value: 'Ich habe den Fall bei der Polizei angezeigt',
-    name: 'haveYouReportedYes',
-    label: 'Ich habe den Fall bei der Polizei angezeigt',
+    id: 'Antiasiatischer',
+    value: 'Antiasiatischer Rassismus',
+    name: 'otherFormsYes',
+    label: 'Antiasiatischer Rassismus',
   },
   {
     iD: 2,
-    id: 'id2',
-    value: 'Ich habe eine Beratungsstelle aufgesucht',
-    name: 'haveYouReportedYes',
-    label: 'Ich habe eine Beratungsstelle aufgesucht',
+    id: 'Antifeminismus',
+    value: 'Antifeminismus',
+    name: 'otherFormsYes',
+    label: 'Antifeminismus',
   },
   ,
   {
     iD: 3,
-    id: 'id3',
-    value:
-      'Ich habe den Fall bei einer anderen Meldestelle gemeldet, und zwar:',
-    name: 'haveYouReportedYes',
-    label:
-      'Ich habe den Fall bei einer anderen Meldestelle gemeldet, und zwar:',
+    id: 'Antimuslimischer',
+    value: 'Antimuslimischer Rassismus',
+    name: 'otherFormsYes',
+    label: 'Antimuslimischer Rassismus',
   },
   ,
   {
     iD: 4,
-    id: 'id4',
-    value: 'Anderes, und zwar:',
-    name: 'haveYouReportedYes',
-    label: 'Anderes, und zwar:',
+    id: 'Anti-Schwarzer',
+    value: 'Anti-Schwarzer Rassismus',
+    name: 'otherFormsYes',
+    label: 'Anti-Schwarzer Rassismus',
+  },
+  ,
+  {
+    iD: 5,
+    id: 'Antisemitismus',
+    value: 'Antisemitismus',
+    name: 'otherFormsYes',
+    label: 'Antisemitismus',
+  },
+  ,
+  {
+    iD: 6,
+    id: 'Antislawischer',
+    value: 'Antislawischer Rassismus',
+    name: 'otherFormsYes',
+    label: 'Antislawischer Rassismus',
+  },
+  ,
+  {
+    iD: 7,
+    id: 'Antiziganismus',
+    value: 'Antiziganismus',
+    name: 'otherFormsYes',
+    label: 'Antiziganismus',
+  },
+  ,
+  {
+    iD: 8,
+    id: 'Queerfeindlichkeit',
+    value: 'Queerfeindlichkeit',
+    name: 'otherFormsYes',
+    label: 'Queerfeindlichkeit',
+  },
+  ,
+  {
+    iD: 9,
+    id: 'Sexismus',
+    value: 'Sexismus',
+    name: 'otherFormsYes',
+    label: 'Sexismus',
+  },
+  {
+    iD: 10,
+    id: 'Andere',
+    value: 'Andere Formen, und zwar:',
+    name: 'otherFormsYes',
+    label: 'Andere Formen, und zwar:',
   },
 ];
+
+export type NinethStepFormValues = {
+  otherForms: string;
+  otherFormsYes: string[];
+  otherFormsYesFreeField: string;
+};

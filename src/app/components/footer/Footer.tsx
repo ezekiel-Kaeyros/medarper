@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ content, lang }) => {
       {/* {} <FirstSectionFooter /> */}
       <footer className="w-full lg:mt-40">
         <div className="flex w-[12rem]  mx-auto  justify-center ">
-          {path !== 'report' && (
+          {/* {path !== 'report' && (
             <Button
               className="text-center my-4 lg:hidden text-xs sm:text-base"
               variant="default"
@@ -45,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ content, lang }) => {
             >
               {content?.sendButton}
             </Button>
-          )}
+          )} */}
         </div>
         {/* <div className="hidden py-16 pl-2 lg:flex lg:items-center lg:justify-between">
           <div className="w-fit  h-24">
@@ -71,14 +71,14 @@ const Footer: React.FC<FooterProps> = ({ content, lang }) => {
             />
           </div>
         </div> */}
-        <div className="sm:flex hidden px-4 lg:mb-8  font-bold items-center my-4 text-black justify-between xl:h-[480px] xl:px-32 lg:px-20 xl:pr-[10rem] lg:pr-[7rem]">
-          <div className="flex flex-col py-2">
+        <div className="flex sm:gap-0 gap-3  px-4 lg:mb-8  font-bold items-center my-4 text-black justify-between xl:h-[480px] xl:px-32 lg:px-20 xl:pr-[10rem] lg:pr-[7rem]">
+          <div className="flex flex-col sm:py-2 ">
             <Image
-              className=" xl:w-[232px] lg:w-[90%] sm:w-[70%] xl:h-[157px] sm:h-[40%] shrink-0 object-contain"
+              className=" xl:w-[232px] lg:w-[90%] w-[70%] xl:h-[157px] h-[40%] shrink-0 object-contain"
               src={LogoFooter}
               alt="Footer logo"
             />
-            <div className="flex mt-6 xl:pl-5">
+            <div className="flex sm:mt-6 xl:pl-5">
               <Image
                 className=" xl:w-16 xl:h-16 w-4/12 mr-3 h-[10%]
                 "
@@ -93,65 +93,69 @@ const Footer: React.FC<FooterProps> = ({ content, lang }) => {
             </div>
           </div>
           <div className="flex flex-col py-2 xl:text-2xl lg:text-xl sm:text-sm">
-            <h2 className="xl:text-2xl font-bold lg:py-2 py-1">
+            <h2 className="xl:text-2xl font-bold lg:py-2 py-1 sm:text-base text-[10px]">
               Vorfall melden
             </h2>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               FAQ
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Datenschutz
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Impressum
             </Link>
           </div>
           <div className="flex flex-col py-2 xl:text-2xl lg:text-xl sm:text-sm">
-            <h2 className=" font-bold lg:py-2 py-1">MEDAR NRW</h2>
+            <h2 className=" font-bold lg:py-2 py-1 sm:text-base text-[10px]">
+              MEDAR NRW
+            </h2>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Meldestellenverbung
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px] "
               href={`/${lang}/`}
             >
               Kooperationsnetzwerke
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Verweisberatung
             </Link>
           </div>
           <div className="flex flex-col py-2 xl:text-2xl lg:text-xl sm:text-sm">
-            <h2 className=" font-bold lg:py-2 py-1">Was ist AMR?</h2>
+            <h2 className=" font-bold lg:py-2 py-1 sm:text-base text-[10px]">
+              Was ist AMR?
+            </h2>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Glossar
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Aktuelles
             </Link>
             <Link
-              className="py-1 lg:py-2 xl:text-2xl lg:text-xl "
+              className="py-1 lg:py-2 xl:text-2xl lg:text-xl sm:text-base text-[10px]"
               href={`/${lang}/`}
             >
               Kontakt
@@ -161,7 +165,7 @@ const Footer: React.FC<FooterProps> = ({ content, lang }) => {
         </div>
         {/* <div className="h-[1px] bg-white"></div> */}
 
-        <div className=" sm:hidden     py-4 text-white">
+        <div className=" hidden     py-4 text-white">
           <div className="w-full flex justify-between border-b-2 border-white   font-bold px-4">
             <div className="flex flex-col py-2 text-[12px] font-bold">
               <Link className="py-1 lg:py-2 " href={`/${lang}/`}>

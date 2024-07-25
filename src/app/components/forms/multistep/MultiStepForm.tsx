@@ -17,13 +17,17 @@ import EighthStep from './eighth-step/EighthStep';
 import ThirdStep from './third-step/ThirdStep';
 import FourthStep from './fourth-step/FourthStep';
 import FifthStep from './fifth-step/FifthStep';
+// import SixthStep from './seventh-step/SeventhStep';
+// import SeventhStep from './eighth-step/EighthStep';
 import SixthStep from './sixth-step/SixthStep';
 import SeventhStep from './seventh-step/SeventhStep';
 import NinethStep from './nineth-step/NinethStep';
 import TenthStep from './tenth-step/TenthStep';
+import EleventhStep from './eleventh-step/EleventhStep';
 import { getFormStep } from '@/cookies/cookies';
 import OnBehalfModal from './modals/on-behalf-modal/OnBehalf';
 import WitnessModal from './modals/witness-modal/WitnessModal';
+import Link from 'next/link';
 
 type MultiStepFormValuesProps = {
   stepper: {
@@ -37,6 +41,7 @@ type MultiStepFormValuesProps = {
     eightStep: any;
     ninthStep: any;
     tenthStep: any;
+    eleventhStep: any;
   };
   formFields: any;
 
@@ -87,7 +92,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
   const [showWitnessModal, setShowWitnessModal] = useState<boolean>(false);
 
   let stepFromCookies = getFormStep();
-  console.log(lang, 'this is my lang');
+
+  // console.log(lang, 'this is my lang');
 
   const handleSubmit = () => {
     if (reportingPerson === 'andere') {
@@ -161,11 +167,13 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
                     alt="Pad lock icon"
                   />
                   <div className="bg-white rounded-full flex items-center justify-center p-2">
-                    <Image
-                      className="h-5 w-5"
-                      src={QuestionMarkIcon}
-                      alt="Question mark icon"
-                    />
+                    <Link href={`/helpcenter`}>
+                      <Image
+                        className="h-5 w-5"
+                        src={QuestionMarkIcon}
+                        alt="Question mark icon"
+                      />
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -205,25 +213,35 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
               />
             ) : step === 9 ? (
               <NinethStep
-                ninthStepTranslation={formTranslation?.stepper.ninthStep}
+                ninethStepTranslation={formTranslation?.stepper.ninthStep}
               />
-            ) : (
+            ) : step === 10 ? (
               <TenthStep
                 tenthStepTranslation={formTranslation?.stepper.tenthStep}
+                modal={formTranslation.modal}
+              />
+            ) : (
+              <EleventhStep
+                eleventhStepTranslation={formTranslation?.stepper.eleventhStep}
+                modal={formTranslation?.modal}
+                identity={formTranslation?.stepper.firstStep?.options}
               />
             )}
           </div>
 
           <div className="flex max-w-2xl mt-16 mb-0 mx-auto space-x-4 md:space-x-16 justify-between md:flex-row  md:justify-between items-center w-full">
-            <Button
-              className="text-xl w-32 md:w-48 py-4"
-              variant="primary"
-              icon={BackIcon}
-              onClick={() => dispatch({ type: PREV_STEP })}
-            />
-            {step === 10 ? (
+            {step !== 1 && (
+              <Button
+                className="text-xl sm:h-12 h-8 sm:w-32 w-32 flex items-center sm:py-8 py-8"
+                variant="primary"
+                icon={BackIcon}
+                onClick={() => dispatch({ type: PREV_STEP })}
+              />
+            )}
+            {step === 11 ? (
               <Button
                 form="tenthForm"
+                // className="text-xl w-48 py-4"
                 className="text-xl w-48 py-4"
                 variant={`${formErrors ? 'disabled' : 'default'}`}
                 disabled={formErrors ? true : false}
@@ -233,7 +251,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
               </Button>
             ) : (
               <Button
-                className="text-xl w-32  md:w-48 py-4"
+                className="text-xl w-32  md:w-48 py-4 ml-auto"
                 variant={`${formErrors ? 'disabled' : 'default'}`}
                 disabled={formErrors ? true : false}
                 form={`${
@@ -255,7 +273,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
                                   ? 'eighthForm'
                                   : stepFromCookies === 9
                                     ? 'ninethForm'
-                                    : 'tenthForm'
+                                    : stepFromCookies === 10
+                                      ? 'tenthForm'
+                                      : 'eleventhForm'
                 }`}
               >
                 {formTranslation?.button?.next}
@@ -271,7 +291,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = (
           variant="disabled"
           className="mx-auto w-48 py-4"
         >
-          {/* {formTranslation.modal.cancelModal.cancel} */}
+          {formTranslation.modal.cancelModal.cancel}
         </Button>
       </div>
     </div>

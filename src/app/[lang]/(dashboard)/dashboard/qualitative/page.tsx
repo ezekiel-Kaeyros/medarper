@@ -1,12 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import Loading from './loading';
+import React from 'react';
+import QualitativeCart from '@/app/components/qualitative/QualitativeCart';
 
 const Page = () => {
-  const [loading, setIsLoading] = useState(true);
-  const handleIframeLoaded = () => {
-    setIsLoading(false);
-  };
 
   return (
     <div className="mt-8">
@@ -19,13 +15,7 @@ const Page = () => {
       )) || (
         
       )} */}
-
-      <iframe
-        onLoad={handleIframeLoaded}
-        loading="lazy"
-        src="https://dashboard.kaeyros.online/#!/qualitative"
-        className="w-full h-screen"
-      />
+      <QualitativeCart />
     </div>
   );
 };

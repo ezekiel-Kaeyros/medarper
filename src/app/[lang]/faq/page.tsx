@@ -14,6 +14,7 @@ export default async function FaqPage({
   params: { lang: Locale };
 }) {
   const { page } = await getDictionary(lang);
+  console.log(lang, 'this is my lang');
   return (
     <div className="overflow-x-hidden rtl:overflow-x-hidden">
       <Header lang={lang} />

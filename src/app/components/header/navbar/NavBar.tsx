@@ -63,12 +63,12 @@ const NavBar: React.FC<NavBarProps> = ({ navigation, lang }) => {
         alt="Form"
       /> */}
       <nav ref={domNode} className="w-screen  relative bg-white sm:pb-0 ">
-        <div className="sm:flex hidden justify-between xl:px-40 lg:px-20 sm:px-5 lg:mt-20 mt-16">
+        <div className="sm:flex hidden justify-between xl:px-40 lg:px-20 sm:px-5 lg:mt-5">
           <div className="flex justify-center items-center">
             <div className="z-50">
               <Link className=" w-full ltr:scale-x-100 z-50" href="/">
                 <Image
-                  className=" lg:w-[25rem] z-50"
+                  className=" lg:w-[20rem] z-50"
                   src={Logo}
                   alt="Logo medar object-contain"
                 />
@@ -90,7 +90,7 @@ const NavBar: React.FC<NavBarProps> = ({ navigation, lang }) => {
         <div className="w-screen sm:flex hidden h-24 bg-[#BD9D75] mt-8 shrink-0 xl:px-40 lg:px-20 px-5 justify-between items-center py-1 text-white font-bold xl:text-2xl lg:text-lg">
           <Link href={`/${lang}/report`}>
             {' '}
-            <Button className={`h-full py-5`}>
+            <Button className={`h-full py-5 bg-[#E3775F] rounded-lg`}>
               <span
                 className={`${
                   pathname.includes('/' + lang + '/report') && 'text-[#2F804A]'
@@ -101,26 +101,83 @@ const NavBar: React.FC<NavBarProps> = ({ navigation, lang }) => {
               </span>
             </Button>
           </Link>
-          <Link href={`/${lang}/anti-muslim`}>
-            <span
-              className={`${
-                pathname.includes('/' + lang + '/anti-muslim') &&
-                'text-[#2F804A]'
-              }`}
-            >
-              {navigation.anti}{' '}
-            </span>
-          </Link>
 
-          <Link href={`/${lang}/about`}>
-            <span
-              className={`${
-                pathname.includes('/' + lang + '/about') && 'text-[#2F804A]'
-              }`}
-            >
-              {navigation.about.title}
-            </span>
-          </Link>
+          <li className="relative [&>*]:hover:flex list-none">
+            <Link href={`/${lang}/anti-muslim`}>
+              <span
+                className={`${
+                  pathname.includes('/' + lang + '/anti-muslim') &&
+                  'text-[#2F804A]'
+                }`}
+              >
+                {navigation.anti}
+              </span>
+            </Link>
+            <ul className="hidden bg-[#BD9D75] shadow-lg py-3 px-6 text-sm left-0 flex-col  absolute top-8 z-20 pt-4 text-white w-[18rem]">
+              <Link
+                href={`/${lang}/`}
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+              >
+                Was ist AMR?
+              </Link>
+              <Link
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+                href={`/${lang}/`}
+              >
+                Glossar
+              </Link>
+              <Link
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+                href={`/${lang}/`}
+              >
+                Aktuelles
+              </Link>
+            </ul>
+          </li>
+
+          <li className="relative [&>*]:hover:flex list-none">
+            <Link href={`/${lang}/about`}>
+              <span
+                className={`${
+                  (pathname.includes('/' + lang + '/about') &&
+                    'text-[#2F804A]') ||
+                  (pathname.includes('/' + lang + '/verweisberatung') &&
+                    'text-[#2F804A]')
+                }`}
+              >
+                {navigation.about.title}
+              </span>
+            </Link>
+            <ul className="hidden bg-[#BD9D75] shadow-lg py-3 px-6 text-sm left-0 flex-col  absolute top-8 z-20 pt-4 text-white w-[18rem]">
+              <Link
+                href={`/${lang}/`}
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+              >
+                MEDAR NRW
+              </Link>
+              <Link
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+                href={`/${lang}/`}
+              >
+                Meldestellenvebund
+              </Link>
+              <Link
+                className="py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md"
+                href={`/${lang}/`}
+              >
+                Kooperation/Netzwerke
+              </Link>
+              <Link
+                className={`py-2 pl-2 hover:font-bold hover:bg-[#dbbb94] hover:rounded-md ${
+                  pathname.includes('/' + lang + '/verweisberatung') &&
+                  'text-[#2F804A] bg-[#dbbb94] rounded-md'
+                }`}
+                href={`/${lang}/verweisberatung`}
+              >
+                Verweisberatung
+              </Link>
+            </ul>
+          </li>
           <Link href={`/${lang}/faq`}>
             {' '}
             <span
@@ -236,6 +293,9 @@ const NavBar: React.FC<NavBarProps> = ({ navigation, lang }) => {
                       </Link>
                       <Link className="py-1" href={`/${lang}`}>
                         {navigation?.about?.subtitles?.contact}
+                      </Link>
+                      <Link className="py-1" href={`/${lang}/verweisberatung/`}>
+                        Verweisberatung
                       </Link>
                     </div>
                   </div>

@@ -32,9 +32,10 @@ export default async function about({
         <div className="">
           {/* Desktop only */}
           <div className="flex lg:pr-[10rem] sm:pr-[5rem] rtl:lg:pl-[10rem] rtl:sm:pl-[5rem] rtl:sm:pr-0 rtl:lg:pr-0">
-            <div className="relative sm:flex hidden">
+            <div className="relative sm:flex hidden ">
               <Image
-                className="xl:-mt-32 sm:-mt-16 rtl:scale-y-[-1] rtl:rotate-180"
+                // className="xl:-mt-28 sm:-mt-16 rtl:scale-y-[-1] rtl:rotate-180"
+                className="xl:-mt-28 sm:-mt-16 rtl:scale-y-[-1] rtl:rotate-180"
                 src={AboutImage2}
                 alt="form behind title"
               />
@@ -116,7 +117,7 @@ export default async function about({
             </div>
           </div>
 
-          <div className="bg-colorPage lg:px-40 px-5 py-7 mt-6 sm:block hidden">
+          <div className="bg-colorPage lg:px-40 px-5 py-7 mt-6 block">
             <h1 className="xl:text-[50px] md:text-3xl font-bold">
               Unser Selbstverständnis
             </h1>
@@ -262,7 +263,7 @@ export default async function about({
             </p>
           </div>
 
-          <div className="py-6 lg:px-40 px-5 sm:block hidden">
+          <div className="py-6 lg:px-40 px-5 block">
             <h1 className="xl:text-[50px] md:text-3xl font-bold">
               Projektträger
             </h1>
@@ -368,7 +369,7 @@ export default async function about({
             </Link>
           </div>
 
-          <div className="mx-4 lg:mx-[10rem]  lg:mt-16 sm:mt-4 block sm:hidden mt-2">
+          <div className="mx-4 lg:mx-[10rem]  lg:mt-16 sm:mt-4 hidden mt-2">
             <h1 className="font-bold text-black text-3xl mb-6">
               {/* {page?.about?.whoWeAre?.selfEsteem?.title} */}
               Unser Leitbild
@@ -389,7 +390,7 @@ export default async function about({
               occaecat
             </p>
           </div>
-          <div className="mx-4 lg:mx-[10rem] mt-8 lg:mt-16 sm:mt-4 block sm:hidden ">
+          <div className="mx-4 lg:mx-[10rem] mt-8 lg:mt-16 sm:mt-4 hidden ">
             <h1 className="font-bold text-black text-2xl lg:text-3xl mb-6">
               {/* {page?.about?.title1} */}
               Unser Selbstverständnis
@@ -422,7 +423,7 @@ export default async function about({
               </div>
             </div>
           </div>
-          <div className="mx-4 py-8  lg:mx-[10rem] mt-8 lg:mt-16 sm:mt-4 block sm:hidden ">
+          {/* <div className="mx-4 py-8  lg:mx-[10rem] mt-8 lg:mt-16 sm:mt-4 block sm:hidden ">
             <h1 className="font-bold text-black text-2xl lg:text-3xl mb-6">
               {page?.about?.title2}
             </h1>
@@ -431,7 +432,7 @@ export default async function about({
                 <Image className="w-96" src={aking} alt="" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <Footer content={page?.home} lang={lang} />

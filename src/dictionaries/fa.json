@@ -24,9 +24,9 @@
     "glossary": "واژه نامه",
     "datenschutz": "حریم خصوصی",
     "impressum": "اطلاعات تماس",
-    "faq":"FAQ",
-    "anti":"_________",
-    "btn":"_______"
+    "faq": "انتشار",
+    "anti": "_________",
+    "btn": "_______"
   },
   "page": {
     "home": {
@@ -42,10 +42,10 @@
         "readAllAnswers": "همه پاسخ ها را بخوانید"
       },
       "referralCounseling": {
-        "title": "مشاوره ارجاع",
-        "description": "Lorem ipsum dolor sit amet,",
-        "filterPlace": "مکان یا کدپستی را وارد کنید",
-        "placeOrLocation": "مکان/محل"
+        "title": "راهنمای ارجاع",
+        "description": "آیا هنوز به دنبال کمک و مشاوره بیشتر در مورد واقعه خود هستید؟",
+        "filterPlace": "در اینجا یک لیست از مراکز مشاوره را داریم که می‌توانند به شما در مسائل خاص یا عمومی کمک کنند.",
+        "placeOrLocation": "مکان / کد پستی را وارد کنید"
       },
       "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "aboutUs": {
@@ -267,7 +267,7 @@
           ]
         },
         "fourthStep": {
-          "title": "تاریخ",
+          "title": "این واقعه چه زمانی اتفاق افتاد؟",
           "options": [
             {
               "dateRange": "حادثه در یک بازه زمانی رخ داد",
@@ -288,9 +288,121 @@
           ]
         },
         "sixthStep": {
+          "title": "در کدام حوزه اجتماعی تبعیض رخ داد؟",
+          "multipleAns": "(انتخاب چندگانه ممکن است)",
+          "placeHolder": "اینجا توضیح دهید",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "ادارات و نهادهای دولتی",
+              "value": "ادارات و نهادهای دولتی",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "کار",
+              "value": "کار",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "مسکن",
+              "value": "مسکن",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "فضاهای عمومی",
+              "value": "فضاهای عمومی",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "فضای دیجیتال",
+              "value": "فضای دیجیتال",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "رسانه‌های آنالوگ",
+              "value": "رسانه‌های آنالوگ",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "خرده فروشی و خدمات",
+              "value": "خرده فروشی و خدمات",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "تفریح",
+              "value": "تفریح",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "حمل و نقل",
+              "value": "حمل و نقل",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "سلامت",
+              "value": "سلامت",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "خدمات اجتماعی",
+              "value": "خدمات اجتماعی",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "عدالت",
+              "value": "عدالت",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "پلیس",
+              "value": "پلیس",
+              "checked": false
+            },
+            {
+              "ID": "description14",
+              "name": "description",
+              "label": "خدمات امدادی",
+              "value": "خدمات امدادی",
+              "checked": false
+            },
+            {
+              "ID": "description15",
+              "name": "description",
+              "label": "دیگر، به طور خاص:",
+              "value": "دیگر، به طور خاص:",
+              "checked": false
+            }
+          ]
+        },
+        "seventhStep": {
           "title": "دقیقا چه اتفاقی افتاد؟ *",
-          "placeHolder": "لطفاً واقعه را توصیف کنید ...",
-          "errorParagragh": "باید بیشتر از ۵۰ نویسه باشد",
+          "placeHolder": "لطفاً حادثه را به اندازه دقیقی که ممکن است شرح دهید., حداقل ۵۰ نویسه",
+          "errorParagragh": "حداقل ۵۰ نویسه",
           "options": [
             {
               "inputPlaceholder": "لطفاً حادثه را به اندازه دقیقی توضیح دهید.",
@@ -305,9 +417,9 @@
             }
           ]
         },
-        "seventhStep": {
+        "eightStep": {
           "title": "آیا به نظر شما یکی از این ویژگی‌ها تأثیری بر تبعیض داشته است؟",
-          "multipleAns": "امکان انتخاب چندگانه",
+          "multipleAns": "(انتخاب چندگانه ممکن است)",
           "placeHolder": "انجام دادن",
           "options": [
             {
@@ -403,7 +515,7 @@
             }
           ]
         },
-        "eightStep": {
+        "ninthStep": {
           "title": "آیا این هنوز یک شکل دیگر از تبعیض است؟*",
           "placeHolder": "انجام دادن",
           "validation": "باید شامل حداقل 3 حرف باشد",
@@ -496,7 +608,7 @@
             }
           ]
         },
-        "ninthStep": {
+        "tenthStep": {
           "title": "آیا قبلاً اقدامات دیگری انجام داده‌اید؟*",
           "placeHolder": "انجام دادن",
           "validation": "باید شامل حداقل 3 حرف باشد",
@@ -547,7 +659,7 @@
             }
           ]
         },
-        "tenthStep": {
+        "eleventhStep": {
           "title": "صحت اطلاعات خود را بررسی کنید",
           "options": [
             {
@@ -576,7 +688,7 @@
         "onBehalf": {
           "title": "هشدار",
           "des": "اینجا تصدیق می‌کنم که اطلاعات را به نماینی از شخص متاثر وارد کرده‌ام. من این فرم گزارش را به نماینی از شخص متاثر پر کرده‌ام و موافقت او را دارم. تمام اطلاعات بر اساس دلایل و اظهارات شخص متاثر پر شده است.",
-          "back": "بازگشت",
+          "back": "انجام شده",
           "forward": "بله!"
         },
         "witness": {
@@ -631,7 +743,7 @@
       },
       "faqs": {
         "title": "سوالات متداول",
-        "whyReport": "چرا باید گزارش دهم؟",
+        "whyReport": "چگونه می‌توانم گزارش دهم؟",
         "whatHappensWithData": "چه اتفاقی برای داده‌های من می‌افتد؟",
         "whatIsAntiMuslimRacism": "راسیسم ضد مسلمانی چیست؟",
         "whoIsBehindMEDAR": "چه کسی پشت MEDAR NRW است؟",

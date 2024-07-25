@@ -11,10 +11,12 @@ type Item = {
 };
 
 type AutoCompleteProps = {
-  handleOnSearch?: () => void;
+  handleOnSearch?: any;
   handleOnSelect: any;
   handleOnHover?: () => void;
   handleOnFocus?: () => void;
+  handleOnClear?: () => void;
+   valueInput:string
 };
 
 const AutoComplete: React.FC<AutoCompleteProps> = ({
@@ -22,14 +24,19 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
   handleOnHover,
   handleOnSearch,
   handleOnSelect,
+  handleOnClear,
+  valueInput
 }) => {
-  const [location, setLocation] = useState<string>('');
+  const [location, setLocation] = useState<string>(valueInput);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const formValues = getFormCookies(FIFTH_FORM);
-
-    setLocation(formValues?.location);
+    console.log('formValues', formValues);
+    
+  formValues &&
+    formValues.happenedOnline == false &&
+    setLocation(formValues?.state);
   }, [location]);
 
   const formatResult = (item: any) => {
@@ -51,9 +58,9 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({
       onSelect={handleOnSelect}
       onFocus={handleOnFocus}
       inputSearchString={location}
-      // autoFocus
+      autoFocus
       formatResult={formatResult}
-      
+      onClear={handleOnClear}
       styling={{
         height: '44px',
         border: '1px solid #dfe1e5',

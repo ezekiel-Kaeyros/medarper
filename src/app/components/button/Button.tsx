@@ -11,21 +11,24 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {
   href?: string;
   icon?: any;
+  sizeHeigth?: number;
+  sizeWidth?: number;
 }
 
 const buttonVariants = cva(
-  'w-full py-3 text-white font-medium  flex justify-center px-4 rounded focus:outline-none focus:shadow-outline',
+  'w-full py-3  text-white font-medium items-center flex justify-center px-4 rounded focus:outline-none focus:shadow-outline',
 
   {
     variants: {
       variant: {
-        default: 'bg-primaryColor w-full text-white hover:opacity-90',
+        default: 'bg-[#E3775F] w-full text-white hover:opacity-90',
+        saveCategorizationDisabled: 'bg-greenDisable w-full text-white',
         primary: 'bg-primaryColor hover:opacity-90',
         outlinePrimary:
           'text-[#2B8049] border border-[#2B8049] hover:opacity-90',
         outlineWarning:
           'text-[#F36D38] border border-[#F36D38] hover:opacity-90',
-        disabled: 'bg-primaryColor opacity-50',
+        disabled: 'bg-btnDisabled ',
         danger: 'bg-red-500 w-full text-white hover:bg-red-600',
         outline:
           'w-full text-white border border-slate-300 hover:bg-primaryColor hover:text-white hover:border-primaryColor',
@@ -44,6 +47,8 @@ const Button: FC<ButtonProps> = ({
   href,
   icon,
   children,
+  sizeHeigth,
+  sizeWidth,
   ...props
 }) => {
   if (href) {
@@ -57,7 +62,15 @@ const Button: FC<ButtonProps> = ({
             className={cn(buttonVariants({ variant, className }))}
           >
             <span className="mr-2">
-              {icon ? <Image src={icon} alt={'Icon'} /> : ''}
+              {icon ? (
+                <Image
+                  src={icon}
+                  alt={'Icon'}
+                 
+                />
+              ) : (
+                ''
+              )}
             </span>
             {children}
           </Link>
@@ -74,12 +87,23 @@ const Button: FC<ButtonProps> = ({
       //  </AnimateClick>
     );
   }
+  console.log('sizeHeigth',sizeHeigth);
+  
   return (
     // <AnimateClick>
     <button {...props} className={cn(buttonVariants({ variant, className }))}>
       <div className="flex items-center">
         <span className="mr-2">
-          {icon ? <Image src={icon} alt={'Icon'} /> : ''}
+          {icon ? (
+            <Image
+              src={icon}
+              alt={'Icon'}
+              className={`${sizeHeigth ? `h` + sizeHeigth : 'h-auto'}
+               ${sizeWidth ? `w-` + sizeWidth : 'w-auto'}`}
+            />
+          ) : (
+            ''
+          )}
         </span>
         {children}
       </div>

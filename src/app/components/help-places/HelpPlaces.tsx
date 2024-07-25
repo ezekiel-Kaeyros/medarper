@@ -54,33 +54,31 @@ const HelpPlaces: React.FC<HelpPlacesProps> = ({ content }) => {
 
   return (
     <div>
-      <div className="flex text-white justify-between lg:h-[30rem]">
-        <div className="full bg-[#DCBE98] w-full">
-          <div className="p-2 lg:pl-[15%] py-5 lg:py-10 flex flex-col justify-between h-full w-full lg:w-[60%]">
-            <div className="font-bold text-md">
+      <div className="flex text-white justify-between lg:h-[30rem] flex-col sm:flex-row">
+        <div className="full bg-[#BD9D75] w-full flex justify-center h-full">
+          <div className="flex flex-col w-[70%] sm:w-[80%] lg:w-[45%] mt-10 gap-y-10 h-full">
+            <div className="font-bold text-3xl">
               {content?.referralCounseling?.title}
             </div>
-            <div className="my-2">
+            <div className="my-2 text-xl">
               {content?.referralCounseling?.description}
             </div>
-            <div className="my-3 text-sm">
+            <div className="my-3 flex flex-col gap-y-3 text-xl">
               {content?.referralCounseling?.filterPlace}
             </div>
-            <div className="flex items-center">
-              {/* <div className="bg-white rounded-full py-1 px-2 text-black text-sm"> */}
-              <div className="w-full">
-                {/* <Searchbar onSearch={handleSearch} /> */}
-                <AutoComplete
-                  handleOnSelect={handleOnSelect}
-                  events={events}
-                  // events={events}
-                  handleSearch={handleInputChange}
-                />
-              </div>
+            <div className="w-[80%] pb-10 lg:pb-0">
+              {/* <Searchbar onSearch={handleSearch} /> */}
+              <AutoComplete
+                handleOnSelect={handleOnSelect}
+                events={events}
+                // events={events}
+                handleSearch={handleInputChange}
+                placeholder={content.referralCounseling.placeOrLocation}
+              />
             </div>
           </div>
         </div>
-        <div className="h-full w-full text-black">
+        <div className="text-black border-4 w-full lg:h-full h-[490px]">
           <Map
             mapboxAccessToken={mapboxToken}
             mapStyle="mapbox://styles/mapbox/streets-v12"

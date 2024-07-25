@@ -26,7 +26,7 @@ const Publication: React.FC<PublicationProps> = ({ content }) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearch = (value: string) => {
-    console.log(value);
+
   };
 
   return (

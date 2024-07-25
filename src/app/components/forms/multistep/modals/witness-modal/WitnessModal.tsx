@@ -8,18 +8,18 @@ import { clearFormCookies } from '@/cookies/cookies';
 type WitnessModalProps = {
   shouldShow: boolean;
   onRequestClose: () => void;
-  witnessTranslation:{
-    title:string,
-    des:string,
-    cancel:string,
-    forward:string
-  }
+  witnessTranslation: {
+    title: string;
+    des: string;
+    cancel: string;
+    forward: string;
+  };
 };
 
 const WitnessModal: React.FC<WitnessModalProps> = ({
   shouldShow,
   onRequestClose,
-  witnessTranslation
+  witnessTranslation,
 }) => {
   const router = useRouter();
 

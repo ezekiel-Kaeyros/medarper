@@ -24,9 +24,9 @@
     "glossary": "معجم المصطلحات",
     "datenschutz": "سياسة الخصوصية",
     "impressum": "إشهار",
-    "faq":"الأسئلة الشائعة",
-    "anti":"العنصرية ضد المسلمين",
-    "btn":"الإبلاغ عن الحادث"
+    "faq": "النشر",
+    "anti": "العنصرية ضد المسلمين",
+    "btn": "الإبلاغ عن الحادث"
   },
   "page": {
     "home": {
@@ -42,10 +42,10 @@
         "readAllAnswers": "اقرأ جميع الإجابات"
       },
       "referralCounseling": {
-        "title": "الإحالة للإرشاد",
-        "description": "لوريم إيبسوم دولور سيت أميت",
-        "filterPlace": "أدخل مكانًا أو الرمز البريدي",
-        "placeOrLocation": "المكان/الموقع"
+        "title": "إرشاد الإحالة",
+        "description": "هل ما زلت تبحث عن مزيد من المساعدة والاستشارة بشأن الحادث الخاص بك؟",
+        "filterPlace": "هنا لدينا قائمة بمراكز الاستشارات التي يمكنها مساعدتك في القضايا الخاصة أو العامة.",
+        "placeOrLocation": "أدخل المكان / الرمز البريدي"
       },
       "bubbleMessage": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينغ إليت",
       "aboutUs": {
@@ -268,7 +268,7 @@
           ]
         },
         "fourthStep": {
-          "title": "التاريخ",
+          "title": "متى وقعت الحادثة؟",
           "options": [
             {
               "dateRange": "الحادث استمر لفترة زمنية",
@@ -289,25 +289,138 @@
           ]
         },
         "sixthStep": {
-          "title": "ماذا حدث بالضبط؟ *",
-          "placeHolder": "يرجى وصف الحادث...",
+          "title": "في أي مجال اجتماعي وقع التمييز؟",
+          "multipleAns": "(يمكن اختيار أكثر من إجابة واحدة)",
+          "placeHolder": "اكتب هنا",
           "options": [
             {
-              "inputPlaceholder": "يرجى وصف الحادث بأقصى قدر من التفاصيل.",
-              "listTitle": "المعلومات ذات الصلة قد تكون:",
-              "firstList": "أين وقع التمييز؟",
-              "secondList": "كيف تم التمييز بحقك؟",
-              "thirdList": "من قام بالاعتداء؟",
-              "fourthList": "كيف تصرف الأشخاص الآخرون؟",
-              "fifthList": "ما الذي يجعلك تعتقد أنها عنصرية معادية للمسلمين؟",
-              "sixthList": "ما هي الآثار التي خلفها الحادث بالنسبة لك (مثل الآثار العاطفية، الجسدية، الاجتماعية أو المالية)؟",
-              "note": "* لأسباب الخصوصية، نرجو عدم ذكر أسماء الأشخاص الآخرين هنا."
+              "ID": "description1",
+              "name": "description",
+              "label": "المؤسسات والهيئات الحكومية",
+              "value": "المؤسسات والهيئات الحكومية",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "العمل",
+              "value": "العمل",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "السكن",
+              "value": "السكن",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "المساحات العامة",
+              "value": "المساحات العامة",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "المساحات الرقمية",
+              "value": "المساحات الرقمية",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "وسائل الإعلام التقليدية",
+              "value": "وسائل الإعلام التقليدية",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "التجارة والخدمات",
+              "value": "التجارة والخدمات",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "الترفيه",
+              "value": "الترفيه",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "النقل",
+              "value": "النقل",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "الصحة",
+              "value": "الصحة",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "الخدمات الاجتماعية",
+              "value": "الخدمات الاجتماعية",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "القضاء",
+              "value": "القضاء",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "الشرطة",
+              "value": "الشرطة",
+              "checked": false
+            },
+            {
+              "ID": "description14",
+              "name": "description",
+              "label": "المؤسسات الإنقاذية",
+              "value": "المؤسسات الإنقاذية",
+              "checked": false
+            },
+            {
+              "ID": "description15",
+              "name": "description",
+              "label": "غير ذلك، وهو:",
+              "value": "غير ذلك، وهو:",
+              "checked": false
             }
           ]
         },
         "seventhStep": {
+          "title": "ما الذي حدث بالضبط؟ *",
+          "placeHolder": "يرجى وصف الحادث بأكبر قدر ممكن من الدقة., (50 حرفًا على الأقل)",
+          "errorParagragh": "(50 حرفًا على الأقل)",
+          "options": [
+            {
+              "inputPlaceholder": "يرجى شرح الحدث بأقصى قدر ممكن.",
+              "listTitle": "قد تتضمن المعلومات القريبة ما يلي:",
+              "firstList": "أين حدث التمييز؟",
+              "secondList": "كيف تعرضت للتمييز؟",
+              "thirdList": "من الذي قام بالهجوم؟",
+              "fourthList": "كيف ردت الأشخاص الآخرون؟",
+              "fifthList": "ما الذي جعلك تعتقد أن هذا الحدث هو عنصرية معادية للإسلام؟",
+              "sixthList": "ما هي الآثار التي تركها الحدث عليك (عاطفية، جسدية، اجتماعية، مالية، إلخ)؟",
+              "note": "* من أجل الخصوصية، يرجى عدم ذكر أسماء الأشخاص الآخرين هنا."
+            }
+          ]
+        },
+        "eightStep": {
           "title": "هل كان أي من هذه السمات لديك تأثير على التمييز؟",
-          "multipleAns": "يمكن تحديد أكثر من خيار",
+          "multipleAns": "(يمكن اختيار أكثر من إجابة واحدة)",
           "placeHolder": "تنفيذ هنا",
           "options": [
             {
@@ -403,7 +516,7 @@
             }
           ]
         },
-        "eightStep": {
+        "ninthStep": {
           "title": "هل ما زالت هناك أشكال أخرى من التمييز؟*",
           "placeHolder": "تنفيذ هنا",
           "validation": "يجب أن تحتوي على 3 أحرف على الأقل",
@@ -496,7 +609,7 @@
             }
           ]
         },
-        "ninthStep": {
+        "tenthStep": {
           "title": "هل اتخذت بالفعل تدابير أخرى؟*",
           "placeHolder": "تنفيذ هنا",
           "validation": "يجب أن تحتوي على 3 أحرف على الأقل",
@@ -547,7 +660,7 @@
             }
           ]
         },
-        "tenthStep": {
+        "eleventhStep": {
           "title": "تحقق من صحة بياناتك",
           "options": [
             {
@@ -569,13 +682,13 @@
         "confirmModal": {
           "title": "شكرًا لك!",
           "des": "شكرًا لك على مشاركة تجاربك معنا. من خلال ملء نموذج الإبلاغ، أنت تساعد في جعل التمييز والعنف أكثر وضوحًا.",
-          "back": "رجوع",
+          "back": "تم الانتهاء",
           "ja": "نعم!"
         },
         "onBehalf": {
           "title": "تحذير",
           "des": "أؤكد هنا أنني أدخلت المعلومات نيابة عن الشخص المتأثر. لقد قمت بملء هذا النموذج بالتبليغ نيابة عن الشخص المتأثر ولدي موافقته. تم ملء جميع المعلومات وفقًا لرغبة وبيانات الشخص المتأثر.",
-          "back": "رجوع",
+          "back": "منتهي",
           "forward": "نعم!"
         },
         "witness": {
@@ -630,7 +743,7 @@
       },
       "faqs": {
         "title": "الأسئلة الشائعة",
-        "whyReport": "لماذا يجب علي الإبلاغ؟",
+        "whyReport": "كيف أقوم بالإبلاغ؟",
         "whatHappensWithData": "ماذا يحدث ببياناتي؟",
         "whatIsAntiMuslimRacism": "ما هو العنصرية المعادية للمسلمين؟",
         "whoIsBehindMEDAR": "من يقف وراء MEDAR NRW؟",

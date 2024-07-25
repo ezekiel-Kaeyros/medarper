@@ -9,3 +9,5 @@ export const SIXTH_FORM = 'SIXTH_FORM';
 export const SEVENTH_FORM = 'SEVENTH_FORM';
 export const EIGTH_FORM = 'EIGTH_FORM';
 export const NINETH_FORM = 'NINETH_FORM';
+export const TENTH_FORM = 'TENTH_FORM';
+export const SHOW = 'show_medar';

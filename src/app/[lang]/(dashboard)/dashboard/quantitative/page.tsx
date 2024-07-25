@@ -1,17 +1,30 @@
-'use client';
-import React, { useState } from 'react';
-import Loading from './loading';
+import React from 'react';
+import QuantitativeChart from '@/app/components/quantitative/QuantitativeChart';
 
 const Page = () => {
-  const [loading, setIsLoading] = useState(true);
-  const handleIframeLoaded = () => {
-    setIsLoading(false);
-  };
 
+  //         user.then((result1) => {
+  //           if (typeof result1 == 'object') {
+  //             setUserCookies({
+  //               ...result1,
+  //               token: result.headers.authorization,
+  //             });
+  //           }
+  //         });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       if (typeof error.response.data.message == 'string') {
+  //         if (error.response.data.message !== 'Too Many Requests.') {
+  //           removeUserCookies();
+  //           window.location.href = '/en/login';
+  //         }
+  //       }
+  //     });
+  // }, []);
   return (
     <div className="mt-8">
       <h1 className="font-bold text-2xl mb-4">Quantitative data</h1>
-
       {/* {(loading && (
         <div className="w-full">
           <Loading />
@@ -19,13 +32,7 @@ const Page = () => {
       )) || (
         
       )} */}
-
-      <iframe
-        onLoad={handleIframeLoaded}
-        loading="lazy"
-        src="https://dashboard.kaeyros.online/#!/quantitative"
-        className="w-full h-screen"
-      />
+      <QuantitativeChart />
     </div>
   );
 };

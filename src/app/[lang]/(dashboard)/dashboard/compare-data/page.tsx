@@ -1,4 +1,5 @@
 'use client';
+import { useAuth } from '@/app/hooks/useAuth';
 import React, { useState } from 'react';
 
 const Page = () => {
@@ -6,6 +7,7 @@ const Page = () => {
   const handleIframeLoaded = () => {
     setIsLoading(false);
   };
+  const { user } = useAuth();
 
   return (
     <div className="mt-8">
@@ -18,7 +20,7 @@ const Page = () => {
       <iframe
         onLoad={handleIframeLoaded}
         loading="lazy"
-        src="https://dashboard.kaeyros.online/#!/compare"
+        src={"https://dashboard.kaeyros.online/#!/compare?token=" + user?.token}
         className="w-full h-screen"
       />
     </div>

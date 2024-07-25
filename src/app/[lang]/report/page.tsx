@@ -11,6 +11,8 @@ export default async function report({
   params: { lang: Locale };
 }) {
   const { page } = await getDictionary(lang);
+
+  console.log(lang, 'this is my language');
   return (
     <div className="overflow-x-hidden">
       <Header lang={lang} />

@@ -5,7 +5,7 @@ import { FifthFormValues, FifthStepProps } from './fifthStep.d';
 import CheckboxSimple from '../../checkbox/CheckboxSimple';
 import { getFormCookies, getFormStep, setFormCookies } from '@/cookies/cookies';
 import { useFormContext } from '@/app/hooks/useFormContext';
-import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
+import { FORM_ERRORS, LAST_STEP, NEXT_STEP } from '@/app/context/actions';
 import { FIFTH_FORM } from '@/cookies/cookies.d';
 import { useScrollOnTop } from '@/app/hooks/useScrollOnTop';
 import AutoComplete from '../../auto-complete/AutoComplete';
@@ -30,11 +30,25 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
 
   // Triggered when submitting form
   const onSubmit: SubmitHandler<FifthFormValues> = (data) => {
-    let step = getFormStep();
-    let dataWithQuestion = { question, state, step, ...data };
-    setFormCookies(dataWithQuestion, FIFTH_FORM);
+    if (data.happenedOnline.length > 0) {
+      let step = getFormStep();
+      let dataWithQuestion = {
+        question,
+        state: '',
+        step,
+        happenedOnline: data.happenedOnline,
+        city: '',
+      };
+      setFormCookies(dataWithQuestion, FIFTH_FORM);
 
-    dispatch({ type: NEXT_STEP, payload: '' });
+      dispatch({ type: NEXT_STEP, payload: '' });
+    } else {
+      let step = getFormStep();
+      let dataWithQuestion = { question, state, step, ...data };
+      setFormCookies(dataWithQuestion, FIFTH_FORM);
+
+      dispatch({ type: NEXT_STEP, payload: '' });
+    }
   };
 
   // Scroll on top
@@ -46,7 +60,7 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
 
     dispatch({ type: FORM_ERRORS, payload: true });
     // Check if field is selected and throw an error if not
-    if (!city || !state) {
+    if (!state) {
       dispatch({ type: FORM_ERRORS, payload: true });
     } else {
       dispatch({ type: FORM_ERRORS, payload: false });
@@ -56,10 +70,19 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
       happenedOnline && dispatch({ type: FORM_ERRORS, payload: false });
     }
 
-    // Setting values from cookies
-    if (formValues && !city && !state && !happenedOnline) {
-      city !== formValues?.city && setValue('city', formValues?.city);
+    if (happenedOnline && (!formValues || (formValues && !formValues.state))) {
+      setState('');
+    }
 
+    // Setting values from cookies
+    if (
+      formValues &&
+      city == undefined &&
+      !state &&
+      happenedOnline == undefined
+    ) {
+      city !== formValues?.city && setValue('city', formValues?.city);
+      formValues.state != state && setState(formValues.state);
       happenedOnline !== formValues?.happenedOnline &&
         setValue('happenedOnline', formValues?.happenedOnline);
     }
@@ -73,6 +96,13 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
     setState(item?.name);
   };
 
+  const handleOnSearch = (keyword: string, item: any) => {
+    // the item selected
+    if (keyword.length == 0) {
+      setState(keyword);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} id="fifthForm">
       <div className="my-4">
@@ -83,7 +113,11 @@ const FifthStep: React.FC<FifthStepProps> = ({ fifthStepTranslation }) => {
             </h1>
             <div className="my-2">
               <h1 className="mb-2">{fifthStepTranslation?.options[0]?.city}</h1>
-              <AutoComplete handleOnSelect={handleOnSelect} />
+              <AutoComplete
+                handleOnSelect={handleOnSelect}
+                handleOnSearch={handleOnSearch}
+                valueInput={state}
+              />
             </div>
             <div className="my-2">
               <InputField

@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Startseite",
     "menu": "Menü",
-    "logoDescription": "Melde - und Dokumentationsstelle | anti-Muslimischer Rassismus NRW",
+    "logoDescription": "Melde - und Dokumentationsstelle | antimuslimischer Rassismus NRW",
     "language": "Einfache Sprache",
     "about": {
       "title": "Über uns",
@@ -24,7 +24,7 @@
     "glossary": "Glossar",
     "datenschutz": "Datenschutz",
     "impressum": "Impressum",
-    "faq": "Hilfe",
+    "faq": "Veröffentlichungen",
     "anti": "Antimuslimischer Rassismus",
     "btn": "Vorfall melden"
   },
@@ -35,17 +35,17 @@
       "title": "Wie melde ich?",
       "faqs": {
         "title": "Häufig gestellte Fragen",
-        "whyReport": "Warum sollte ich melden?",
+        "whyReport": "Wie melde ich?",
         "whatHappensWithData": "Was passiert mit meinen Daten?",
-        "whatIsAntiMuslimRacism": "Was ist anti Muslimischer Rassismus?",
+        "whatIsAntiMuslimRacism": "Was ist antimuslimischer Rassismus?",
         "whoIsBehindMEDAR": "Wer steckt hinter MEDAR NRW?",
         "readAllAnswers": "Alle Antworten lesen"
       },
       "referralCounseling": {
         "title": "Verweisberatung",
-        "description": "Lorem ipsum dolor sit amet, ",
-        "filterPlace": "Geben Sie einen Ort oder eine Postleitzahl ein",
-        "placeOrLocation": "Ort/Standort"
+        "description": "Suchst du noch nach weiterer Hilfe und Beratung zu deinem Vorfall?",
+        "filterPlace": "Hier haben wir eine Liste von Beratungsstellen, die dir bei spezifischen oder allgemeinen Anliegen weiterhelfen können.",
+        "placeOrLocation": "Ort/PLZ eingeben"
       },
       "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
       "aboutUs": {
@@ -100,7 +100,7 @@
         },
         "secondStep": {
           "titleMyself": "Was für eine Organisation/Institution ist betroffen (Mehrfachantwort möglich)?",
-          "titleAnotherPerson": "Was ist deine geschelechtliche Identität?",
+          "titleAnotherPerson": "Was ist deine geschlechtliche Identität?",
           "titleOnbehalf": "Was ist die geschlechtliche Identität der betroffenen Person?",
           "titleOrganization": "Was für eine Organisation/Institution ist betroffen (Mehrfachantwort möglich)?",
 
@@ -268,7 +268,7 @@
           ]
         },
         "fourthStep": {
-          "title": "Datum",
+          "title": "Wann ist der Vorfall passiert?",
           "options": [
             {
               "dateRange": "Vorfall ging über einen Zeitraum",
@@ -289,9 +289,121 @@
           ]
         },
         "sixthStep": {
+          "title": "In welchemgesellschaftlichen Bereich fand die Diskriminierung statt?",
+          "multipleAns": "(Mehrfachnennung möglich)",
+          "placeHolder": "Hier ausführen",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "Ämter und Behörden",
+              "value": "Ämter und Behörden",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "Arbeit",
+              "value": "Arbeit",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "Wohnen",
+              "value": "Wohnen",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "Öffentlicher Raum",
+              "value": "Öffentlicher Raum",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "Digitaler Raum",
+              "value": "Digitaler Raum",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "Analoge Medien",
+              "value": "Analoge Medien",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "Einzelhandel und Dienstleistungen ",
+              "value": "Einzelhandel und Dienstleistungen ",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "Freizeit",
+              "value": "Freizeit",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "Verkehr",
+              "value": "Verkehr",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "Gesundheit",
+              "value": "Gesundheit",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "Soziale Dienste",
+              "value": "Soziale Dienste",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "Justiz",
+              "value": "Justiz",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "Polizei",
+              "value": "Polizei",
+              "checked": false
+            },
+            {
+              "ID": "description14",
+              "name": "description",
+              "label": "Einsatzorganisation",
+              "value": "Einsatzorganisation",
+              "checked": false
+            },
+            {
+              "ID": "description15",
+              "name": "description",
+              "label": "Anderes, und zwar:",
+              "value": "Anderes, und zwar:",
+              "checked": false
+            }
+          ]
+        },
+        "seventhStep": {
           "title": "Was genau ist geschehen? *",
-          "placeHolder": "Bitte beschreiben Sie den Vorfall ...",
-          "errorParagragh": "Mindestens zeichen 50",
+          "placeHolder": "Bitte beschreibe den Vorfall so genau wie möglich., (mind. 50 zeichen)",
+          "errorParagragh": "(mind. 50 zeichen)",
           "options": [
             {
               "inputPlaceholder": "Bitte beschereide den Vorfall so genau wie möglich.",
@@ -306,9 +418,9 @@
             }
           ]
         },
-        "seventhStep": {
+        "eightStep": {
           "title": "Hatte eines dieser Merkmale deiner Meinung nach einen Einfluss auf die Diskriminierung?",
-          "multipleAns": "Mehrfachnennung möglich",
+          "multipleAns": "(Mehrfachnennung möglich)",
           "placeHolder": "Hier ausführen",
           "options": [
             {
@@ -404,7 +516,7 @@
             }
           ]
         },
-        "eightStep": {
+        "ninthStep": {
           "title": "Handelt es sich noch um eine weitere Form der Diskriminierung?*",
           "placeHolder": "Hier ausführen",
           "valiation": "Muss mindestens 3 Zeichen lang sein",
@@ -497,7 +609,7 @@
             }
           ]
         },
-        "ninthStep": {
+        "tenthStep": {
           "title": "Hast du bereits andere Maßnahmen ergriffen?*",
           "placeHolder": "Hier ausführen",
           "validation": "Muss mindestens 3 Zeichen lang sein",
@@ -548,7 +660,7 @@
             }
           ]
         },
-        "tenthStep": {
+        "eleventhStep": {
           "title": "Überprüfe die Richtigkeit Deiner Angaben",
           "captcha": "Ich bin kein Roboter",
           "options": [
@@ -571,13 +683,13 @@
         "confirmModal": {
           "title": "Vielen Dank!",
           "des": "Danke das du deine Erfahrungen mit uns teilst. Mit dem Ausfüllen des Meldeformulars trägst du dazu bei, dass Diskriminierung und Gewalt sichtbarer gemacht werden.",
-          "back": "ZURÜCK",
+          "back": "Fertig",
           "ja": "JA!"
         },
         "onBehalf": {
           "title": "Achtung",
           "des": "Hiermit bestätige ich, dass ich die Angaben im Namen der betroffenen Person eingegeben habe. Ich habe dieses Meldeformular in Vertretung ausgefüllt und habe das Einverständnis der betroffenen Person. Alle Angaben wurden entsprechend dem Wunsch und den Aussagen der betroffenen Person ausgefüllt.",
-          "back": "ZURÜCK",
+          "back": "Fertig",
           "forward": "JA!"
         },
         "witness": {
@@ -634,7 +746,7 @@
         "title": "Häufig gestellte Fragen",
         "whyReport": "Warum sollte ich melden?",
         "whatHappensWithData": "Was passiert mit meinen Daten?",
-        "whatIsAntiMuslimRacism": "Was ist anti-Muslimischer Rassismus?",
+        "whatIsAntiMuslimRacism": "Was ist antimuslimischer Rassismus?",
         "whoIsBehindMEDAR": "Wer steckt hinter MEDAR NRW?",
         "readAllAnswers": "Alle Antworten lesen"
       },

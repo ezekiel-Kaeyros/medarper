@@ -26,10 +26,10 @@ const FourthStep: React.FC<FourthStepProps> = ({
 }) => {
   const { dispatch } = useFormContext();
   const [question] = useState<string>('Datum');
-  const [valueDate, setValueDate] = useState<Dayjs | null>(dayjs());
+  const [valueDate, setValueDate] = useState<Dayjs | null>(null);
 
-  const [dateStart, setDateStart] = useState<any>();
-  const [dateEnd, setDateEnd] = useState<any>();
+  const [dateStart, setDateStart] = useState<any>(null);
+  const [dateEnd, setDateEnd] = useState<any>(null);
   const [dateRange, setDateRange] = useState<any>();
 
   // Disabled date ranges
@@ -40,7 +40,11 @@ const FourthStep: React.FC<FourthStepProps> = ({
 
   // On range picker change
   const onChangeDateStart: DatePickerProps['onChange'] = (date, dateString) => {
-    setDateStart(date);
+  
+       setDateStart(date);
+   
+    
+  
   };
 
   const onChangeDateEnd: DatePickerProps['onChange'] = (date, dateString) => {
@@ -71,42 +75,79 @@ const FourthStep: React.FC<FourthStepProps> = ({
       onGoingIncident: string;
       datePeriod: string;
     } = getFormCookies(FOURTH_FORM);
-
+//  dispatch({ type: FORM_ERRORS, payload: false });
     // Validation.
-    dispatch({ type: FORM_ERRORS, payload: false });
-    if ((datePeriod && !dateStart) || (datePeriod && !dateEnd)) {
+    if (!valueDate && !datePeriod && !onGoingIncident) {
+      // console.log('datePeriod', datePeriod);
+      
       dispatch({ type: FORM_ERRORS, payload: true });
+    } else {
+      if (!datePeriod && !onGoingIncident) {
+           dispatch({ type: FORM_ERRORS, payload: false });
+      } else {
+        if (!datePeriod) {
+           dispatch({ type: FORM_ERRORS, payload: false });
+          
+        }else{  if (datePeriod && (!dateStart || !dateEnd)) {
+          dispatch({ type: FORM_ERRORS, payload: true });
+        } else {
+          dispatch({ type: FORM_ERRORS, payload: false });
+        }}
+      
+      }
+  
     }
+   
+    
 
-    if (!datePeriod) {
+    if (datePeriod) {
+      setValue('onGoingIncident', '')
+    }
+    if (onGoingIncident) {
+      setValue('datePeriod','')
     }
 
     if (formValues && !onGoingIncident && datePeriod == undefined) {
+    
       onGoingIncident !== formValues?.onGoingIncident &&
         setValue('onGoingIncident', formValues?.onGoingIncident);
       datePeriod !== formValues?.datePeriod &&
         setValue('datePeriod', formValues?.datePeriod);
 
       formValues?.date && setValueDate(dayjs(formValues?.date));
-      formValues?.dateRange && setDateStart(formValues?.dateRange[0]);
-      formValues?.dateRange && setDateEnd(formValues?.dateRange[1]);
+      formValues?.dateRange && formValues.dateRange[0] && setDateStart(formValues?.dateRange[0]);
+      formValues?.dateRange &&
+        formValues.dateRange[1] &&
+        setDateEnd(formValues?.dateRange[1]);
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [datePeriod, dateStart, dateEnd, valueDate]);
 
-  console.log(!dateStart, 'this is my date start');
-  console.log(!dateEnd, 'this is my date end');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [datePeriod, dateStart, dateEnd, valueDate, onGoingIncident]);
+
+  
   // console.log(valueDate, "this is my valuedate")
   // console.log(!datePeriod, 'this is my date Period');
 
   // Triggered when submitting form
   const onSubmit: SubmitHandler<FourthFormValues> = (data) => {
     let step = getFormStep();
-    let date = valueDate;
-    let dateRange = [dateStart, dateEnd];
+    let date = !datePeriod && !data.onGoingIncident ? valueDate : null;
+    let dateRange = datePeriod ? [dateStart, dateEnd] : [];
+    let onGoingIncident=data.onGoingIncident
 
-    let dataWithQuestion = { question, date, dateRange, step, ...data };
+    let dataWithQuestion = {
+      question,
+      date,
+      dateRange,
+      step,
+
+      onGoingIncident,
+      datePeriod
+      // ...data,
+    };
+    console.log('dataWithQuestion',dataWithQuestion);
+    
     setFormCookies(dataWithQuestion, FOURTH_FORM);
 
     dispatch({ type: NEXT_STEP, payload: '' });
@@ -125,6 +166,8 @@ const FourthStep: React.FC<FourthStepProps> = ({
             <DateCalendar
               sx={{
                 width: '100%',
+                height: '100%',
+              
                 '& .Mui-selected, & .Mui-selected:focus, & .Mui-selected:hover':
                   {
                     backgroundColor: `white !important`,
@@ -133,7 +176,7 @@ const FourthStep: React.FC<FourthStepProps> = ({
               value={valueDate}
               views={['month', 'day']}
               defaultValue={valueDate}
-              disabled={datePeriod ? true : false}
+              disabled={datePeriod || onGoingIncident ? true : false}
               onChange={(newValue) => setValueDate(newValue)}
               disableFuture
             />
@@ -161,9 +204,10 @@ const FourthStep: React.FC<FourthStepProps> = ({
                 <DatePicker
                   className="w-full py-3 focus:border-primaryColor focus:border"
                   disabledDate={disabledDate}
-                  defaultValue={dayjs(dateStart)}
+                  value={dateStart ? dayjs(dateStart) : undefined}
                   onChange={onChangeDateStart}
                   format={dateFormat}
+                  // value={dayjs(dateStart)}
                 />
               </div>
               <div className="flex flex-col md:flex-row text-sm md:mb-0 md:items-center w-full">
@@ -173,7 +217,7 @@ const FourthStep: React.FC<FourthStepProps> = ({
                 <DatePicker
                   disabledDate={disabledDate}
                   className="w-full py-3"
-                  defaultValue={dayjs(dateEnd)}
+                  value={dateEnd ? dayjs(dateEnd) : undefined}
                   onChange={onChangeDateEnd}
                   format={dateFormat}
                 />

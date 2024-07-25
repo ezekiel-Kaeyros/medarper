@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { FormProvider } from '../context/FormContext';
 import { Providers } from '../components/captcha/providers';
 import { NextUIProvider } from '@nextui-org/react';
+import { AuthProvider } from '../context/AuthContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { lang: Locale };
 }) {
-  console.log(params?.lang);
+ 
   return (
     <html
       dir={params?.lang === 'ar' || params?.lang === 'fa' ? 'rtl' : 'ltr'}
@@ -35,9 +36,10 @@ export default function RootLayout({
       <Head>
         <meta name="description">{metadata.description}</meta>
       </Head>
-    
-        <Providers>
-          <FormProvider>
+
+      <Providers>
+        <FormProvider>
+          <AuthProvider>
             <body className={`${inter.className} `}>
               {/* <Header lang={params.lang} /> */}
               {children}
@@ -48,9 +50,9 @@ export default function RootLayout({
                 defer
               ></script>
             </body>
-          </FormProvider>
-        </Providers>
-      
+          </AuthProvider>
+        </FormProvider>
+      </Providers>
     </html>
   );
 }

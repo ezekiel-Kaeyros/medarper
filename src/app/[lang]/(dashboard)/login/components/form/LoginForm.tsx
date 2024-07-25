@@ -23,6 +23,8 @@ import { setUserCookies } from '@/cookies/cookies';
 import { AuthContext, AuthProvider } from '@/app/context/AuthContext';
 import { useAuth } from '@/app/hooks/useAuth';
 import InputField from './InputField';
+import { DecodeToken } from '../DecodeToken';
+import Link from 'next/link';
 
 interface IFormInput {
   email: string;
@@ -41,6 +43,11 @@ type LoignProps = {
 };
 
 const LoginForm = () => {
+   const { isShow, IshowHandler, setReports } = useContext(AuthContext);
+   useEffect(() => {
+     setReports([]);
+   }, []);
+   console.log('process.env.domaine', process.env.DOMAINE_COOKIES);
   const {
     register,
     watch,
@@ -56,24 +63,56 @@ const LoginForm = () => {
   const { push } = useRouter();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    setIsLoading(true);
-    const response = new AuthService()
-      .login(data)
-      .then((result) => {
-        console.log('result',result);
-        
-        if (result.status == 201) {
-          loginUser(result.data.user[0])
-         setUserCookies(result.data.user[0]);
-          window.location.href = '/en/dashboard';
-          toast.success(result.data.message);
-          setIsLoading(false);
-        }
-      })
-      .catch((error) => {
-        toast.error('Something went wrong, try again');
-        setIsLoading(false);
-      });
+   try {
+     setIsLoading(true);
+     const response = new AuthService()
+       .login(data)
+       .then((result) => {
+         if (result.status === 201) {
+           const user = DecodeToken(result.headers.authorization);
+       
+
+           user.then((result1) => {
+             // let user1:UserDataType=result1
+
+             if (typeof result1 == 'object') {
+               // console.log('result', typeof result1);
+               setUserCookies({
+                 ...result1,
+                 token: result.headers.authorization,
+               });
+               //  setRefreshToken(result.headers.authorization);
+               toast.success(result.data.message);
+               setIsLoading(false);
+               window.location.href = '/en/dashboard';
+             }
+             // setUserCookies({ token: result.headers.authorization, ...result1 });
+             // window.location.href = '/en/dashboard';
+             // toast.success(result.data.message);
+           });
+
+           // console.log('result', result);
+           // console.log('user', result.headers.authorization);
+           // const user = verify(result.headers.authorization);
+           // console.log(
+           //   'user',
+           //   jwt.verify(result.headers.authorization,)
+           // );
+
+           // loginUser(result.data.user[0]);
+           // setUserCookies(result.data.user[0]);
+         }
+       })
+       .catch((error) => {
+         console.log('error', error);
+
+         toast.error('Something went wrong, try again');
+         setIsLoading(false);
+       });
+   } catch (error) {
+    console.log('error',error);
+    
+   }
   };
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -89,7 +128,7 @@ const LoginForm = () => {
 // console.log(user, 'ctx');
   useEffect(() => {
     if (user) {
-      console.log(user,'user');
+     
       
     }
   },[user])
@@ -148,6 +187,14 @@ const LoginForm = () => {
                 className="absolute top-1/4 right-6 cursor-pointer w-7"
                 onClick={() => setIsPasswordVisible(!isPasswordVisible)}
               />
+            </div>
+            <div className="flex justify-end mr-4">
+              <Link
+                href="/reset-password"
+                className="hover:text-primary border-b-1 hover:border-b-1 hover:border-primary"
+              >
+                Forgot Password?
+              </Link>
             </div>
             <Button
               className="mt-7 rounded-lg text-sm sm:text-xl bg-[#2B8049]"

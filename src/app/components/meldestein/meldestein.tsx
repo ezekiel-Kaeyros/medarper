@@ -21,7 +21,7 @@ const Meldestein: React.FC<MeldesteinProps> = ({ content }) => {
     const [searchValue, setSearchValue] = useState('');
 
     const handleSearch = (value: string) => {
-        console.log(value);
+     
     };
     return (
         <div>

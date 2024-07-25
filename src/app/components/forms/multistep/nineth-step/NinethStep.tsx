@@ -1,40 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import RadioGroup from '../../radio/RadioGroup';
 import {
   NinethStepFormValues,
-  haveYouReportedData,
-  NinthStepProps,
-  haveYouReportedDataYes,
+  otherFormsData,
+  otherFormsDataYes,
+  NinethStepProps,
 } from './ninethStep.d';
-import RadioGroup from '../../radio/RadioGroup';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import InputField from '../../text-field/InputField';
-import RadioSingle from '../../radio/RadioSingle';
+import Checkbox from '../../checkbox/Checkbox';
 import { getFormCookies, getFormStep, setFormCookies } from '@/cookies/cookies';
 import { NINETH_FORM } from '@/cookies/cookies.d';
-import { useFormContext } from '@/app/hooks/useFormContext';
 import { FORM_ERRORS, NEXT_STEP } from '@/app/context/actions';
+import { useFormContext } from '@/app/hooks/useFormContext';
 import { useScrollOnTop } from '@/app/hooks/useScrollOnTop';
-import Checkbox from '../../checkbox/Checkbox';
-import CheckboxInput from '../../checkbox/checkboxInput';
 import InputFieldCheckbox from '../../InputFiledCheckBox';
+import CheckboxInput from '../../checkbox/checkboxInput';
 
-const NinethStep: React.FC<NinthStepProps> = ({ ninthStepTranslation }) => {
-  const [question] = useState<string>('');
-
+const NinethStep: React.FC<NinethStepProps> = ({ ninethStepTranslation }) => {
   const { dispatch } = useFormContext();
 
+  const [question] = useState<string>(ninethStepTranslation.title);
   const {
     register,
     handleSubmit,
     watch,
     setValue,
-    formState: { errors,isValid },
+    formState: { errors },
   } = useForm<NinethStepFormValues>();
 
-  let haveYouReported: string = watch('haveYouReported');
-  let haveYouReportedYes: string = watch('haveYouReportedYes');
-  let haveYouReportedFreeField1: string = watch('haveYouReportedFreeField1');
-  let haveYouReportedFreeField2: string = watch('haveYouReportedFreeField2');
+  let otherForms: string = watch('otherForms');
+  let otherFormsYes: string[] = watch('otherFormsYes');
+  let otherFormsYesFreeField: string = watch('otherFormsYesFreeField');
 
   // Scroll on top
   useScrollOnTop();
@@ -42,10 +39,19 @@ const NinethStep: React.FC<NinthStepProps> = ({ ninthStepTranslation }) => {
   // Triggered when submitting form
   const onSubmit: SubmitHandler<NinethStepFormValues> = (data) => {
     let step = getFormStep();
-    let dataWithQuestion = { question, step, ...data };
+    let otherForms = data.otherForms;
+    let otherFormsYes = data.otherForms.length > 5 ? data.otherFormsYes : [];
+    let otherFormsYesFreeField =
+      data.otherForms.length > 5 ? data.otherFormsYesFreeField : '';
+    let dataWithQuestion = {
+      question,
+      step,
+      otherForms: otherForms,
+      otherFormsYes: otherFormsYes,
+      otherFormsYesFreeField: otherFormsYesFreeField,
+    };
     setFormCookies(dataWithQuestion, NINETH_FORM);
-    console.log('dataWithQuestion',dataWithQuestion);
-    
+
     dispatch({ type: NEXT_STEP, payload: '' });
   };
 
@@ -53,520 +59,230 @@ const NinethStep: React.FC<NinthStepProps> = ({ ninthStepTranslation }) => {
     // Get values from cookies
 
     let formValues: {
-      haveYouReported: string;
-      haveYouReportedYes: string;
-      haveYouReportedFreeField1: string;
-      haveYouReportedFreeField2: string;
+      otherForms: string;
+      otherFormsYes: string[];
+      otherFormsYesFreeField: string;
     } = getFormCookies(NINETH_FORM);
 
-    // validation
-//     dispatch({ type: FORM_ERRORS, payload: true });
-//     if (
-//       (haveYouReported &&
-//         !haveYouReported?.includes(ninthStepTranslation?.options[1].label)) ||
-//       (haveYouReportedYes &&
-//         !haveYouReportedYes?.includes(
-//           ninthStepTranslation?.optionYesIndeed[2]?.label
-//         ) &&
-//         haveYouReportedYes &&
-//         !haveYouReportedYes?.includes(
-//           ninthStepTranslation?.optionYesIndeed[3]?.label
-//         )) ||
-//       (haveYouReportedYes &&
-//         haveYouReportedYes?.includes(
-//           ninthStepTranslation?.optionYesIndeed[2]?.label
-//         ) &&
-//         haveYouReportedFreeField1?.length !== 0) ||
-//       (haveYouReportedYes &&
-//         haveYouReportedYes?.includes(
-//           ninthStepTranslation?.optionYesIndeed[3]?.label
-//         ) &&
-//         haveYouReportedFreeField2?.length !== 0)
-//     ) {
-//       dispatch({ type: FORM_ERRORS, payload: false });
-//     }
+    // (otherForms &&
+    //   !otherForms?.includes(ninethStepTranslation?.options[0]?.label) &&
+    //   otherFormsYes &&
+    //   otherFormsYes?.length !== 0 &&
+    //   !otherFormsYes?.includes(
+    //     ninethStepTranslation?.optionYesIndeed[9]?.label
+    //   )) ||
 
-//     // Setting form values from cookies
-// if (!isValid) {
-//    dispatch({ type: FORM_ERRORS, payload: true });
-// }
-    
-    
-    
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    // validation for eight step.
     dispatch({ type: FORM_ERRORS, payload: true });
 
-    //   Setting values in the fields
-
-      if (!haveYouReported) {
-        dispatch({ type: FORM_ERRORS, payload: true });
-      }
-    if (haveYouReported === ninthStepTranslation.options[1].label) {
+    if (
+      otherForms &&
+      otherForms?.includes(ninethStepTranslation?.options[1]?.label)
+    ) {
       dispatch({ type: FORM_ERRORS, payload: true });
       if (
-        haveYouReported &&
-        haveYouReportedYes?.length > 0 &&
-        !haveYouReportedYes?.includes(
-          ninthStepTranslation?.optionYesIndeed[3].value
-        ) &&
-        !haveYouReportedYes?.includes(
-          ninthStepTranslation?.optionYesIndeed[2].value
+        otherFormsYes &&
+        !otherFormsYes.includes(
+          ninethStepTranslation.optionYesIndeed[
+            ninethStepTranslation.optionYesIndeed.length - 1
+          ].label
         )
       ) {
         dispatch({ type: FORM_ERRORS, payload: false });
       } else {
-        dispatch({ type: FORM_ERRORS, payload: true });
         if (
-          haveYouReported &&
-          haveYouReportedYes?.length > 0 &&
-          haveYouReportedYes?.includes(
-            ninthStepTranslation?.optionYesIndeed[3].value
-          ) &&
-          !haveYouReportedYes?.includes(
-            ninthStepTranslation?.optionYesIndeed[2].value
+          otherFormsYes &&
+          otherFormsYes.includes(
+            ninethStepTranslation.optionYesIndeed[
+              ninethStepTranslation.optionYesIndeed.length - 1
+            ].label
           )
         ) {
-          if (
-            haveYouReportedFreeField2 &&
-            haveYouReportedFreeField2.length > 0
-          ) {
+          dispatch({ type: FORM_ERRORS, payload: true });
+          if (otherFormsYesFreeField && otherFormsYesFreeField.length > 0) {
             dispatch({ type: FORM_ERRORS, payload: false });
           } else {
             dispatch({ type: FORM_ERRORS, payload: true });
           }
         }
-         if (
-           haveYouReported &&
-           haveYouReportedYes?.length > 0 &&
-          ! haveYouReportedYes?.includes(
-             ninthStepTranslation?.optionYesIndeed[3].value
-           ) &&
-           haveYouReportedYes?.includes(
-             ninthStepTranslation?.optionYesIndeed[2].value
-           )
-         ) {
-           if (
-             haveYouReportedFreeField1 &&
-             haveYouReportedFreeField1.length > 0
-           ) {
-             dispatch({ type: FORM_ERRORS, payload: false });
-           } else {
-             dispatch({ type: FORM_ERRORS, payload: true });
-           }
-         }
-        
-          if (
-            haveYouReported &&
-            haveYouReportedYes?.length > 0 &&
-            haveYouReportedYes?.includes(
-              ninthStepTranslation?.optionYesIndeed[3].value
-            ) &&
-            haveYouReportedYes?.includes(
-              ninthStepTranslation?.optionYesIndeed[2].value
-            )
-          ) {
-            if (
-              haveYouReportedFreeField1 &&
-              haveYouReportedFreeField1.length > 0 &&
-              haveYouReportedFreeField2 &&
-              haveYouReportedFreeField2.length > 0
-            ) {
-              dispatch({ type: FORM_ERRORS, payload: false });
-            } else {
-              dispatch({ type: FORM_ERRORS, payload: true });
-            }
-          }
-        
-        //  if (!isValid) {
-        //    dispatch({ type: FORM_ERRORS, payload: true });
-        //  } else {
-        //    dispatch({ type: FORM_ERRORS, payload: false });
-        //  }
-        // if (
-        //   haveYouReported &&
-        //   haveYouReportedYes?.length > 0 &&
-        //   haveYouReportedYes?.includes(
-        //     ninthStepTranslation?.optionYesIndeed[2].value
-        //   ) &&
-        //   haveYouReportedFreeField1 &&
-        //   haveYouReportedFreeField1.length > 2
-        // ) {
-        //   dispatch({ type: FORM_ERRORS, payload: false });
-        //   // if (
-        //   //   haveYouReportedFreeField1 &&
-        //   //   haveYouReportedFreeField1.length > 2
-        //   // ) {
-        //   //   dispatch({ type: FORM_ERRORS, payload: false });
-        //   // }
-        // }
-        //   if (
-        //     haveYouReported &&
-        //     haveYouReportedYes?.length > 0 &&
-        //     haveYouReportedYes?.includes(
-        //       ninthStepTranslation?.optionYesIndeed[3].value
-        //     ) &&
-        //     haveYouReportedFreeField2 &&
-        //     haveYouReportedFreeField2.length > 2
-        //   ) {
-        //     dispatch({ type: FORM_ERRORS, payload: false });
-        //     // if (
-        //     //   haveYouReportedFreeField1 &&
-        //     //   haveYouReportedFreeField1.length > 2
-        //     // ) {
-        //     //   dispatch({ type: FORM_ERRORS, payload: false });
-        //     // }
-        //   }
-          // else if (
-          //   haveYouReportedYes?.length > 0 &&
-          //   haveYouReportedYes?.includes(
-          //     ninthStepTranslation?.optionYesIndeed[3].value
-          //   )
-          // ) {
-          //   dispatch({ type: FORM_ERRORS, payload: true });
-          //   if (
-          //     haveYouReportedFreeField2 &&
-          //     haveYouReportedFreeField2.length > 2
-          //   ) {
-          //     dispatch({ type: FORM_ERRORS, payload: false });
-          //   }
-          // } else if (
-          //   haveYouReportedYes?.length > 0 &&
-          //   haveYouReportedYes?.includes(
-          //     ninthStepTranslation?.optionYesIndeed[3].value
-          //   ) &&
-          //   haveYouReportedYes?.includes(
-          //     ninthStepTranslation?.optionYesIndeed[2].value
-          //   )
-          // ) {
-          //   dispatch({ type: FORM_ERRORS, payload: true });
-          // }
       }
-     
-
-      // Clear field when no selected
     } else {
-      if (haveYouReported === ninthStepTranslation.options[0].label) {
+      if (
+        otherForms &&
+        otherForms?.includes(ninethStepTranslation?.options[0]?.label)
+      ) {
         dispatch({ type: FORM_ERRORS, payload: false });
       }
-      // dispatch({ type: FORM_ERRORS, payload: false });
     }
-    
-    
-    
-    console.log(isValid, '777777777777777777777777');
-    
-    
-    
-    
-    
-    
-    
+    if (
+      otherForms &&
+      !otherForms.includes(ninethStepTranslation.options[0].value)
+    ) {
+      dispatch({ type: FORM_ERRORS, payload: true });
+      // dispatch({ type: FORM_ERRORS, payload: false });
+      if (
+        otherForms &&
+        otherFormsYes &&
+        otherFormsYes?.length > 0 &&
+        !otherFormsYes.includes(ninethStepTranslation.optionYesIndeed[9].value)
+      ) {
+        dispatch({ type: FORM_ERRORS, payload: false });
+      }
+      if (
+        otherForms &&
+        otherFormsYes &&
+        otherFormsYes?.length > 0 &&
+        otherFormsYes.includes(ninethStepTranslation.optionYesIndeed[9].value)
+      ) {
+        dispatch({ type: FORM_ERRORS, payload: true });
+        if (otherFormsYesFreeField && otherFormsYesFreeField.length > 3) {
+          dispatch({ type: FORM_ERRORS, payload: false });
+        }
+      }
+    }
 
-    
+    // if (
+    //   (otherForms &&
+    //     !otherForms?.includes(ninethStepTranslation?.options[1]?.label)) ||
+    //   (otherForms &&
+    //     !otherForms?.includes(ninethStepTranslation?.options[0]?.label) &&
+    //     otherFormsYes &&
+    //     otherFormsYes?.length !== 0 &&
+    //     !otherFormsYes?.includes(
+    //       ninethStepTranslation?.optionYesIndeed[9]?.label
+    //     )) ||
+    //   (otherFormsYes &&
+    //     otherFormsYes?.includes(
+    //       ninethStepTranslation?.optionYesIndeed[9].label
+    //     ) &&
+    //     otherFormsYesFreeField?.length !== 0)
+    // ) {
+    //   dispatch({ type: FORM_ERRORS, payload: false });
+    // }
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     if (
       formValues &&
-      !haveYouReported &&
-      !haveYouReportedYes &&
-      !haveYouReportedFreeField1 &&
-      !haveYouReportedFreeField2 
+      !otherForms &&
+      !otherFormsYes &&
+      !otherFormsYesFreeField
     ) {
-      haveYouReported !== formValues?.haveYouReported &&
-        setValue('haveYouReported', formValues?.haveYouReported);
-      haveYouReportedYes !== formValues?.haveYouReportedYes &&
-        setValue('haveYouReportedYes', formValues?.haveYouReportedYes);
-      haveYouReportedFreeField1 !== formValues?.haveYouReportedFreeField1 &&
-        setValue(
-          'haveYouReportedFreeField1',
-          formValues?.haveYouReportedFreeField1
-        );
-      haveYouReportedFreeField2 !== formValues?.haveYouReportedFreeField2 &&
-        setValue(
-          'haveYouReportedFreeField2',
-          formValues?.haveYouReportedFreeField2
-        );
+      otherForms !== formValues?.otherForms &&
+        setValue('otherForms', formValues?.otherForms);
+      otherFormsYes !== formValues?.otherFormsYes &&
+        setValue('otherFormsYes', formValues?.otherFormsYes);
+      otherFormsYesFreeField !== formValues?.otherFormsYesFreeField &&
+        setValue('otherFormsYesFreeField', formValues?.otherFormsYesFreeField);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    haveYouReported,
-    haveYouReportedYes,
-    haveYouReportedFreeField1,
-    haveYouReportedFreeField2,
-    isValid
-  ]);
+  }, [otherForms, otherFormsDataYes, otherFormsYesFreeField, otherFormsYes]);
 
-  console.log(haveYouReportedYes, 'have you reportedYes');
-  console.log(
-    ninthStepTranslation?.optionYesIndeed[2]?.label,
-    'this is my ninth step translation'
-  );
-  console.log(
-    ninthStepTranslation?.optionYesIndeed[2]?.label === haveYouReportedYes,
-    'verified'
-  );
+  // console.log(otherForms && otherForms?.includes(ninethStepTranslation?.options[1]?.label) && otherFormsDataYes[16]?.label, "this is my other forms")
+  // console.log(otherForms && otherForms?.includes(ninethStepTranslation?.options[1]?.label), "this is my other forms")
+  // console.log(otherFormsYes.includes("Andere Formen, und zwar:"))
+
   return (
     <form id="ninethForm" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <RadioGroup
-          options={ninthStepTranslation.options}
-          props={register('haveYouReported', { required: true })}
-          title={ninthStepTranslation?.title}
+          options={ninethStepTranslation.options}
+          props={register('otherForms', { required: true })}
+          title={ninethStepTranslation?.title}
         />
       </div>
       <div className="ml-8">
-        {haveYouReported &&
-          haveYouReported === ninthStepTranslation?.options[1]?.label && (
-            <>
-              <div>
+        {otherForms &&
+          otherForms === ninethStepTranslation?.options[1]?.value &&
+          ninethStepTranslation.optionYesIndeed?.map((el, index) => {
+            if (index < ninethStepTranslation.optionYesIndeed.length - 1) {
+              return (
                 <Checkbox
-                  id={ninthStepTranslation?.optionYesIndeed[0].ID}
-                  label={ninthStepTranslation?.optionYesIndeed[0]?.label}
-                  name="haveYouReportedYes"
-                  props={register('haveYouReportedYes')}
-                  value={ninthStepTranslation?.optionYesIndeed[0]?.label}
+                  key={el?.ID}
+                  id={el?.ID}
+                  name="otherFormsYes"
+                  props={register('otherFormsYes', { required: true })}
+                  value={el?.value}
+                  label={el?.label}
                 />
-              </div>
-              <div>
-                <Checkbox
-                  id={ninthStepTranslation?.optionYesIndeed[1].ID}
-                  label={ninthStepTranslation?.optionYesIndeed[1]?.label}
-                  name="haveYouReportedYes"
-                  props={register('haveYouReportedYes')}
-                  value={ninthStepTranslation?.optionYesIndeed[1]?.label}
-                />
-              </div>
-              <div>
-                <CheckboxInput
-                  id={ninthStepTranslation?.optionYesIndeed[2].ID}
-                  label={ninthStepTranslation?.optionYesIndeed[2]?.label}
-                  name="haveYouReportedYes"
-                  props={register('haveYouReportedYes')}
-                  value={ninthStepTranslation?.optionYesIndeed[2]?.label}
-                />
+              );
+            }
+          })}
 
-                <InputFieldCheckbox
-                  name="haveYouReportedFreeField1"
-                  placeholder={'Hier ausführen'}
-                  props={register('haveYouReportedFreeField1', {
-                    required:
-                      haveYouReportedYes &&
-                      haveYouReportedYes.includes(
-                        ninthStepTranslation?.optionYesIndeed[2]?.label
-                      )
-                        ? true
-                        : false,
-                  })}
-                  disable={
-                    haveYouReportedYes &&
-                    haveYouReportedYes.includes(
-                      ninthStepTranslation?.optionYesIndeed[2]?.label
-                    )
-                      ? false
-                      : true
-                  }
-                  value={
-                    !haveYouReportedYes ||
-                    !haveYouReportedYes.includes(
-                      ninthStepTranslation?.optionYesIndeed[2]?.label
-                    )
-                      ? ''
-                      : haveYouReportedFreeField1
-                  }
-                />
-              </div>
-              {/* <div className="ml-2 -mt-2 mb-4">
-                {haveYouReportedYes &&
-                  haveYouReportedYes.includes(
-                    ninthStepTranslation?.optionYesIndeed[2]?.label
-                  ) && (
-                    <>
-                      <InputField
-                        name="haveYouReportedFreeField1"
-                        placeholder="Hier ausführen"
-                        // props={register('haveYouReportedFreeField1')}
-                        props={register('haveYouReportedFreeField1', {
-                          required: true,
-                          minLength: 3,
-                        })}
-                      />
-                      <p className="mb-5">
-                        {errors?.haveYouReportedFreeField1 && (
-                          <span className="text-sm text-red-600 font-bold">
-                            <p>{ninthStepTranslation.validation}</p>
-                          </span>
-                        )}
-                      </p>
-                    </>
-                  )}
-              </div> */}
-              <div className='mt-5'>
-                <CheckboxInput
-                  id={ninthStepTranslation?.optionYesIndeed[3].ID}
-                  label={ninthStepTranslation?.optionYesIndeed[3]?.label}
-                  name="haveYouReportedYes"
-                  props={register('haveYouReportedYes')}
-                  value={ninthStepTranslation?.optionYesIndeed[3]?.label}
-                />
-
-                <InputFieldCheckbox
-                  name="haveYouReportedFreeField2"
-                  placeholder={'Hier ausführen'}
-                  props={register('haveYouReportedFreeField2', {
-                    required:
-                      haveYouReportedYes &&
-                      haveYouReportedYes.includes(
-                        ninthStepTranslation?.optionYesIndeed[3]?.label
-                      )
-                        ? true
-                        : false,
-                  })}
-                  disable={
-                    haveYouReportedYes &&
-                    haveYouReportedYes.includes(
-                      ninthStepTranslation?.optionYesIndeed[3]?.label
-                    )
-                      ? false
-                      : true
-                  }
-                  value={
-                    !haveYouReportedYes ||
-                    !haveYouReportedYes.includes(
-                      ninthStepTranslation?.optionYesIndeed[3]?.label
-                    )
-                      ? ''
-                      : haveYouReportedFreeField2
-                  }
-                />
-              </div>
-              {/* <div className="ml-2">
-                {haveYouReportedYes &&
-                  haveYouReportedYes.includes(
-                    ninthStepTranslation?.optionYesIndeed[3]?.label
-                  ) && (
-                    <>
-                      <InputField
-                        name="haveYouReportedFreeField2"
-                        placeholder={ninthStepTranslation.placeHolder}
-                        // props={register('haveYouReportedFreeField2')}
-                        props={register('haveYouReportedFreeField2', {
-                          required: true,
-                          minLength: 3,
-                        })}
-                      />
-                      <p className="mb-5">
-                        {errors?.haveYouReportedFreeField2 && (
-                          <span className="text-sm text-red-600 font-bold">
-                            <p>{ninthStepTranslation.validation}</p>
-                          </span>
-                        )}
-                      </p>
-                    </>
-                  )}
-              </div> */}
-            </>
+        {otherForms &&
+          otherForms == ninethStepTranslation.options[1]?.value && (
+            <div>
+              <CheckboxInput
+                id={
+                  ninethStepTranslation.optionYesIndeed[
+                    ninethStepTranslation.optionYesIndeed.length - 1
+                  ].ID
+                }
+                name="otherFormsYes"
+                props={register('otherFormsYes')}
+                value={
+                  ninethStepTranslation.optionYesIndeed[
+                    ninethStepTranslation.optionYesIndeed.length - 1
+                  ].value
+                }
+                examples=""
+                label={
+                  ninethStepTranslation.optionYesIndeed[
+                    ninethStepTranslation.optionYesIndeed.length - 1
+                  ].label
+                }
+              />
+              <InputFieldCheckbox
+                name="otherFormsYesFreeField"
+                placeholder={ninethStepTranslation.placeHolder}
+                props={register('otherFormsYesFreeField')}
+                disable={
+                  otherFormsYes &&
+                  otherFormsYes?.includes(
+                    ninethStepTranslation?.optionYesIndeed[
+                      ninethStepTranslation?.optionYesIndeed.length - 1
+                    ].label
+                  )
+                    ? false
+                    : true
+                }
+                value={
+                  !otherFormsYes ||
+                  !otherFormsYes?.includes(
+                    ninethStepTranslation?.optionYesIndeed[
+                      ninethStepTranslation?.optionYesIndeed.length - 1
+                    ].label
+                  )
+                    ? ''
+                    : otherFormsYesFreeField
+                }
+              />
+            </div>
           )}
+        {/* <div className="ml-2">
+          {otherFormsYes &&
+            otherFormsYes?.includes(
+              ninethStepTranslation?.optionYesIndeed[9]?.label
+            ) && (
+              <>
+                <InputField
+                  name="otherFormsYesFreeField"
+                  placeholder={ninethStepTranslation.placeHolder}
+                  // props={register('otherFormsYesFreeField')}
+                  props={register('otherFormsYesFreeField', {
+                    required: true,
+                    minLength: 3,
+                  })}
+                />
+                <p className="mb-5">
+                  {errors?.otherFormsYesFreeField && (
+                    <span className="text-sm text-red-600 font-bold">
+                      {ninethStepTranslation.validation}
+                    </span>
+                  )}
+                </p>
+              </>
+            )}
+        </div> */}
       </div>
     </form>
   );

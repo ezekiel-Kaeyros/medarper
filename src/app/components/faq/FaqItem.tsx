@@ -29,7 +29,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ title, content }) => {
         </div>
       </div>
       {toggle && (
-        <div className="xl:text-xl lg:text-xl  text-sm my-4 xl:pl-[6.8%]  pl-[59px]">
+        <div className="xl:text-xl lg:text-xl  text-sm my-4 xl:pl-[6.8%]  pl-[59px] text-black">
           {content}
         </div>
       )}

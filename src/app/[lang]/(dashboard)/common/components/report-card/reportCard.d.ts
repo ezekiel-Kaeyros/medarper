@@ -13,6 +13,7 @@ export type ReportCardProps = {
   id?: string | number;
   title: string;
   date: string;
+  href?:string
   reportType:
     | 'Uncategorized'
     | 'Raw'

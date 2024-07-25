@@ -45,17 +45,14 @@ const SecondStep: React.FC<SecondStepProps> = ({ secondStepTranslation }) => {
       organizationTypeFreeField: string;
     } = getFormCookies(SECOND_FORM);
 
-    console.log(
-      secondStepTranslation.optionsOrganization,
-      'stepppppppppp22222'
-    );
+  
 
     // Validation
-    dispatch({ type: FORM_ERRORS, payload: true });
+    dispatch({ type: FORM_ERRORS, payload: false });
 
     if (reportingPerson != 'organization') {
       if (!gender || (gender && gender.length < 1)) {
-        dispatch({ type: FORM_ERRORS, payload: true });
+        dispatch({ type: FORM_ERRORS, payload: false });
       } else {
         dispatch({ type: FORM_ERRORS, payload: false });
       }

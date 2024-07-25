@@ -10,10 +10,10 @@ import Image from 'next/image';
 const CopyrightSection = () => {
   return (
     <>
-      <div className="xl:h-[480px] py-5  sm:block hidden xl:px-32 lg:px-20 xl:pr-[10rem] lg:pr-[7rem]">
+      <div className="xl:h-[480px] py-5  block  xl:px-32 lg:px-20 xl:pr-[10rem] lg:pr-[7rem]">
         <div className="flex justify-between px-4 pt-5">
-          <div className='lg:w-6/12 w-8/12'>
-            <h2 className="text-[#2F804A] xl:text-3xl font-bold">
+          <div className="lg:w-6/12 w-8/12">
+            <h2 className="text-[#2F804A] xl:text-3xl font-bold sm:text-base text-xs">
               Projektträger:innen:
             </h2>
 
@@ -31,8 +31,8 @@ const CopyrightSection = () => {
             </div>
           </div>
 
-          <div className='w-4/12'>
-            <h2 className="text-[#2F804A] xl:text-3xl font-bold">
+          <div className="w-4/12">
+            <h2 className="text-[#2F804A] xl:text-3xl font-bold sm:text-base text-xs">
               Gefördert durch:
             </h2>
             <Image
@@ -48,21 +48,21 @@ const CopyrightSection = () => {
             Kooperationspartner:innen:
           </h2>
 
-          <div className="flex mt-8">
+          <div className="flex sm:mt-8">
             <Image
               src={dina}
               alt=""
-              className="xl:w-[320px] sm:w-3/12 lg:h-[97px] h-[87px] shrink-0 xl:mr-0 mr-4 object-contain 2xl:w-3/12"
+              className="xl:w-[320px] w-3/12 lg:h-[97px] h-[87px] shrink-0 xl:mr-0 mr-4 object-contain 2xl:w-3/12"
             />
             <Image
               src={miq}
               alt=""
-              className="xl:w-[346.3px] sm:w-3/12 lg:h-[61px] h-[70px]  shrink-0 xl:mr-10 mr-4 object-contain 2xl:w-3/12"
+              className="xl:w-[346.3px] w-3/12 lg:h-[61px] h-[70px]  shrink-0 xl:mr-10 mr-4 object-contain 2xl:w-3/12"
             />
             <Image
               src={mira}
               alt=""
-              className="xl:w-[300.69px] sm:w-3/12 lg:h-[91.06px] h-[80px] shrink-0 object-contain 2xl:w-3/12"
+              className="xl:w-[300.69px] w-3/12 lg:h-[91.06px] h-[80px] shrink-0 object-contain 2xl:w-3/12"
             />
           </div>
         </div>

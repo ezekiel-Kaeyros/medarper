@@ -7,11 +7,11 @@ const Publication: React.FC<{
   img?: any;
   date?: string;
   text?: string;
-    title?: string;
-  id?:string
+  title?: string;
+  id?: string;
 }> = (props) => {
-      const pathname = usePathname();
-      const urlSpli = pathname.split('/');
+  const pathname = usePathname();
+  const urlSpli = pathname.split('/');
   return (
     <>
       <div className="lg:w-[492px] sm:w-[33%] w-[40%] h-full ">
@@ -29,13 +29,13 @@ const Publication: React.FC<{
           <h2 className="font-bold lg:text-4xl sm:text-base text-xs lg:mt-5 sm:mt-2 mt-1">
             {props.title}
           </h2>
-          <p className="lg:text-3xl sm:text-base text-xs lg:my-10 sm:my-4 my-3">
+          <p className="lg:text-3xl sm:text-base text-[8px] lg:my-10 sm:my-4 my-3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis .
           </p>
           <Link href={`/${urlSpli[1]}/anti-muslim/${props.id}`}>
-            <div className="flex  justify-center text-[#4F4949] float-right">
+            <div className="flex  justify-center text-[#4F4949] float-right items-center">
               <Image
                 src={img1}
                 alt=""
@@ -48,6 +48,6 @@ const Publication: React.FC<{
       </div>
     </>
   );
-    };
+};
 
-    export default Publication
+export default Publication;

@@ -27,7 +27,8 @@ const CancelModal: React.FC<CancelModalProps> = ({
 
   const cancelReport = () => {
     clearFormCookies();
-    router.push('/');
+    window.location.href='/'
+    // router.push('/');
   };
 
   return shouldShow ? (
@@ -59,9 +60,9 @@ const CancelModal: React.FC<CancelModalProps> = ({
           </p>
           <p className="font-bold mt-2">{cancelModalTranslation.paragraph3}</p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-5">
           <Button onClick={() => cancelReport()} variant="disabled">
-            <a href="/report">{cancelModalTranslation.cancel}</a>
+            {cancelModalTranslation.cancel}
           </Button>
           <Button onClick={onRequestClose}>{cancelModalTranslation.noFurther}</Button>
         </div>

@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Home",
     "menu": "Menu",
-    "logoDescription": "Reporting and Documentation Centre | Anti-Muslim Racism NRW",
+    "logoDescription": "Reporting and Documentation Centre | Antimuslim Racism NRW",
     "language": "Plain Language",
     "about": {
       "title": "About Us",
@@ -24,9 +24,9 @@
     "glossary": "Glossary",
     "datenschutz": "Privacy Policy",
     "impressum": "Impressum",
-    "faq":"FAQ",
-    "anti":"Anti-Muslim racism",
-    "btn":"Report incident"
+    "faq": "Publications",
+    "anti": "Anti-Muslim racism",
+    "btn": "Report incident"
   },
   "page": {
     "home": {
@@ -35,7 +35,7 @@
       "title": "How do I report?",
       "faqs": {
         "title": "Frequently Asked Questions",
-        "whyReport": "Why Should I Report?",
+        "whyReport": "How Do I Report?",
         "whatHappensWithData": "What Happens to My Data?",
         "whatIsAntiMuslimRacism": "What Is Anti-Muslim Racism?",
         "whoIsBehindMEDAR": "Who Is Behind MEDAR NRW?",
@@ -43,9 +43,9 @@
       },
       "referralCounseling": {
         "title": "Referral Counseling",
-        "description": "Lorem ipsum dolor sit amet, ",
-        "filterPlace": "Enter a place or zip code",
-        "placeOrLocation": "Place/Location"
+        "description": "Are you still looking for further assistance and counseling regarding your incident?",
+        "filterPlace": "Here we have a list of counseling centers that can assist you with specific or general concerns.",
+        "placeOrLocation": "Enter Place/Postal Code"
       },
       "bubbleMessage": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis  enim ad minim veniam!",
       "aboutUs": {
@@ -268,7 +268,7 @@
           ]
         },
         "fourthStep": {
-          "title": "Date",
+          "title": "When did the incident happen?",
           "options": [
             {
               "dateRange": "Incident lasted for a period",
@@ -290,9 +290,121 @@
           ]
         },
         "sixthStep": {
+          "title": "In which societal area did the discrimination take place?",
+          "multipleAns": "(Multiple selection possible)",
+          "placeHolder": "Specify here",
+          "options": [
+            {
+              "ID": "description1",
+              "name": "description",
+              "label": "Government agencies and institutions",
+              "value": "Government agencies and institutions",
+              "checked": false
+            },
+            {
+              "ID": "description2",
+              "name": "description",
+              "label": "Work",
+              "value": "Work",
+              "checked": false
+            },
+            {
+              "ID": "description3",
+              "name": "description",
+              "label": "Housing",
+              "value": "Housing",
+              "checked": false
+            },
+            {
+              "ID": "description4",
+              "name": "description",
+              "label": "Public spaces",
+              "value": "Public spaces",
+              "checked": false
+            },
+            {
+              "ID": "description5",
+              "name": "description",
+              "label": "Digital space",
+              "value": "Digital space",
+              "checked": false
+            },
+            {
+              "ID": "description6",
+              "name": "description",
+              "label": "Analog media",
+              "value": "Analog media",
+              "checked": false
+            },
+            {
+              "ID": "description7",
+              "name": "description",
+              "label": "Retail and services",
+              "value": "Retail and services",
+              "checked": false
+            },
+            {
+              "ID": "description8",
+              "name": "description",
+              "label": "Leisure",
+              "value": "Leisure",
+              "checked": false
+            },
+            {
+              "ID": "description9",
+              "name": "description",
+              "label": "Transportation",
+              "value": "Transportation",
+              "checked": false
+            },
+            {
+              "ID": "description10",
+              "name": "description",
+              "label": "Health",
+              "value": "Health",
+              "checked": false
+            },
+            {
+              "ID": "description11",
+              "name": "description",
+              "label": "Social services",
+              "value": "Social services",
+              "checked": false
+            },
+            {
+              "ID": "description12",
+              "name": "description",
+              "label": "Justice",
+              "value": "Justice",
+              "checked": false
+            },
+            {
+              "ID": "description13",
+              "name": "description",
+              "label": "Police",
+              "value": "Police",
+              "checked": false
+            },
+            {
+              "ID": "description14",
+              "name": "description",
+              "label": "Emergency services",
+              "value": "Emergency services",
+              "checked": false
+            },
+            {
+              "ID": "description15",
+              "name": "description",
+              "label": "Other, namely:",
+              "value": "Other, namely:",
+              "checked": false
+            }
+          ]
+        },
+        "seventhStep": {
           "title": "What exactly happened? *",
-          "placeHolder": "Please describe the incident ...",
-          "errorParagragh": "Must be more than 50 characters",
+          "placeHolder": "Please describe the incident as precisely as possible. (at least 50 characters)",
+          "errorParagragh": "(at least 50 characters)",
           "options": [
             {
               "inputPlaceholder": "Please describe the incident as precisely as possible.",
@@ -307,11 +419,11 @@
             }
           ]
         },
-        "seventhStep": {
+        "eightStep": {
           "title": "Did any of these characteristics have an influence on the discrimination?",
-          "multipleAns": "Multiple answers possible",
+          "multipleAns": "(Multiple selection possible)",
           "placeHolder": "to carry out",
-          "options": [ 
+          "options": [
             {
               "ID": "description1",
               "name": "description",
@@ -405,7 +517,7 @@
             }
           ]
         },
-        "eightStep": {
+        "ninthStep": {
           "title": "Is this another form of discrimination?*",
           "placeHolder": "to carry out",
           "validation": "Must have at least 3 characters",
@@ -498,7 +610,7 @@
             }
           ]
         },
-        "ninthStep": {
+        "tenthStep": {
           "title": "Have you already taken other measures?*",
           "placeHolder": "to carry out",
           "validation": "Must have at least 3 characters",
@@ -549,7 +661,7 @@
             }
           ]
         },
-        "tenthStep": {
+        "eleventhStep": {
           "title": "Review the Accuracy of Your Information",
           "captcha": "I'm not a robot",
           "options": [
@@ -572,13 +684,13 @@
         "confirmModal": {
           "title": "Thank You!",
           "des": "Thank you for sharing your experiences with us. By filling out the reporting form, you are helping to make discrimination and violence more visible.",
-          "back": "BACK",
+          "back": "Finished",
           "ja": "FORWARD!"
         },
         "onBehalf": {
           "title": "Attention",
           "des": "I hereby confirm that I have entered the information on behalf of the affected person. I have filled out this reporting form on behalf of the affected person and have their consent. All information has been filled out according to the wishes and statements of the affected person.",
-          "back": "BACK",
+          "back": "DONE",
           "forward": "YES!"
         },
         "witness": {

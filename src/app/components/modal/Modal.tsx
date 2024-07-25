@@ -1,37 +1,82 @@
-import { ReactNode } from 'react';
+import {
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalProps,
+  Modal,
+} from '@nextui-org/react';
+import React from 'react';
+import { ModalPropsType } from './modal';
+import { Button } from '../button/Button';
 
-type ModalProps = {
-  children: ReactNode;
-  shouldShow: boolean;
-  onRequestClose: () => void;
-};
-
-const Modal: React.FC<ModalProps> = ({
-  shouldShow,
-  onRequestClose,
+const CustomModal: React.FC<ModalPropsType & ModalProps> = ({
   children,
+  title,
+  isOpen,
+  closeButtonTitle,
+  validateButtonTitle,
+  onClose,
+  classStyle,
+  iconTitle,
+  onValidateButton,
+  showFooter,
+  positon,
+  hideCloseButton,
+  modalClass,
 }) => {
-  return shouldShow ? (
-    <div
-      className="fixed top-0 left-0 flex items-center justify-center z-[1] h-full w-full bg-black/40 overflow-auto"
-      onClick={onRequestClose}
+  return (
+    <Modal
+      className={classStyle}
+      backdrop="blur"
+      isOpen={isOpen}
+      onClose={onClose}
+      placement={positon}
+      hideCloseButton={hideCloseButton}
     >
-      <div
-        className="w-3/4 p-5 bg-white relative rounded-lg"
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        {/* <button
-          className="text-xl absolute rounded-md right-4 top-4 hover: bg-red-50 py-1 px-3 shadow-md text-secondaryColor"
-          onClick={onRequestClose}
-        >
-          X
-        </button> */}
-        <div>{children}</div>
-      </div>
-    </div>
-  ) : null;
+      <ModalContent>
+        {(onClose) => (
+          <>
+            {title && (
+              <ModalHeader className="flex flex-col gap-1 ml-[2%] font-[900] text-2xl">
+                {title}
+              </ModalHeader>
+            )}
+            <ModalBody className={modalClass}>{children}</ModalBody>
+
+            {showFooter ? (
+              <ModalFooter>
+                {/* {closeButtonTitle && (
+                    <Button variant="secondary" onClick={onClose}>
+                      {closeButtonTitle}
+                    </Button>
+                  )}
+                  {validateButtonTitle && (
+                    <Button onClick={onValidateButton}>
+                      {validateButtonTitle}
+                    </Button>
+                  )} */}
+                <Button
+                  // disabled={  }
+                  // variant={'mainColor'}
+                  // icon={ bulk_messageIcon }
+                  // rightIcon={ true }
+                  // leftIcon={ true }
+                  // iconSize={30}
+                  onClick={onClose}
+                  className="w-[15%]"
+                >
+                  {validateButtonTitle}
+                </Button>
+              </ModalFooter>
+            ) : (
+              ''
+            )}
+          </>
+        )}
+      </ModalContent>
+    </Modal>
+  );
 };
 
-export default Modal;
+export default CustomModal;

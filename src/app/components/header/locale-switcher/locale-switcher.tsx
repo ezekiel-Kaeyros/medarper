@@ -22,6 +22,8 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ title }) => {
     if (!pathName) return '/';
     const segments = pathName.split('/');
     segments[1] = locale;
+    // console.log("segments.join('/')", segments.join('/'));
+    
     return segments.join('/');
   };
 
@@ -43,11 +45,12 @@ const LocaleSwitcher: React.FC<LocaleSwitcherProps> = ({ title }) => {
                   urlSplit[1] == locale && 'bg-[#E6F0E9]'
                 }`}
                 key={locale}
+                // onClick={()=>{}}
               >
                 <a
                   href={redirectedPathName(locale)}
                   className="py-2"
-                  // onClick={() => cancelReport()}
+                  onClick={() => cancelReport()}
                 >
                   {transformLanguageAbbrevation(locale)}
                 </a>

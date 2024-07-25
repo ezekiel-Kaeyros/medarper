@@ -223,9 +223,6 @@ const AntiMuslimComponent = () => {
         key={key}
         ref={ref}
         className={cn(className, isActive && ' font-bold')}
-        //   isActive &&
-        //     'text-white bg-gradient-to-br from-indigo-500 to-pink-500 font-bold'
-        // )}
         onClick={() => setPage(value)}
       >
         {value}
@@ -255,7 +252,6 @@ const AntiMuslimComponent = () => {
               variant="light"
               showShadow={false}
               showControls
-              // color="undefined"
               color="success"
               page={page}
               total={pages}

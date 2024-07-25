@@ -1,22 +1,23 @@
 'use client';
 import { Button } from '@/app/components/button/Button';
 import EmailField from '@/app/components/forms/email-field/EmailField';
+// import TextArea from '@/app/components/forms/text-area/TextArea';
 import TextArea from '@/app/components/forms/text-area/TextArea';
 import InputField from '@/app/components/forms/text-field/InputField';
 import React from 'react';
 
 type Form = {
-  formTranslation:{
-    firstName:string,
-    lastName:string,
-    subject:string,
-    email:string,
-    textArea:string,
-    send:string
-  }
-}
+  formTranslation: {
+    firstName: string;
+    lastName: string;
+    subject: string;
+    email: string;
+    textArea: string;
+    send: string;
+  };
+};
 
-const ContactForm: React.FC<Form> = ({formTranslation}) => {
+const ContactForm: React.FC<Form> = ({ formTranslation }) => {
   return (
     <form action="">
       <div className="flex space-x-4">
@@ -42,6 +43,7 @@ const ContactForm: React.FC<Form> = ({formTranslation}) => {
             numberRows={8}
             placeholder={formTranslation.textArea}
             props={undefined}
+            type="text"
           />
         </div>
       </div>
